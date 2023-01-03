@@ -5,7 +5,7 @@ categories: data_science
 usemathjax: true
 ---
 
-<a href="https://billox.shinyapps.io/ttest/" target="_blank"><img src="/assets//img/2019-08-01/ttest.png" width="70%"></a>
+<a href="https://billox.shinyapps.io/ttest/" target="_blank"><img src="/assets/img/2019-08-01/ttest.png" width="100%"></a>
 
 This one was for my daughter, who at the time was learning about the $t$-test.
 

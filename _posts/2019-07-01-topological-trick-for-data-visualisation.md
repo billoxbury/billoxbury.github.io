@@ -4,7 +4,7 @@ date:   2019-07-01
 categories: data_science
 ---
 
-<a href="https://billox.shinyapps.io/zip-topological-viz/" target="_blank"><img src="/assets/img/2019-07-01/zip2.png" width="70%"></a>
+<a href="https://billox.shinyapps.io/zip-topological-viz/" target="_blank"><img src="/assets/img/2019-07-01/zip2.png" width="100%"></a>
 
 How do hand-written digits arrange themselves in pixel space?
 
