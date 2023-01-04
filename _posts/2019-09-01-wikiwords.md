@@ -9,7 +9,7 @@ usemathjax: true
 
 This is an update of a little exercise, a few years ago, in making my own _word2vec_ map of Wikipedia words. 
 
-At theat time, I started with 72,000 Wikipedia words and their _word2vec_ representations in 200-dimensional space. In order to visualise that cloud of points, I made a graph by first binning the point cloud (using the word frequency) and then clustering within each bin. An individual cluster became a graph vertex, and two clusters with a word in common defined an edge.
+At that time, I started with 72,000 Wikipedia words and their _word2vec_ representations in 200-dimensional space. In order to visualise that cloud of points, I made a graph by first binning the point cloud (using the word frequency) and then clustering within each bin. An individual cluster became a graph vertex, and two clusters with a word in common defined an edge.
 
 Visualisation of the point cloud then used standard force-directed graph layouts to plot the graph, followed by drilling down into vertex subsets to explore the word sets.
 

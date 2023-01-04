@@ -3,6 +3,7 @@ title:  "A demo of the $t$-test"
 date:   2019-08-01
 categories: data_science
 usemathjax: true
+comments: true
 ---
 
 <a href="https://billox.shinyapps.io/ttest/" target="_blank"><img src="/assets/img/2019-08-01/ttest.png" width="100%"></a>
