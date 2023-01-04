@@ -7,7 +7,8 @@ usemathjax: true
 
 <a href="https://billox.shinyapps.io/nfgraph/" target="_blank"><img src="/assets/img/2018-08-01/lanl_drl.jpg" width="70%"></a>
 
-In the <a href="https://billoxbury.github.io/data_science/lanl-netflow-1/">previous post</a> I showed a visualisation of 10,000 computers as points in the plane, on the basis of their profiles of port and protocol usage. This second post has two motivations (and I hope they won’t trip over each other).
+In the <a href="/data_science/lanl-netflow-1/">previous post</a>
+I showed a visualisation of 10,000 computers as points in the plane, on the basis of their profiles of port and protocol usage. This second post has two motivations (and I hope they won’t trip over each other).
 
 The first is unfinished business from the first post: I didn’t look at the communications graph. I visualised the functional profiles, but not which computers were talking to which others. The (linked) interactive demo tries to address this in its 'functional view'.
 
