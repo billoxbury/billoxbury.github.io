@@ -21,7 +21,7 @@ gallery5:
   - image_path: /assets/img/2019-11-01/ex5_16_12_1_families.png
 ---
 
-Modern language models derive their power from big data and big compute –- but also, ultimately, from the <a href="http://karpathy.github.io/2015/05/21/rnn-effectiveness/" target="_blank">Unreasonable Effectiveness of Recurrent Neural Networks</a> described by Andrej Karpathy (and many others) a decade or so ago. This post is more low-brow than Karpathy’s — I wanted to explore a little bit how RNNs perform on some carefully controlled toy data: specifically on sequences generated from Markov chains.
+Modern language models derive their power from big data and big compute – but also, ultimately, from the <a href="http://karpathy.github.io/2015/05/21/rnn-effectiveness/" target="_blank">Unreasonable Effectiveness of Recurrent Neural Networks</a> described by Andrej Karpathy (and many others) a decade or so ago. This post is more low-brow than Karpathy’s — I wanted to explore a little bit how RNNs perform on some carefully controlled toy data: specifically on sequences generated from Markov chains.
 
 What does it mean to model a sequence? It means two things:
 
