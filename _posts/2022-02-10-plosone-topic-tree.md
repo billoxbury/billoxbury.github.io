@@ -5,6 +5,8 @@ categories: data_science
 usemathjax: true
 header:
   teaser: "/assets/img/2022-02-10/browse_topics.png"
+blurb: >- # this means to ignore newlines until next
+  Crawling the PLOS ONE site to figure out the tree of all subtopics
 gallery1:
   - image_path: /assets/img/2022-02-10/compsci_count.png
   - image_path: /assets/img/2022-02-10/compsci_topics.png

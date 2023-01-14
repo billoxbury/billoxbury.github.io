@@ -31,7 +31,7 @@
       <img src="{{ teaser | relative_url }}" alt="">
     </div>
     {% endif %}
-    {% if post.excerpt %}<p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify |
-      strip_html | truncate: 160 }}</p>{% endif %}
+    {% if post.blurb %}<p class="archive__item-excerpt" itemprop="description"><i>{{ post.blurb | markdownify |
+      strip_html | truncate: 250 }}</i></p>{% endif %}
   </article>
 </div>
