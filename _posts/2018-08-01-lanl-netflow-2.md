@@ -5,6 +5,8 @@ categories: data_science
 usemathjax: true
 header:
     teaser: /assets/img/2018-08-01/lanl_drl.jpg
+blurb: >- 
+    Second of two blogs visualising computers on a network from their netflow traffic
 ---
 
 <a href="https://billox.shinyapps.io/nfgraph/" target="_blank"><img src="/assets/img/2018-08-01/lanl_drl.jpg" width="70%"></a>

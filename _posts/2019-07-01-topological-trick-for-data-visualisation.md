@@ -2,6 +2,8 @@
 title:  "A topological trick for data visualisation"
 date:   2019-07-01
 categories: data_science
+blurb: >- 
+    Using the 'mapper' construction to visualise how 7,291 hand-written digits are arranged in pixel space
 ---
 
 <a href="https://billox.shinyapps.io/zip-topological-viz/" target="_blank"><img src="/assets/img/2019-07-01/zip2.png" width="100%"></a>

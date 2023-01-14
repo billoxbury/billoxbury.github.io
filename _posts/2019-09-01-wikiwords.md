@@ -6,6 +6,7 @@ usemathjax: true
 header:
     teaser: /assets/img/2019-09-01/wikimap.jpg
 blurb: >- # this means to ignore newlines until next
+    Picturing 72,000 words from Wikipedia content by their word2vec representations
 ---
 
 <a href="https://billox.shinyapps.io/wikiwords/" target="_blank"><img src="/assets/img/2019-09-01/wikimap.jpg" width="100%"></a>
