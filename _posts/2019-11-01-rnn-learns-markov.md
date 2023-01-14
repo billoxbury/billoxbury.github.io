@@ -4,7 +4,7 @@ date:   2019-11-01
 categories: data_science
 usemathjax: true
 header:
-  teaser: /assets/img/2019-11-01/ex4_3_5_1_3D_bystate.png
+  teaser: /assets/img/2019-11-01/ex3_3_5_2_3D_bystate.png
 blurb: >- # this means to ignore newlines until next
   If the state of a neural network state is represented by the outputs of its hidden units, what does this look like in the controlled scenario of inputs coming from a known Markov chain?
 gallery2:
