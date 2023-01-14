@@ -16,12 +16,16 @@
 
 title: Bills.Data
 email: oxburybill@gmail.com
+subtitle: >- # this means to ignore newlines until "baseurl:"
+  Exploring ideas in data science
 description: >- # this means to ignore newlines until "baseurl:"
   Exploring ideas in data science
 twitter_username: BillOxbury
 github_username: billoxbury
 minimal_mistakes_skin: default
 search: true
+teaser: /assets/img/2019-07-01/zip2.png
+breadcrumbs: false
 
 # Build settings
 markdown: kramdown
@@ -98,6 +102,7 @@ defaults:
       comments: true
       share: true
       related: true
+      show_date: true
   # _pages
   - scope:
       path: "_pages"

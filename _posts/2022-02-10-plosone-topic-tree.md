@@ -3,11 +3,14 @@ title:  "Navigating the PLOS ONE topic tree"
 date:   2022-02-10
 categories: data_science
 usemathjax: true
-
+header:
+  teaser: "/assets/img/2022-02-10/browse_topics.png"
 gallery1:
   - image_path: /assets/img/2022-02-10/compsci_count.png
   - image_path: /assets/img/2022-02-10/compsci_topics.png
 ---
+
+<img src="{{ teaser | relative_url }}" alt="">
 
 <img src="/assets/img/2022-02-10/browse_topics.png" width="100%">
 

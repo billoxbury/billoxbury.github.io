@@ -3,7 +3,8 @@ title:  "Watching a neural network learn a Markov chain"
 date:   2019-11-01
 categories: data_science
 usemathjax: true
-
+header:
+  teaser: /assets/img/2019-11-01/ex4_3_5_1_3D_bystate.png
 gallery2:
   - image_path: /assets/img/2019-11-01/ex2_2_3_1_bystate.png
   - image_path: /assets/img/2019-11-01/ex2_2_3_1_families.png

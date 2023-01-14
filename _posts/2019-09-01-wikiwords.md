@@ -3,6 +3,8 @@ title:  "A word2vec map of Wikipedia words"
 date:   2019-09-01
 categories: data_science
 usemathjax: true
+header:
+    teaser: /assets/img/2019-09-01/wikimap.jpg
 ---
 
 <a href="https://billox.shinyapps.io/wikiwords/" target="_blank"><img src="/assets/img/2019-09-01/wikimap.jpg" width="100%"></a>
