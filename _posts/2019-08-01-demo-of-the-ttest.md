@@ -4,6 +4,8 @@ date:   2019-08-01
 categories: data_science
 usemathjax: true
 comments: true
+header:
+    teaser: /assets/img/2019-08-01/ttest.png
 ---
 
 <a href="https://billox.shinyapps.io/ttest/" target="_blank"><img src="/assets/img/2019-08-01/ttest.png" width="100%"></a>

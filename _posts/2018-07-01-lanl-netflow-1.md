@@ -2,6 +2,8 @@
 title:  "Exploring a computer network from its netflow traffic I"
 date:   2018-07-01
 categories: data_science
+header:
+    teaser: /assets/img/2018-07-01/netflow.png
 ---
 
 <a href="https://billox.shinyapps.io/nfgraph/" target="_blank"><img src="/assets/img/2018-07-01/netflow.png" width="100%"></a>

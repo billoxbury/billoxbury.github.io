@@ -3,6 +3,8 @@ title:  "Exploring a computer network from its netflow traffic II"
 date:   2018-08-01
 categories: data_science
 usemathjax: true
+header:
+    teaser: /assets/img/2018-08-01/lanl_drl.jpg
 ---
 
 <a href="https://billox.shinyapps.io/nfgraph/" target="_blank"><img src="/assets/img/2018-08-01/lanl_drl.jpg" width="70%"></a>

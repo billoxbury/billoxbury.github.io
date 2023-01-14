@@ -38,6 +38,9 @@ timezone: GMT # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 include:
   - _pages
+  - _layouts
+  - _includes
+  - _scripts
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
@@ -98,7 +101,7 @@ defaults:
     values:
       layout: single
       author_profile: true
-      read_time: true
+      read_time: false
       comments: true
       share: true
       related: true
@@ -110,6 +113,10 @@ defaults:
     values:
       layout: single
       author_profile: true
+      comments: true
+      share: true
+      related: true
+      show_date: true
 
 category_archive:
   type: liquid
