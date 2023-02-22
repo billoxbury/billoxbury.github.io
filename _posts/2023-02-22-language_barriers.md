@@ -27,7 +27,7 @@ For the purposes of this blog post – and for comparing with the results of [2]
 
 (Incidentally, besides OpenAlex, <i>LitScan</i> taps directly into various non-English sources. These are quite specific and would bias any comparison with [2], so in this post I'll just restrict to <i>LitScan</i> data that comes from OpenAlex.)
 
-So here's a data set – used by <i>LitScan</i> but constructed as follows. Over a 3-month period a daily request was made to OpenAlex. The request consisted of 500 searches, each on the scientific name of a bird species drawn at random from a list of 13,133. The searches are not all successful, and over the collection period the number of documents returned – after some additional filtering for conservation relevance and publication since 200 – was 35,303 (so averaging about 400 per day).
+So here's a data set – used by <i>LitScan</i> but constructed as follows. Over a 3-month period a daily request was made to OpenAlex. The request consisted of 500 searches, each on the scientific name of a bird species drawn at random from a list of 13,133. The searches are not all successful, and over the collection period the number of documents returned – after some additional filtering for conservation relevance and publication since the year 2000 – was 35,303 (so averaging about 400 per day).
 
 The total number of species covered by these documents was 3,517, in a total of 32 languages – by far dominated by English (32,239 documents), with the next most numerous language being Spanish (824 documents).
 
