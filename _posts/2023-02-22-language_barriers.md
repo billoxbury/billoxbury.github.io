@@ -23,7 +23,7 @@ In a project for <a href="https://www.birdlife.org/" target="_blank">Birdlife In
 
 <img src="/assets/img/2023-02-22/Picus_viridis.png" width="100%">
 
-For the purposes of this blog post – and for comparing with the results of [2] – I want to focus on just one of the <i>LitScan</i> sources <a href="https://openalex.org/" target="_blank">OpenAlex</a> [3]. This is an extremely useful open-source repository of metadata for scientific documnents drawing on an impressive <a href="https://openalex.org/about" target="_blank">range of sources</a>. I don't know what the exact language coverage of OpenAlex is (and I'm sure it could be improved), but I can make some observations based on <i>LitScan</i>.
+For the purposes of this blog post – and for comparison with the results of [2] – I want to focus on just one of the <i>LitScan</i> sources <a href="https://openalex.org/" target="_blank">OpenAlex</a> [3]. This is an extremely useful open-source repository of metadata for scientific documnents drawing on an impressive <a href="https://openalex.org/about" target="_blank">range of sources</a>. I don't know what the exact language coverage of OpenAlex is (and I'm sure it could be improved), but I can make some observations based on <i>LitScan</i>.
 
 (Incidentally, besides OpenAlex, <i>LitScan</i> taps directly into various non-English sources. These are quite specific and would bias any comparison with [2], so in this post I'll just restrict to <i>LitScan</i> data that comes from OpenAlex.)
 
