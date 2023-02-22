@@ -1,7 +1,7 @@
 ---
 title:  "Language barriers in global conservation"
 date:   2023-02-22
-categories: data_science, environment
+categories: environment
 usemathjax: true
 header:
   teaser: "/assets/img/2023-02-22/birdclouds.jpg"
