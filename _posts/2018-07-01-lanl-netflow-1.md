@@ -4,6 +4,8 @@ date:   2018-07-01
 categories: data_science
 header:
     teaser: /assets/img/2018-07-01/netflow.png
+blurb: >- 
+    First of two blogs visualising computers on a network from their netflow traffic
 ---
 
 <a href="https://billox.shinyapps.io/nfgraph/" target="_blank"><img src="/assets/img/2018-07-01/netflow.png" width="100%"></a>

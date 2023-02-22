@@ -6,7 +6,7 @@ usemathjax: true
 comments: true
 header:
     teaser: /assets/img/2019-08-01/ttest.png
-blurb:
+blurb: >- 
     An interactive demo of how the 2-sample t-test works
 ---
 
