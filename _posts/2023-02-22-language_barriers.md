@@ -19,7 +19,7 @@ According to a recent study [1], more than 30% of scientific articles on biodive
 
 The study [2] takes a closer look at this issue for bird species. They compare the known geographic ranges of more than 10,000 species with the official languages listed for the countries covered by those ranges. They show that more than 1,500 species have coverage of at least 10 languages. High numbers of 'multi-lingual' species have ranges spanning Eastern Europe, Russia and central Asia. Nevertheless, they also observe that four European languages – English, Spanish, Portuguese and French – dominate species coverage globally, each reaching between 3,000 and 6,000 bird species.
 
-In a project for <a href="https://www.birdlife.org/" target="_blank">Birdlife International</a>, I have been able to put some of these observations to the test, from the complementary perspective of what can be seen directly in the scientific literature. <i>LitScan</i> is a system to crawl and identify scientific articles of relevance to Red List assessments. It scans various sources across multiple languages; makes use of <a href="https://spacy.io/" target="_blank">spaCy</a> for text-processing (including language id, discovery of species mentions and conservation relevance); and uses Cloud cognitive services for translation.
+In a project for <a href="https://www.birdlife.org/" target="_blank">BirdLife International</a>, I have been able to put some of these observations to the test, from the complementary perspective of what can be seen directly in the scientific literature. <i>LitScan</i> is a system to crawl and identify scientific articles of relevance to Red List assessments. It scans various sources across multiple languages; makes use of <a href="https://spacy.io/" target="_blank">spaCy</a> for text-processing (including language id, discovery of species mentions and conservation relevance); and uses Cloud cognitive services for translation.
 
 <img src="/assets/img/2023-02-22/Picus_viridis.png" width="100%">
 
@@ -27,18 +27,16 @@ For the purposes of this blog post – and for comparison with the results of [2
 
 (Incidentally, besides OpenAlex, <i>LitScan</i> taps directly into various non-English sources. These are quite specific and would bias any comparison with [2], so in this post I'll just restrict to <i>LitScan</i> data that comes from OpenAlex.)
 
-So here's a data set – used by <i>LitScan</i> but constructed as follows. Over a 3-month period a daily request was made to OpenAlex. The request consisted of 500 searches, each on the scientific name of a bird species drawn at random from a list of 13,133. The searches are not all successful, and over the collection period the number of documents returned – after some additional filtering for conservation relevance and publication since the year 2000 – was 35,303 (so averaging about 400 per day).
+So here's a data set – used by <i>LitScan</i> but constructed as follows. Over a 3-month period a daily request was made to OpenAlex. The request consisted of 500 searches, each on the scientific name of a bird species drawn at random from a list of 11,188. The searches are not all successful, and over the collection period the number of documents returned – after some additional filtering for conservation relevance and publication since the year 2000 – was 35,303 (so averaging about 400 per day).
 
 The total number of species covered by these documents was 3,517, in a total of 32 languages – by far dominated by English (32,239 documents), with the next most numerous language being Spanish (824 documents).
 
-We can now ask, in the spirit of [2]: <b>how many species</b> are found in <b>non-English documents only</b>? Moreover, since we are interested in conservation relevance, we can ask for this number broken down by red-list status as well as language:
-
+We can now ask, in the spirit of [2]: <b>how many species</b> are found in <b>non-English documents only</b>? Moreover, since we are interested in conservation relevance, we can ask for this number broken down by red-list status – as defined by the <a href="https://www.iucnredlist.org/" target="_blank">IUCN Red List of Threatened Species</a> – as well as language:
 <table>
  <thead>
   <tr>
    <th style="text-align:left;">   </th>
    <th style="text-align:right;"> LC </th>
-   <th style="text-align:right;"> NR </th>
    <th style="text-align:right;"> NT </th>
    <th style="text-align:right;"> VU </th>
    <th style="text-align:right;"> EN </th>
@@ -50,7 +48,6 @@ We can now ask, in the spirit of [2]: <b>how many species</b> are found in <b>no
   <tr>
    <td style="text-align:left;"> Spanish </td>
    <td style="text-align:right;"> 211 </td>
-   <td style="text-align:right;"> 38 </td>
    <td style="text-align:right;"> 13 </td>
    <td style="text-align:right;"> 14 </td>
    <td style="text-align:right;"> 0 </td>
@@ -61,7 +58,6 @@ We can now ask, in the spirit of [2]: <b>how many species</b> are found in <b>no
    <td style="text-align:left;"> Portuguese </td>
    <td style="text-align:right;"> 52 </td>
    <td style="text-align:right;"> 11 </td>
-   <td style="text-align:right;"> 11 </td>
    <td style="text-align:right;"> 7 </td>
    <td style="text-align:right;"> 5 </td>
    <td style="text-align:right;"> 1 </td>
@@ -70,7 +66,6 @@ We can now ask, in the spirit of [2]: <b>how many species</b> are found in <b>no
   <tr>
    <td style="text-align:left;"> Indonesian </td>
    <td style="text-align:right;"> 29 </td>
-   <td style="text-align:right;"> 13 </td>
    <td style="text-align:right;"> 11 </td>
    <td style="text-align:right;"> 2 </td>
    <td style="text-align:right;"> 1 </td>
@@ -80,7 +75,6 @@ We can now ask, in the spirit of [2]: <b>how many species</b> are found in <b>no
   <tr>
    <td style="text-align:left;"> French </td>
    <td style="text-align:right;"> 25 </td>
-   <td style="text-align:right;"> 12 </td>
    <td style="text-align:right;"> 8 </td>
    <td style="text-align:right;"> 1 </td>
    <td style="text-align:right;"> 3 </td>
@@ -90,7 +84,6 @@ We can now ask, in the spirit of [2]: <b>how many species</b> are found in <b>no
   <tr>
    <td style="text-align:left;"> German </td>
    <td style="text-align:right;"> 5 </td>
-   <td style="text-align:right;"> 1 </td>
    <td style="text-align:right;"> 1 </td>
    <td style="text-align:right;"> 1 </td>
    <td style="text-align:right;"> 0 </td>
@@ -105,17 +98,6 @@ We can now ask, in the spirit of [2]: <b>how many species</b> are found in <b>no
    <td style="text-align:right;"> 0 </td>
    <td style="text-align:right;"> 0 </td>
    <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Norwegian </td>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 0 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Mandarin </td>
@@ -125,12 +107,10 @@ We can now ask, in the spirit of [2]: <b>how many species</b> are found in <b>no
    <td style="text-align:right;"> 0 </td>
    <td style="text-align:right;"> 0 </td>
    <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 0 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Czech </td>
    <td style="text-align:right;"> 1 </td>
-   <td style="text-align:right;"> 0 </td>
    <td style="text-align:right;"> 1 </td>
    <td style="text-align:right;"> 0 </td>
    <td style="text-align:right;"> 0 </td>
@@ -145,6 +125,14 @@ We can now ask, in the spirit of [2]: <b>how many species</b> are found in <b>no
    <td style="text-align:right;"> 0 </td>
    <td style="text-align:right;"> 0 </td>
    <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Norwegian </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
    <td style="text-align:right;"> 0 </td>
   </tr>
   <tr>
@@ -155,12 +143,10 @@ We can now ask, in the spirit of [2]: <b>how many species</b> are found in <b>no
    <td style="text-align:right;"> 0 </td>
    <td style="text-align:right;"> 0 </td>
    <td style="text-align:right;"> 0 </td>
-   <td style="text-align:right;"> 0 </td>
   </tr>
 </tbody>
 </table>
-
-(The columns are the red-list categories Least Concern, Near Threatened, VUlnerable, ENdangered, CRitical and EXtinct.)
+(The columns are the red-list categories <i>Least Concern</i>, <i>Near Threatened</i>, <i>VUlnerable</i>, <i>ENdangered</i>, <i>CRitically endangered</i> and <i>EXtinct</i>.)
 
 These are small numbers, but every species counted in this table represents information that may be lost to red-list assessors who have access only to English-language science. Moreover, many more species are represented in both English and non-English documents (and so are not counted here). 
 
