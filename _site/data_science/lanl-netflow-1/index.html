@@ -1,0 +1,605 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Exploring a computer network from its netflow traffic I - Bills.Data</title>
+<meta name="description" content="">
+
+
+  <meta name="author" content="Bill Oxbury">
+  
+  <meta property="article:author" content="Bill Oxbury">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Bills.Data">
+<meta property="og:title" content="Exploring a computer network from its netflow traffic I">
+<meta property="og:url" content="http://localhost:4000/data_science/lanl-netflow-1/">
+
+
+  <meta property="og:description" content="">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/assets/img/2018-07-01/netflow.png">
+
+
+
+
+
+  <meta property="article:published_time" content="2018-07-01T00:00:00+00:00">
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/data_science/lanl-netflow-1/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Bills.Data Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Bills.Data
+          <span class="site-subtitle">Exploring ideas in data science</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/posts/">Posts</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tags</a>
+            </li><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/assets/images/bio-photo.jpg" alt="Bill Oxbury" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Bill Oxbury</a>
+    </h3>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+        
+          
+            <li><a href="https://twitter.com/billoxbury" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i><span class="label">Twitter</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/billoxbury/" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://instagram.com/bills.data" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i><span class="label">Instagram</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Exploring a computer network from its netflow traffic I">
+    <meta itemprop="description" content="">
+    <meta itemprop="datePublished" content="2018-07-01T00:00:00+00:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/data_science/lanl-netflow-1/" class="u-url" itemprop="url">Exploring a computer network from its netflow traffic I
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2018-07-01T00:00:00+00:00">July 1, 2018</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+        <p><a href="https://billox.shinyapps.io/nfgraph/" target="_blank"><img src="/assets/img/2018-07-01/netflow.png" width="100%" /></a></p>
+
+<p>This blog takes a look at (part of) a data set released a few years ago by Los Alamos US National Labs [1]. There are five files in all, consisting of anonymised netflow, DNS records, authentication events, Windows process and red-team events on the lab’s internal network. In this first post I’m looking only at the netflow data <em>flows.txt.gz</em>. The plot above is a visualisation of the computers in the data set. On the basis of the netflow alone, how does one characterise and cluster the computers by their functional role in the network?</p>
+
+<p>First of all, what’s in the data set? It contains 130 million flow records involving 12,027 distinct computers over 36 days (not the full 58 days claimed for the entire data release). Each record consists of: time (to nearest second), duration, source and destination computer ids, source and destination ports, protocol, number of packets and number of bytes. Protocol is one of 1 (ICMP), 6 (UDP), 17 (TCP) or 41 (associated with IPv6 tunneling, and much rarer than the others).</p>
+
+<p>For this exercise, I’ve restricted to the 10,109 computers which are recorded in at least 100 flows for the period. The main plot is linked to the graphic above. It visualises this set of computers and is interactive (using R-shiny), allowing zooming and inspection of individual computers.</p>
+
+<p>(You’ll see that there are actually two plots: a ‘functional view’ on the left, and a ‘communications view’ on the right. This post is about the first – we’ll discuss the second in the next blog.)</p>
+
+<p>For this representation, I contructed for each computer a feature vector of length 6 x 136 + 6 x 4 = 840. Namely, I looked at 6 probability distributions over the 136 most popular destination ports (in the drop-down menu top left) or ‘other port’. The distributions were: port probability of an in-coming flow, byte or second-duration, respectively — or the same for an out-going flow. The remaining 6 x 4 numbers were the equivalent distributions over the 4 protocols.</p>
+
+<p>I then used t-SNE (dimensional reduction) to project from this 840-dimensional representation down to the plane [2]. (More precisely, I used an implementation of the Barnes-Hut version of the algorithm [3], which gives a significant speed-up and, by allowing a many more iterations, brings out more structure in the data.) The idea is that proximity in the plane should correspond to similarity of port and protocol usage, and we should see how the computers of the network cluster by function.</p>
+
+<p>You can zoom in on the main plot below to see a magnified view. In the magnified view you can inspect individual boxes by hovering or clicking, to show its actual protocol and port probabilities.</p>
+
+<p>In both plots, the boxes are sized proportional to their ‘busyness’: log of the number of bytes exhcanged over the period (ranging from 244 kB to 26 TB).</p>
+
+<p>The colour convention (when a port is selected, or in the probability plots) is that red denotes in-coming only (i.e. port is served on this box) and green denotes out-going only (i.e. port is queried from this box). Blue (when a port is selected) denotes both directions seen.</p>
+
+<p>A good way to start exploring the plot is to highlight on port 80. Roughly, red will then show the web-servers and green the web-clients.</p>
+
+<p>There are also amplifier (or ‘temperature’) controls: these serve to amplify the signal from ports and protocols with probability close to zero. At temperature T, what is shown is each probability raised to the power of 1/T.</p>
+
+<p><strong>References</strong></p>
+
+<ol>
+  <li>Alexander D. Kent: <a href="https://csr.lanl.gov/data/cyber1/">Comprehensive multi-source cyber-security events</a>, doi:10.17021/1179829 (2015)</li>
+  <li>Laurens van der Maaten, Geoffrey Hinton: <a href="https://www.jmlr.org/papers/volume9/vandermaaten08a/vandermaaten08a.pdf">Visualizing Data using t-SNE</a>, Journal of Machine Learning Research, 1 (2008)</li>
+  <li>Laurens van der Maaten: <a href="https://arxiv.org/abs/1301.3342">Barnes-Hut-SNE</a>, arXiv:1301.3342v2 [cs.LG] (2013)</li>
+</ol>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#data-science" class="page__taxonomy-item p-category" rel="tag">data_science</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2018-07-01T00:00:00+00:00">July 1, 2018</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  
+
+  <a href="https://twitter.com/intent/tweet?text=Exploring+a+computer+network+from+its+netflow+traffic+I%20http%3A%2F%2Flocalhost%3A4000%2Fdata_science%2Flanl-netflow-1%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fdata_science%2Flanl-netflow-1%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fdata_science%2Flanl-netflow-1%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/blog/post-link/" class="pagination--pager" title="Post: Link
+">Previous</a>
+    
+    
+      <a href="/data_science/lanl-netflow-2/" class="pagination--pager" title="Exploring a computer network from its netflow traffic II
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h2 class="page__related-title">Recent posts</h2>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <div class="archive__item-teaser">
+      <img src="/assets/img/2023-02-22/birdclouds.jpg" alt="">
+    </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+      <a href="/environment/language_barriers/" rel="permalink">Language barriers in global conservation
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-02-22T00:00:00+00:00">February 22, 2023</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><i>Conservation of species across language barriers
+</i></p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <div class="archive__item-teaser">
+      <img src="/assets/img/2022-02-10/browse_topics.png" alt="">
+    </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+      <a href="/data_science/plosone-topic-tree/" rel="permalink">Navigating the PLOS ONE topic tree
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-02-10T00:00:00+00:00">February 10, 2022</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><i>Crawling the PLOS ONE site to figure out the tree of all subtopics
+</i></p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <div class="archive__item-teaser">
+      <img src="/assets/img/2021-11-03/woodfortrees1.jpg" alt="">
+    </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+      <a href="/environment/cop26-nzs/" rel="permalink">COP26: seeing the wood for the trees
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-11-03T00:00:00+00:00">November 3, 2021</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><i>Third of three COP26 blogs - what’s a ‘safe’ carbon budget?
+</i></p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+          <li><a href="https://twitter.com/billoxbury" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+        
+          <li><a href="https://github.com/billoxbury/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://instagram.com/bills.data" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2023 Bills.Data. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+<script type="text/javascript" async
+	src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<script type="text/x-mathjax-config">
+   MathJax.Hub.Config({
+     extensions: ["tex2jax.js"],
+     jax: ["input/TeX", "output/HTML-CSS"],
+     tex2jax: {
+       inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+       displayMath: [ ["$$","$$"], ["\\[","\\]"] ],
+       processEscapes: true
+     },
+     "HTML-CSS": { availableFonts: ["TeX"] }
+   });
+</script>
+
+
+  </body>
+</html>

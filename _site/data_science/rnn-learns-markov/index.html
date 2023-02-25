@@ -1,0 +1,736 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Watching a neural network learn a Markov chain - Bills.Data</title>
+<meta name="description" content="Modern language models derive their power from big data and big compute – but also, ultimately, from the Unreasonable Effectiveness of Recurrent Neural Networks described by Andrej Karpathy (and many others) a decade or so ago. This post is more low-brow than Karpathy’s — I wanted to explore a little bit how RNNs perform on some carefully controlled toy data: specifically on sequences generated from Markov chains.">
+
+
+  <meta name="author" content="Bill Oxbury">
+  
+  <meta property="article:author" content="Bill Oxbury">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Bills.Data">
+<meta property="og:title" content="Watching a neural network learn a Markov chain">
+<meta property="og:url" content="http://localhost:4000/data_science/rnn-learns-markov/">
+
+
+  <meta property="og:description" content="Modern language models derive their power from big data and big compute – but also, ultimately, from the Unreasonable Effectiveness of Recurrent Neural Networks described by Andrej Karpathy (and many others) a decade or so ago. This post is more low-brow than Karpathy’s — I wanted to explore a little bit how RNNs perform on some carefully controlled toy data: specifically on sequences generated from Markov chains.">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/assets/img/2019-11-01/ex3_3_5_2_3D_bystate.png">
+
+
+
+
+
+  <meta property="article:published_time" content="2019-11-01T00:00:00+00:00">
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/data_science/rnn-learns-markov/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Bills.Data Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Bills.Data
+          <span class="site-subtitle">Exploring ideas in data science</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/posts/">Posts</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tags</a>
+            </li><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/assets/images/bio-photo.jpg" alt="Bill Oxbury" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Bill Oxbury</a>
+    </h3>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+        
+          
+            <li><a href="https://twitter.com/billoxbury" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i><span class="label">Twitter</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/billoxbury/" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://instagram.com/bills.data" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i><span class="label">Instagram</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Watching a neural network learn a Markov chain">
+    <meta itemprop="description" content="Modern language models derive their power from big data and big compute – but also, ultimately, from the Unreasonable Effectiveness of Recurrent Neural Networks described by Andrej Karpathy (and many others) a decade or so ago. This post is more low-brow than Karpathy’s — I wanted to explore a little bit how RNNs perform on some carefully controlled toy data: specifically on sequences generated from Markov chains.">
+    <meta itemprop="datePublished" content="2019-11-01T00:00:00+00:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/data_science/rnn-learns-markov/" class="u-url" itemprop="url">Watching a neural network learn a Markov chain
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2019-11-01T00:00:00+00:00">November 1, 2019</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+        <p>Modern language models derive their power from big data and big compute – but also, ultimately, from the <a href="http://karpathy.github.io/2015/05/21/rnn-effectiveness/" target="_blank">Unreasonable Effectiveness of Recurrent Neural Networks</a> described by Andrej Karpathy (and many others) a decade or so ago. This post is more low-brow than Karpathy’s — I wanted to explore a little bit how RNNs perform on some carefully controlled toy data: specifically on sequences generated from Markov chains.</p>
+
+<p>What does it mean to model a sequence? It means two things:</p>
+
+<ol>
+  <li>Given a new sequence generated by the same process, can we predict at each time step the next sequence item?</li>
+  <li>Does the ‘model’ give simplying insights into this underlying process?</li>
+</ol>
+
+<p>Suppose, for example, that the sequence is drawn from an ‘alphabet’ of $N$ distinct symbols, and that the process generating the sequence is Markov — in other words, each item depends only on its predecessor. In that case, problem 1 is completely solved in $O(N^2)$ storage by just collecting enough data and observing conditional frequencies. This does nothing to address problem 2, however. On the other hand, fitting an $n$-state hidden Markov model (HMM) reduces the storage to $O(nN)$. So it improves the solution to problem 1 — but it also answers problem 2 if we can interpret what the ‘hidden states’ mean.</p>
+
+<p>However, most sequences generated by processes of interest are not 1-st order Markov. If the process is Markov of order $k$, then the storage requirement for the naive solution is $O(Nk)$, which rapidly becomes intractable. This is where RNNs come in. At least, they appear to perform well on problem 1. What about problem 2? Can we extract any understanding from them?</p>
+
+<p>Here’s an example. It’s a stretch of ASCII sequence (from a source which I’ll reveal in a moment):</p>
+
+<p><tt>
+ikkviiviiekotkiwiwiieeiiioikttooiotkkeiiokkttkkiwvvwtkikweiwvwikkkiokkwookkkkoiikiieiiiwoivveiioikokiivikoiooookkikkvwveikookkutktktvvwktkkwwkiwiwikkuktkkoiwkkkkotewiikkiukkvwwktkkokkieeiiwiookkiiiiot
+</tt></p>
+
+<p>Let’s see what we can learn by fitting a recurrent network (of Long Short-Term Memory (LSTM) units).
+Since the sequence only exhibits a small alphabet consisting of <tt>{e,i,k,o,t,u,v,w}</tt>, I’m not going to expend a huge model on it, so I choose an RNN architecture consisting of just one hidden layer with <strong>2 units</strong>.</p>
+
+<p>Having trained this small network, let’s observe the output of those two inner units — as points in the plane ${\mathbb R}^2$ — as we pass the sequence through it:</p>
+
+<p style="text-align:center;">
+<img src="/assets/img/2019-11-01/ex1_2_2_1_bystate.png" width="70%" />
+</p>
+
+<p>What are the colours? Well, I now need to reveal that the sequence was generated from a 2-state hidden Markov model with states (where the coefficients are shorthand for probabilities of the state outputting each character):</p>
+
+<p>\[
+0.496 {\tt k} + 0.302 {\tt o} + 0.157 {\tt t} + 0.045 {\tt u}
+\]</p>
+
+<p>\[
+0.106 {\tt e} + 0.562 {\tt i} + 0.117 {\tt v} + 0.215 {\tt w}
+\]</p>
+
+<p>together with some randomly chosen $2\times 2$ transition matrix for moving between the states. I’ve coloured the plot above by the HMM state. What we see is that this internal structure is effectively discovered by the RNN. (So it gives us some help with question 2 above. I’ll come to question 1 in a moment.)</p>
+
+<p>This example was very easy because the HMM states are ‘far apart’: they output completely disjoint sets of characters. Let’s look at some other examples. The first does the same as above, but for data generated from a 3-state HMM with closer (overlapping) output distributions. The graph on the right represents the HMM states, with edges representing overlap (actually, closeness of the output distributions using their total variation):</p>
+
+<p><tt>
+xrrxzzkkzzrxkrzzkkkkzrzoxzkoxrzzzkkzkoznzznznrxxrkkxxrxrrrkrznzxzznzrnnxxxxrrzkkznkkzknznnkzkkokkzzkrrkxknzzoozzzzzzzzzzzoknzzdrroznzzzzznznzznnrxokkxrrozkxrzzkkkrrrxxokkoozkokzzxookozzndzzokzkkxkzxrz
+</tt></p>
+
+<figure class="half ">
+  
+    
+      <img src="/assets/img/2019-11-01/ex2_2_3_1_bystate.png" alt="" />
+    
+  
+    
+      <img src="/assets/img/2019-11-01/ex2_2_3_1_families.png" alt="" />
+    
+  
+  
+</figure>
+
+<p>Next are two examples using 3 units in the RNN layer, so that now the sequences are represented in ${\mathbb R}^3$. They both use data generated from a 5-state HMM, but with different state configurations:</p>
+
+<p><tt>
+becbcbyooooeceyyjyywccbbbnenennneybooyyywbooobnbyobooobeewyoooywyjwjjywoeeooooooooonbbybbeennnbbccbwyybooennoooooooooooooooooooooooyjwjbbbbbeoobbybeeebyybenegjywyywygenyyybbceennennnnnwjyybbboooecccbb
+</tt></p>
+
+<figure class="half ">
+  
+    
+      <img src="/assets/img/2019-11-01/ex3_3_5_2_3D_bystate.png" alt="" />
+    
+  
+    
+      <img src="/assets/img/2019-11-01/ex3_3_5_2_families.png" alt="" />
+    
+  
+  
+</figure>
+
+<p>Here, we see that ‘confusion’ between HMM states is well represented in the RNN. The least confused HMM state is state 1, which is uniquely distinguished by outputting only ‘o’, and is coloured blue in the 3-dimensional plot. The most confused state is 4 (red). But remember that the RNN is not trying to distinguish the HMM states — it knows nothing about them — it is simply representing the observed structure of the output sequence. Of course, this structure reflects both the hidden states and their output distributions.</p>
+
+<p><tt>
+kqxvklljguguuuybywfrywrmkvbygglyuuguggggubjljwrwpulljuulrwwrrwugugguuummlppkzlrguupkpkpbytyupkxubuugtbyywhwuvxwrpvupppvybwlwrdpubgyuyxuuuugupxpuxuprwzfbjujljullugukwdzwrtbbbbtbybbbbtuugwfwffuguugbujbb
+</tt></p>
+
+<figure class="half ">
+  
+    
+      <img src="/assets/img/2019-11-01/ex4_3_5_1_3D_bystate.png" alt="" />
+    
+  
+    
+      <img src="/assets/img/2019-11-01/ex4_3_5_1_families.png" alt="" />
+    
+  
+  
+</figure>
+
+<p>This last example has the most confusion among HMM states, and that is reflected in the 3-dimensional plot. Nevertheless, if we do a dimensional reduction to the plane using $t$-SNE for this example, we see that the separation is in fact still pretty good:</p>
+
+<p style="text-align:center;">
+<img src="/assets/img/2019-11-01/ex4_3_5_1_tsne_bystate.png" width="70%" />
+</p>
+
+<p>How well do these RNN models answer problem 1 above? How well do they predict sequence outputs? Let’s focus on the last example.</p>
+
+<p>First note that the way we <strong>don’t</strong> want to assess the predictive power of the model is to measure symbol error rate. That way, when we are dealing with inherently high entropy distributions, madness lies. In other words, in our situation each character is generated from a distribution which may be close to uniform, with multiple characters equally likely. Guessing the right one correctly may not tell us very much about the model — what we really need to know is that the model is giving us the right probability distribution.</p>
+
+<p>Since we have a God’s eye view of the data (it is generated from a Markov chain that we specified!) we know exactly what the right probability distribution is. That is, we know the (HMM) state transition matrix $P$ and the emission matrix $F$ (whose rows are the character distributions conditional on the HMM state). As we observe a sequence generated by the HMM, we can compute the ‘alpha’ vector as we go (which gives the joint probability of a given HMM state with the characters observed so far). Multiplying the alpha (row) vector on the right by the product $PF$ gives the distribution of the next character conditional on the sequence so far observed — exactly what we want.</p>
+
+<p>The RNN knows nothing about the HMM states, but is also outputting, as a softmax, its estimate of the same conditional distribution at each time step. The correct measure of its performance, therefore, as is how close this softmax is to the HMM-derived distribution.</p>
+
+<p>Here’s the comparison for the last example above. On the left I’ve plotted, for all possible next characters at all time steps in a test sequence a few thousand long, the predicted RNN (softmax) probability against the actual (HMM) probability. The histogram on the right shows the (mean per time-step) absolute value of the difference:</p>
+
+<p style="text-align:center;">
+<img src="/assets/img/2019-11-01/ex4_3_5_1_prob_comparison.png" width="100%" />
+</p>
+
+<p>What we see is that the median discrepancy is around 1%. Not bad! Just for good measure, here’s a slightly hard example, with 12 well-mixed HMM states and using a 16-unit RNN (so the coloured plot is a $t$-SNE reduction from ${\mathbb R}^{16}$):</p>
+
+<p><tt>
+cjydlrmppyygmmmyvprcchcmchauncanpngehshssllshhdolliaicaobdnnnabylroloddpgrbgprpyrpysyxzffefvzvzzewhsabgppyggehlpppyyalolnlddlvebnpbanbnfzebxvvfvbanbnnnoldlnnpnpabwbooupgppubvvfzvvviiaihhspphovvvveshlh
+</tt></p>
+
+<figure class="half ">
+  
+    
+      <img src="/assets/img/2019-11-01/ex5_16_12_2_bystate.png" alt="" />
+    
+  
+    
+      <img src="/assets/img/2019-11-01/ex5_16_12_1_families.png" alt="" />
+    
+  
+  
+</figure>
+
+<p style="text-align:center;">
+<img src="/assets/img/2019-11-01/ex5_16_12_2_prob_comparison.png" width="100%" />
+</p>
+
+<p>We get a comparable performance, with median discrepancy around 1%.</p>
+
+<p>We can (and should!) also ask how these predicted probabilities (by HMM or by RNN) compare with what we actually observe. (This is after all a test we can always apply, not just for toy Markov-generated data.)</p>
+
+<p>In the plot below I’ve divided the interval $[0,1]$ into 20 bins. For each bin I’ve counted the proportion of character predictions with (HMM or RNN) probability in this range that actually happen. In other words, we’d like to see, if the model is well calibrated, that around 20% of prediction at 0.2 actually happen, and so on. I’ve plotted these proportions (blue for HMM, red for RNN), and the closer the plot to the diagonal, the better calibrated the model:</p>
+
+<p style="text-align:center;">
+<img src="/assets/img/2019-11-01/ex5_16_12_1_calibration_no_dropout.png" width="70%" />
+</p>
+
+<p>(Incidentally, being just above the diagonal is actually correct, because the observed proportion has been plotted against the bottom of the corresponding bin range.)</p>
+
+<p>This shows where the RNN performance is weaker. But up to this point I haven’t said anything about the details of training the RNN. In particular, it’s common to use dropout to prevent overfitting, and the calibration plot above was actually the result of training the RNN without any dropout. Since this calibration is a good measure of the RNN performance, we should compare with an RNN trained with dropout (20% on the dense connections between layers):</p>
+
+<p style="text-align:center;">
+<img src="/assets/img/2019-11-01/ex5_16_12_2_calibration_dropout_0pt2.png" width="70%" />
+</p>
+
+<p>So now the RNN is pretty well spot on.</p>
+
+<p>What’s needed now is a mathematical analysis to explain the observations above, to tell us how they will scale, how they will extend to high-order dependencies, and how the RNN performance will depend on architecture and training parameters.</p>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#data-science" class="page__taxonomy-item p-category" rel="tag">data_science</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2019-11-01T00:00:00+00:00">November 1, 2019</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  
+
+  <a href="https://twitter.com/intent/tweet?text=Watching+a+neural+network+learn+a+Markov+chain%20http%3A%2F%2Flocalhost%3A4000%2Fdata_science%2Frnn-learns-markov%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fdata_science%2Frnn-learns-markov%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fdata_science%2Frnn-learns-markov%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/data_science/crossent/" class="pagination--pager" title="Mean-squared error versus cross-entropy
+">Previous</a>
+    
+    
+      <a href="/environment/cop26-today/" class="pagination--pager" title="COP26: the climate crisis today
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h2 class="page__related-title">Recent posts</h2>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <div class="archive__item-teaser">
+      <img src="/assets/img/2023-02-22/birdclouds.jpg" alt="">
+    </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+      <a href="/environment/language_barriers/" rel="permalink">Language barriers in global conservation
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-02-22T00:00:00+00:00">February 22, 2023</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><i>Conservation of species across language barriers
+</i></p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <div class="archive__item-teaser">
+      <img src="/assets/img/2022-02-10/browse_topics.png" alt="">
+    </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+      <a href="/data_science/plosone-topic-tree/" rel="permalink">Navigating the PLOS ONE topic tree
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-02-10T00:00:00+00:00">February 10, 2022</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><i>Crawling the PLOS ONE site to figure out the tree of all subtopics
+</i></p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <div class="archive__item-teaser">
+      <img src="/assets/img/2021-11-03/woodfortrees1.jpg" alt="">
+    </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+      <a href="/environment/cop26-nzs/" rel="permalink">COP26: seeing the wood for the trees
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-11-03T00:00:00+00:00">November 3, 2021</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><i>Third of three COP26 blogs - what’s a ‘safe’ carbon budget?
+</i></p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+          <li><a href="https://twitter.com/billoxbury" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+        
+          <li><a href="https://github.com/billoxbury/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://instagram.com/bills.data" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2023 Bills.Data. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+<script type="text/javascript" async
+	src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<script type="text/x-mathjax-config">
+   MathJax.Hub.Config({
+     extensions: ["tex2jax.js"],
+     jax: ["input/TeX", "output/HTML-CSS"],
+     tex2jax: {
+       inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+       displayMath: [ ["$$","$$"], ["\\[","\\]"] ],
+       processEscapes: true
+     },
+     "HTML-CSS": { availableFonts: ["TeX"] }
+   });
+</script>
+
+
+  </body>
+</html>

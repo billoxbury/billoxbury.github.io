@@ -1,0 +1,690 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Navigating the PLOS ONE topic tree - Bills.Data</title>
+<meta name="description" content="">
+
+
+  <meta name="author" content="Bill Oxbury">
+  
+  <meta property="article:author" content="Bill Oxbury">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Bills.Data">
+<meta property="og:title" content="Navigating the PLOS ONE topic tree">
+<meta property="og:url" content="http://localhost:4000/data_science/plosone-topic-tree/">
+
+
+  <meta property="og:description" content="">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/assets/img/2022-02-10/browse_topics.png">
+
+
+
+
+
+  <meta property="article:published_time" content="2022-02-10T00:00:00+00:00">
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/data_science/plosone-topic-tree/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Bills.Data Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Bills.Data
+          <span class="site-subtitle">Exploring ideas in data science</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/posts/">Posts</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/">Categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tags</a>
+            </li><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/assets/images/bio-photo.jpg" alt="Bill Oxbury" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Bill Oxbury</a>
+    </h3>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+        
+          
+            <li><a href="https://twitter.com/billoxbury" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i><span class="label">Twitter</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/billoxbury/" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://instagram.com/bills.data" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i><span class="label">Instagram</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Navigating the PLOS ONE topic tree">
+    <meta itemprop="description" content="">
+    <meta itemprop="datePublished" content="2022-02-10T00:00:00+00:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/data_science/plosone-topic-tree/" class="u-url" itemprop="url">Navigating the PLOS ONE topic tree
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-02-10T00:00:00+00:00">February 10, 2022</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+        <p><img src="" alt="" /></p>
+
+<p><img src="/assets/img/2022-02-10/browse_topics.png" width="100%" /></p>
+
+<p>PLOS ONE is a respected multidisciplinary journal publishing research from</p>
+
+<blockquote>
+  <p>over two hundred subject areas across science, engineering, medicine, and the related social sciences and humanities.</p>
+</blockquote>
+
+<p>But exactly <strong>how many</strong> subject areas?</p>
+
+<p>At the top level (as shown in the screenshot above), these subject areas fall under eleven headings from <em>Biology and life sciences</em> to <em>Social sciences</em>. For each of these headings – such as <em>Computer and information sciences</em> below - we are told the number of articles (in this case 32,397) and can browse further subheadings:</p>
+
+<figure class="half ">
+  
+    
+      <img src="/assets/img/2022-02-10/compsci_count.png" alt="" />
+    
+  
+    
+      <img src="/assets/img/2022-02-10/compsci_topics.png" alt="" />
+    
+  
+  
+</figure>
+
+<p>This post is about a short exercise to scan the entire tree of PLOS ONE topics, asking:</p>
+
+<ol>
+  <li>how does one extract and represent this tree?</li>
+  <li>are the article counts per topic <em>consistent</em> e.g. in the sense that each count is the sum of the counts at the leaves of the corresponding subtree?</li>
+</ol>
+
+<p>Visually, the result of the analysis is plots such as the following (the topic trees of some of the top-level headings):</p>
+
+<embed src="/assets/img/2022-02-10/seven_trees.pdf" type="application/pdf" frameborder="0" scrolling="auto" height="100%" width="100%" />
+
+<h2>1. Crawling</h2>
+
+<p>The starting task was to crawl the PLOS ONE pages. To do this, we initialise a data frame with a single row (I’ll use Python-like pseudocode throughout - most of this exercise was actually done in R):</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">topic_tree_df</span><span class="p">.</span><span class="n">add_row</span><span class="p">(</span><span class="s">'node'</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+                      <span class="s">'parent'</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> 
+                      <span class="s">'topic'</span> <span class="o">=</span> <span class="s">""</span><span class="p">,</span>
+                      <span class="s">'parent_topic'</span> <span class="o">=</span> <span class="s">""</span><span class="p">,</span> 
+                      <span class="s">'count'</span> <span class="o">=</span> <span class="bp">None</span><span class="p">)</span></code></pre></figure>
+
+<p>… and then add tree nodes to the data frame via the following breadth-first search:</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">browse_url</span> <span class="o">=</span> <span class="s">"https://journals.plos.org/plosone/browse/"</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="k">while</span> <span class="n">index</span> <span class="o">&lt;=</span> <span class="n">nrow</span><span class="p">(</span><span class="n">topic_tree_df</span><span class="p">):</span>
+  <span class="n">this_topic</span> <span class="o">=</span> <span class="n">topic_tree_df</span><span class="p">[</span><span class="n">index</span><span class="p">,</span> <span class="s">'topic'</span><span class="p">]</span>
+  <span class="n">url</span> <span class="o">=</span> <span class="n">browse_url</span> <span class="o">+</span> <span class="n">this_topic</span>
+  <span class="n">topic_tree_df</span><span class="p">[</span><span class="n">index</span><span class="p">,</span> <span class="s">'count'</span><span class="p">]</span> <span class="o">=</span> <span class="n">find_count</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>    <span class="c1"># read HTML
+</span>  <span class="n">next_batch</span> <span class="o">=</span> <span class="n">find_children</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>                    <span class="c1"># read HTML    
+</span>  <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="n">next_batch</span><span class="p">:</span>
+    <span class="n">topic_tree_df</span><span class="p">.</span><span class="n">add_row</span><span class="p">(</span><span class="s">'node'</span> <span class="o">=</span> <span class="n">row</span><span class="p">.</span><span class="n">index</span>
+                          <span class="s">'parent'</span> <span class="o">=</span> <span class="n">index</span><span class="p">,</span> 
+                          <span class="s">'topic'</span> <span class="o">=</span> <span class="n">child</span><span class="p">,</span>
+                          <span class="s">'parent_topic'</span> <span class="o">=</span> <span class="n">this_topic</span>
+                          <span class="s">'count'</span> <span class="o">=</span> <span class="bp">None</span>
+                          <span class="p">)</span>
+  <span class="n">index</span> <span class="o">+=</span> <span class="mi">1</span></code></pre></figure>
+
+<p>In this code, the functions <tt>find_count()</tt> and <tt>find_children()</tt> parse the HTML of the currently visited topic page and extract the count and subtopics respectively. (For this I use the package <em>rvest</em> in R.)</p>
+
+<h2>2. Counting</h2>
+
+<p>The code generates a data frame with <i>(as of 9 Feb 2022)</i> a total of 16,721 rows (topics). From this data frame we can read off any tree statistics - for example the node count by depth in the tree:</p>
+
+<p><img src="/assets/img/2022-02-10/count_by_depth.png" width="100%" /></p>
+
+<p>To illustrate the data frame, the following slice is the part of the tree below node 49, <i>sports_science</i>. (This is an example of a <em>clade</em>: a subtree that exactly consists of one node and all its descendants:)</p>
+
+<p><img src="/assets/img/2022-02-10/sports_tree0.png" width="100%" /></p>
+
+<p><img src="/assets/img/2022-02-10/sports_tree1.jpg" width="100%" /></p>
+
+<p>The first thing to note is that the article counts (as read off from the PLOS ONE topic pages) are not in any sense consistent! (That was question 2 at the top of this post.)</p>
+
+<p>At each node, we can read off an <strong>excess count</strong>, which is the difference between the advertised article count and the sum of the counts at child nodes. This excess is usually positive: for example, at the topic <em>exercise</em> the excess is 1,515 - the number of articles that presumably do not fall under the subtopics of <i>aerobic_exercise</i> or <i>strength_training</i>. This is to be expected if the topic tree grows over time with new subtopics being added to the <a href="https://github.com/PLOS/plos-thesaurus" target="_blank">PLOS thesaurus</a>. On the other hand, the excess count is often negative. For example, the count at <i>sports_science</i> is actually <em>less than</em> the counts at its two subtopics <i>sports</i> and <i>sports_and_exercise_medicine</i>. At some point, the parent node has stopped counting!</p>
+
+<p>(It turns out that the excess count has a large negative value at all of the 11 top-level topics – which are therefore underestimating the number of articles they cover.)</p>
+
+<h2>3. Drawing</h2>
+
+<p>Finally, a word about tree formats and visualisation. The circular plots shown above could have been made using a package like R <em>phylotools</em>. In fact, I took a shortcut and used the very convenient <a href="https://itol.embl.de/" target="_blank">Interactive Tree Of Life (iTOL)</a> site.</p>
+
+<p>In either case, a more compact data format is needed than the data frame shown above. A popular format that I used is the <strong>Newick format</strong>. The idea of Newick format is that the tree is represented by a string with the recursive form</p>
+
+<p>\[
+\nu({\rm tree}) = (\nu({\rm child}_1),\ldots,\nu({\rm child}_k))\nu({\rm root})
+\]</p>
+
+<p>and where $\nu({\rm single\ node})$ is any convenient string representing that node, e.g. the topic name. Converting from the data frame shown above to Newick format is then achieved with a simple recursive function:</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">newickR</span><span class="p">(</span><span class="n">tree_df</span><span class="p">,</span> <span class="n">j</span><span class="p">):</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="s">""</span>
+    <span class="k">if</span> <span class="n">exist</span> <span class="n">children</span><span class="p">(</span><span class="n">j</span><span class="p">):</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="s">"("</span>                           <span class="c1"># open bracket
+</span>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">children</span><span class="p">(</span><span class="n">tree_df</span><span class="p">,</span> <span class="n">j</span><span class="p">):</span>      <span class="c1"># insert commas-separated child strings
+</span>            <span class="n">out</span> <span class="o">+=</span> <span class="n">newickR</span><span class="p">(</span><span class="n">tree_df</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s">','</span>
+        <span class="k">if</span> <span class="n">out</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s">','</span><span class="p">:</span>                  <span class="c1"># remove final comma
+</span>            <span class="n">out</span> <span class="o">=</span> <span class="n">out</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">out</span> <span class="o">+=</span> <span class="s">')'</span>                          <span class="c1"># close bracket
+</span>    <span class="n">out</span> <span class="o">+=</span> <span class="n">tree_df</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="s">'topic'</span><span class="p">]</span>               <span class="c1"># append parent string
+</span>    <span class="k">return</span> <span class="n">out</span></code></pre></figure>
+
+<p>Applied to the little <i>sports_science</i> data frame this outputs:</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="o">&gt;</span> <span class="n">newickR</span><span class="p">(</span><span class="n">tree_df</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+  <span class="s">'(sports,((aerobic_exercise,strength_training)exercise)sports_and_exercise_medicine)sports_science'</span></code></pre></figure>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#data-science" class="page__taxonomy-item p-category" rel="tag">data_science</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2022-02-10T00:00:00+00:00">February 10, 2022</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  
+
+  <a href="https://twitter.com/intent/tweet?text=Navigating+the+PLOS+ONE+topic+tree%20http%3A%2F%2Flocalhost%3A4000%2Fdata_science%2Fplosone-topic-tree%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fdata_science%2Fplosone-topic-tree%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fdata_science%2Fplosone-topic-tree%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/environment/cop26-nzs/" class="pagination--pager" title="COP26: seeing the wood for the trees
+">Previous</a>
+    
+    
+      <a href="/environment/language_barriers/" class="pagination--pager" title="Language barriers in global conservation
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h2 class="page__related-title">Recent posts</h2>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <div class="archive__item-teaser">
+      <img src="/assets/img/2023-02-22/birdclouds.jpg" alt="">
+    </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+      <a href="/environment/language_barriers/" rel="permalink">Language barriers in global conservation
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-02-22T00:00:00+00:00">February 22, 2023</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><i>Conservation of species across language barriers
+</i></p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <div class="archive__item-teaser">
+      <img src="/assets/img/2021-11-03/woodfortrees1.jpg" alt="">
+    </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+      <a href="/environment/cop26-nzs/" rel="permalink">COP26: seeing the wood for the trees
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-11-03T00:00:00+00:00">November 3, 2021</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><i>Third of three COP26 blogs - what’s a ‘safe’ carbon budget?
+</i></p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <div class="archive__item-teaser">
+      <img src="/assets/img/2021-11-02/image1.jpeg" alt="">
+    </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+      <a href="/environment/cop26-why1pt5/" rel="permalink">COP26: why 1.5 degrees?
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2021-11-02T00:00:00+00:00">November 2, 2021</time>
+      </span>
+    
+
+    
+
+    
+  </p>
+
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><i>Second of three COP26 blogs - how to think about global temperature increase
+</i></p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+          <li><a href="https://twitter.com/billoxbury" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+        
+          <li><a href="https://github.com/billoxbury/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://instagram.com/bills.data" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2023 Bills.Data. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+<script type="text/javascript" async
+	src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<script type="text/x-mathjax-config">
+   MathJax.Hub.Config({
+     extensions: ["tex2jax.js"],
+     jax: ["input/TeX", "output/HTML-CSS"],
+     tex2jax: {
+       inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+       displayMath: [ ["$$","$$"], ["\\[","\\]"] ],
+       processEscapes: true
+     },
+     "HTML-CSS": { availableFonts: ["TeX"] }
+   });
+</script>
+
+
+  </body>
+</html>
