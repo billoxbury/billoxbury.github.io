@@ -3,5 +3,4 @@ permalink: /about/
 title: "About"
 ---
 
-Bill is a UK government mathematician and computer scientist. Since 2022 has been 
-    focussing on data science applications to biodiversity and conservation.
+Bill is an independent computer scientist living in Durham in the North-East of England. Since 2022 he has been focussing on data science applications to biodiversity and conservation.
