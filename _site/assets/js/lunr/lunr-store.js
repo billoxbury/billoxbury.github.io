@@ -112,4 +112,10 @@ var store = [{
         "tags": [],
         "url": "/environment/language_barriers/",
         "teaser": "/assets/img/2023-02-22/birdclouds.jpg"
+      },{
+        "title": "How to code interactive graphics with R shiny",
+        "excerpt":"My earlier blog A Topological Trick for Data Visualisation described Carlsson’s mapper construction, that offers a good graph representation of a high-dimensional point cloud. I offered a fancy interactive demo of mapper on the Zip data set of hand-written digits – shown in the graphic above and linked to it....","categories": ["data_science"],
+        "tags": [],
+        "url": "/data_science/coding-interactive-graphics/",
+        "teaser": "/assets/img/2023-03-07/shiny-app.png"
       }]
