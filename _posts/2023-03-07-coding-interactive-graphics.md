@@ -38,8 +38,7 @@ shinyUI(fluidPage(
       plotOutput("digitview")
       ),
     mainPanel(  
-      plotOutput("graphview",
-                 height = "800px")
+      plotOutput("graphview")
       )
     )
   )
