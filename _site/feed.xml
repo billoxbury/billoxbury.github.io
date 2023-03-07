@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-02-25T09:54:42+00:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Bills.Data</title><subtitle>Exploring ideas in data science</subtitle><author><name>Bill Oxbury</name></author><entry><title type="html">Language barriers in global conservation</title><link href="http://localhost:4000/environment/language_barriers/" rel="alternate" type="text/html" title="Language barriers in global conservation" /><published>2023-02-22T00:00:00+00:00</published><updated>2023-02-22T00:00:00+00:00</updated><id>http://localhost:4000/environment/language_barriers</id><content type="html" xml:base="http://localhost:4000/environment/language_barriers/">&lt;p&gt;&lt;img src=&quot;&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-03-06T16:13:27+00:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Bills.Data</title><subtitle>Exploring ideas in data science</subtitle><author><name>Bill Oxbury</name></author><entry><title type="html">Language barriers in global conservation</title><link href="http://localhost:4000/environment/language_barriers/" rel="alternate" type="text/html" title="Language barriers in global conservation" /><published>2023-02-22T00:00:00+00:00</published><updated>2023-02-22T00:00:00+00:00</updated><id>http://localhost:4000/environment/language_barriers</id><content type="html" xml:base="http://localhost:4000/environment/language_barriers/">&lt;p&gt;&lt;img src=&quot;&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/img/2023-02-22/birdclouds.jpg&quot; width=&quot;100%&quot; /&gt;&lt;/p&gt;
 
@@ -563,14 +563,62 @@ So as the sample sizes increase, so does $d$, and the red curve $f(x)$ becomes m
 
 &lt;p&gt;How do hand-written digits arrange themselves in pixel space?&lt;/p&gt;
 
-&lt;p&gt;The plot above (and the interactive version linked to it) illustrates the ‘mapper’ construction described in &lt;a href=&quot;https://www.ams.org/journals/bull/2009-46-02/S0273-0979-09-01249-X/S0273-0979-09-01249-X.pdf&quot;&gt;Gunnar Carlsson, Topology and Data, Bull Amer Math Soc 46 (2009)&lt;/a&gt; — here applied to the well known ‘Zip’ data set consisting of 7,291 hand-written digits.&lt;/p&gt;
+&lt;p&gt;The visualisation above (&lt;b&gt;and the interactive version linked to it&lt;/b&gt;) illustrates the &lt;i&gt;mapper&lt;/i&gt; construction described by Gunnar Carlsson in [1] — here applied to the well known ‘Zip’ data set consisting of 7,291 hand-written digits (a relative of MNIST - this data set is described in more detail in [2]).&lt;/p&gt;
 
-&lt;p&gt;The original data lives in 256-dimensional (8 x 8) pixel space. The idea of the construction is to partition the data points into overlapping bins — thought of as an ‘open cover’ — and to perform heirarchical clustering within each bin. A graph is then constructed whose vertices are the resulting clusters across all bins, and whose edges say that a pair of bins has one or more points in common. In the interactive plot you can control the resolution via two variables: the number of bins and the number of clusters extracted within each bin.&lt;/p&gt;
+&lt;p&gt;In order to understand the graphic above, I’d like to explain the key idea with an example. Let’s suppose we have a point cloud in some high-dimensional space – here imagined in grey:&lt;/p&gt;
+
+&lt;figure class=&quot; &quot;&gt;
+  
+    
+      &lt;img src=&quot;/assets/img/2019-07-01/horse1.jpg&quot; alt=&quot;&quot; /&gt;
+    
+  
+  
+&lt;/figure&gt;
+
+&lt;p&gt;We’d like to get a handle on its topological structure – that is, where the main lumps and holes and islands are. In dimensions higher than 2 or 3 these are hard to see directly. So suppose we have some convenient &lt;i&gt;continuous scalar function&lt;/i&gt; on the point cloud (here imagined as height):&lt;/p&gt;
+
+&lt;figure class=&quot;half &quot;&gt;
+  
+    
+      &lt;img src=&quot;/assets/img/2019-07-01/horse2.jpg&quot; alt=&quot;&quot; /&gt;
+    
+  
+    
+      &lt;img src=&quot;/assets/img/2019-07-01/horse3.jpg&quot; alt=&quot;&quot; /&gt;
+    
+  
+  
+&lt;/figure&gt;
+
+&lt;p&gt;As this picture suggests, we can use the ‘height’ function to take broad slices through the point cloud. (More precisely, an open cover obtained by binning the height function.) Within each slice, we apply a clustering algorithm. As shown, these will typically give cleaner clusters than if we’d tried to cluster the whole point cloud.&lt;/p&gt;
+
+&lt;p&gt;Finally, treat each cluster as a ‘node’, and draw edges between clusters from different slices whenever they overlap. (To keep the graphic simple, the clusters above don’t overlap – but they would if I’d drawn a proper open covering of the point cloud by height bins.)&lt;/p&gt;
+
+&lt;figure class=&quot; &quot;&gt;
+  
+    
+      &lt;img src=&quot;/assets/img/2019-07-01/horse4.jpg&quot; alt=&quot;&quot; /&gt;
+    
+  
+  
+&lt;/figure&gt;
+
+&lt;p&gt;Having obtained a graph representation of the data set, we can draw it in the low dimensions and explore the structure of the point cloud. And that’s exactly what I’ve done with the Zip data set, which lives as a point cloud in 256-dimensional (8 x 8) pixel space.&lt;/p&gt;
+
+&lt;p&gt;What did I use for the ‘height’ function? Well, I used the local density of the point cloud — measured by counting neighbouring points within a fixed radius. (I’ll leave the reader to think about why that should be a continous function on the point cloud.)&lt;/p&gt;
+
+&lt;p&gt;You will note that there are two parameters that control the resolution of this graph: the number of ‘height’ bins and the number of clusters extracted within each bin. The interactive version of the Zip visualisation allows you to play with these to explore what works best. It also shows you (right-hand panel) an explicit sample of (up to 100) hand-written digits in a chosen node of the graph (remember that a node is a cluster within the point cloud).&lt;/p&gt;
 
 &lt;p&gt;How should you choose these tuning parameters? There is a trade-off between number of clusters (i.e. the number of graph vertices) and the amount of variation of digits within each cluster. You want both of these to be low.&lt;/p&gt;
 
-&lt;p&gt;You can test this by choosing a random vertex – the left-panel then shows a sample of images from the cluster of data points corresponding to this vertex.&lt;/p&gt;
+&lt;p&gt;(By the way, I’ve labelled each graph node with the majority digit in the corresponding cluster - but some of these clusters are ‘purer’ than others.)&lt;/p&gt;
 
-&lt;p&gt;So where do the bins come from? Following the topological analogy, we pull back open intervals from the real line under a suitable ‘continuous’ function. For this function, I’ve taken local density of the point cloud — measured by counting neighbouring points within a fixed radius.&lt;/p&gt;
+&lt;p&gt;Note that at the extremes: if the number of bins is 1 then the graph is totally disconnected, while if the number of clusters is set to 1 then the graph is a chain. Have fun!&lt;/p&gt;
 
-&lt;p&gt;There is, however, a caveat … The curse of dimension means that local density is not very sensitive in 256 dimensions. So I’ve actually performed a dimensional reduction first (down to 6 dimensions, in fact). There are various ways one can do this — I’ve used a Fiedler embedding from the nearest-neighbour graph in pixel space (but I’m brushing that under the carpet for now).&lt;/p&gt;</content><author><name>Bill Oxbury</name></author><category term="data_science" /><summary type="html"></summary></entry></feed>
+&lt;p&gt;&lt;strong&gt;References&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Gunnar Carlsson: &lt;a href=&quot;https://www.ams.org/journals/bull/2009-46-02/S0273-0979-09-01249-X/S0273-0979-09-01249-X.pdf&quot;&gt;Topology and Data&lt;/a&gt;, Bull. Amer. Math. Soc. 46 (2009)&lt;/li&gt;
+  &lt;li&gt;Trevor Hastie, Robert Tibshirani, Jerome Friedman: &lt;a href=&quot;https://hastie.su.domains/Papers/ESLII.pdf&quot;&gt;The Elements of Statistical Learning&lt;/a&gt;, Springer Series in Statistics (2001)&lt;/li&gt;
+&lt;/ol&gt;</content><author><name>Bill Oxbury</name></author><category term="data_science" /><summary type="html"></summary></entry></feed>

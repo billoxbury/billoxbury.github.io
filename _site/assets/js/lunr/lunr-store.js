@@ -54,7 +54,7 @@ var store = [{
         "teaser": "/assets/img/2019-07-01/zip2.png"
       },{
         "title": "A topological trick for data visualisation",
-        "excerpt":"How do hand-written digits arrange themselves in pixel space? The plot above (and the interactive version linked to it) illustrates the ‘mapper’ construction described in Gunnar Carlsson, Topology and Data, Bull Amer Math Soc 46 (2009) — here applied to the well known ‘Zip’ data set consisting of 7,291 hand-written...","categories": ["data_science"],
+        "excerpt":"How do hand-written digits arrange themselves in pixel space? The visualisation above (and the interactive version linked to it) illustrates the mapper construction described by Gunnar Carlsson in [1] — here applied to the well known ‘Zip’ data set consisting of 7,291 hand-written digits (a relative of MNIST - this...","categories": ["data_science"],
         "tags": [],
         "url": "/data_science/topological-trick-for-data-visualisation/",
         "teaser": "/assets/img/2019-07-01/zip2.png"
