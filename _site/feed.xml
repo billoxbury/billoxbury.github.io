@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-10-28T08:23:30+00:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Bills.Data</title><subtitle>Exploring ideas in data science</subtitle><author><name>Bill Oxbury</name></author><entry><title type="html">Zombie bots and neural bots</title><link href="http://localhost:4000/artificial_intelligence/zombie-bots-and-neural-bots/" rel="alternate" type="text/html" title="Zombie bots and neural bots" /><published>2023-09-08T00:00:00+00:00</published><updated>2023-09-08T00:00:00+00:00</updated><id>http://localhost:4000/artificial_intelligence/zombie-bots-and-neural-bots</id><content type="html" xml:base="http://localhost:4000/artificial_intelligence/zombie-bots-and-neural-bots/">&lt;p&gt;&lt;img src=&quot;/assets/img/2023-09-08/nbot-2.gif&quot; width=&quot;90%&quot; /&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-10-28T08:33:31+00:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Bills.Data</title><subtitle>Exploring ideas in data science</subtitle><author><name>Bill Oxbury</name></author><entry><title type="html">Predicting the rank of an elliptic curve</title><link href="http://localhost:4000/mathematics/predicting-elliptic-curve-rank/" rel="alternate" type="text/html" title="Predicting the rank of an elliptic curve" /><published>2023-10-27T00:00:00+00:00</published><updated>2023-10-27T00:00:00+00:00</updated><id>http://localhost:4000/mathematics/predicting-elliptic-curve-rank</id><content type="html" xml:base="http://localhost:4000/mathematics/predicting-elliptic-curve-rank/">&lt;p&gt;&lt;img src=&quot;/assets/img/2023-10-27/tsne.png&quot; width=&quot;90%&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Of all the hype that attaches to machine learning these days, perhaps the least hyped applications - but in my opinion the most fascinating - are those application of machine learning to mathemtics itself.&lt;/p&gt;</content><author><name>Bill Oxbury</name></author><category term="mathematics" /><summary type="html"></summary></entry><entry><title type="html">Zombie bots and neural bots</title><link href="http://localhost:4000/artificial_intelligence/zombie-bots-and-neural-bots/" rel="alternate" type="text/html" title="Zombie bots and neural bots" /><published>2023-09-08T00:00:00+00:00</published><updated>2023-09-08T00:00:00+00:00</updated><id>http://localhost:4000/artificial_intelligence/zombie-bots-and-neural-bots</id><content type="html" xml:base="http://localhost:4000/artificial_intelligence/zombie-bots-and-neural-bots/">&lt;p&gt;&lt;img src=&quot;/assets/img/2023-09-08/nbot-2.gif&quot; width=&quot;90%&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;We all know that neural networks are taking over the world. We see this in the deep learning revolution, in the wonders of deep reinforcement learning and of large language models. These advances combine Big Tech, Big Data and Big Bucks. But the underlying ideas are simple and very powerful, and in this blog I want to share some toy examples that I first played with about 10 years ago.&lt;/p&gt;
 
@@ -686,60 +688,4 @@ select a distribution $p$ by clicking somewhere in the left triangle: the middle
 
 &lt;p&gt;On the other hand, we do see that for distributions that stay away from the boundary — that is, for those with higher entropy — mean squared error is a surprisingly good approximation to cross-entropy, at least for $N=3$.&lt;/p&gt;
 
-&lt;p&gt;Of course, when we’re training neural networks, it’s precisely the low entropy, boundary distributions that matter. It’s the vertex points (one-hot distributions) that we use for training — in the vicinity of which cross-entropy is highly sensitive, while the Euclidean metric is blunt and unobservant.&lt;/p&gt;</content><author><name>Bill Oxbury</name></author><category term="data_science" /><summary type="html"></summary></entry><entry><title type="html">Using topology to help visualise word vectors</title><link href="http://localhost:4000/data_science/wikiwords/" rel="alternate" type="text/html" title="Using topology to help visualise word vectors" /><published>2019-09-01T00:00:00+00:00</published><updated>2019-09-01T00:00:00+00:00</updated><id>http://localhost:4000/data_science/wikiwords</id><content type="html" xml:base="http://localhost:4000/data_science/wikiwords/">&lt;p&gt;&lt;a href=&quot;https://billox.shinyapps.io/wikiwords/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/assets/img/2019-09-01/wikimap.jpg&quot; width=&quot;100%&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Vector embeddings are at the heart of image and language models for AI applications including image captioning, machine translation, question-answering and many more. Vector representations of data arise as a natural by-product of neural networks via the states of their internal layers. Vector representations are also inherently geometric, and invite attempts at visualisation as a way to gain insight into data sets. In this post, I will illustrate this for one of the earliest and best known ‘neural’ vector embeddings.&lt;/p&gt;
-
-&lt;p&gt;&lt;b&gt;word2vec&lt;/b&gt; [1] is a neural network-based algorithm for representing words of text by vectors, based on the contextual behaviour of those words in a given training corpus. This post is not about the algorithm — which I will take as given  and just compute the vectors for a load of Wikipedia words. It’s about the question(s): given a cloud of 71,290 &lt;b&gt;word2vec&lt;/b&gt; vectors in 200-dimensional space, can we make sense of this point cloud? What does it ‘look’ like, and how are the Wiki-words distributed within it? Can we interact with it visually?&lt;/p&gt;
-
-&lt;p&gt;The size of this point cloud makes this a good exercise, as it’s computationally expensive to apply a dimensional reduction such as t-SNE [2], and it’s not really feasible to try plotting so many points in the plane.&lt;/p&gt;
-
-&lt;p&gt;So I returned to the &lt;b&gt;mapper&lt;/b&gt; construction from topological data analysis, as described in [3] and in &lt;a href=&quot;https://billoxbury.github.io/data_science/topological-trick-for-data-visualisation/&quot; target=&quot;_blank&quot;&gt;my previous blog&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;b&gt;mapper&lt;/b&gt; says find a suitable open cover of the point cloud — one in which there’s good clustering within the sets of the cover. Then apply heirarchical clustering within each open set, and view all the resulting clusters as nodes of a graph, where edges are drawn between any two nodes for which the corresponding clusters have a point in common.
-What you end up with is a much smaller representation of the data, a graph, which is readily visualised and which summarises the distribution of all the points in the cloud.&lt;/p&gt;
-
-&lt;p&gt;I’ll come back to the construction in a moment – but first &lt;a href=&quot;https://billox.shinyapps.io/wikiwords/&quot; target=&quot;_blank&quot;&gt;take a look at the result here&lt;/a&gt;. We get a graph with 6,273 vertices (of which 4,797 form a giant component). You can select parts of the graph to zoom in on, and then scan the zoomed-in graph with the mouse to see what the word clusters are.&lt;/p&gt;
-
-&lt;p&gt;For example, try hovering over points (where ‘point’ = ‘cluster of words’) in the ‘foodie’ island:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/2019-09-01/foodie.png&quot; width=&quot;100%&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;(The demo has various other knobs and whistles (e.g. choices of graph layout, path-finding) – but I’m not concerned with those here. It is written using &lt;i&gt;R shiny&lt;/i&gt; and &lt;i&gt;igraph&lt;/i&gt;, as &lt;a href=&quot;https://billoxbury.github.io/data_science/coding-interactive-graphics/&quot; target=&quot;_blank&quot;&gt;described in this blog&lt;/a&gt;.)&lt;/p&gt;
-
-&lt;p&gt;In the remainder of this post I want to explain the ‘topological’ part of the construction – that is, how I’ve applied &lt;b&gt;mapper&lt;/b&gt;.&lt;/p&gt;
-
-&lt;p&gt;Following the description in my &lt;a href=&quot;https://billoxbury.github.io/data_science/topological-trick-for-data-visualisation/&quot; target=&quot;_blank&quot;&gt;previous blog&lt;/a&gt;, we need a good covering of the point cloud by binning a suitable ‘height’ function. 
-By ‘good’ we mean that geometric structures in the cloud should get ‘sliced’ and appear as islands in the sets of the covering. Think of a mountain range, with open sets given by altitude bands. As a whole, the mountains don’t cluster well because they’re all joined at sea level, but when you slice them at a given altitude they separate nicely.&lt;/p&gt;
-
-&lt;p&gt;The key observation is that &lt;i&gt;word frequency&lt;/i&gt;, as a function on the point cloud, plays the role of altitude in this sense. In other words, the count of a word as it occurs in the Wikipedia corpus. As you’d expect, this has a power law distribution:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/2019-09-01/powerlaw.png&quot; width=&quot;100%&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;The uncommon words, like technical terms, obscure names, acronyms and so on, are in the top left while the more frequent, common-usage words are in the lower right of the plot. (And I’ll need those coefficients in just a moment.)&lt;/p&gt;
-
-&lt;p&gt;The intuition is that natural topics in text (mountains) always comprise a good range of word frequencies — they contain specialist words (coloured red in our graphics) as well as common-usage words (coloured white).&lt;/p&gt;
-
-&lt;p&gt;But to make use of word frequency, we need to know that it’s continuous as a function on the point cloud. I’ll justify this heuristically in the following way. First of all, here’s a histogram of point-to-point &lt;b&gt;word2vec&lt;/b&gt; distances in a uniform sample of 1,000 words.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/2019-09-01/pairwise_dist.png&quot; width=&quot;100%&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;On the basis of this, let’s regard two points as ‘close’ if their distance is less than 10. For all point-pairs of distance less than 10, we can plot &lt;b&gt;word2vec&lt;/b&gt; distance against frequency distance. It shows empirically that frequency is continuous – points close together always have frequency close together:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/2019-09-01/continuity.png&quot; width=&quot;100%&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;This is exactly what we need to apply &lt;b&gt;mapper&lt;/b&gt;. I use word frequency as my ‘altitude’ function, where the bands are defined exponentially using those coefficients in the power law plot to ensure that all bands in the point cloud are of roughly equal size. Within each band I apply heirarchical clustering, and then edges form as clusters in one band overlap with clusters in an adjacent band.&lt;/p&gt;
-
-&lt;p&gt;Finally, having built the graph, we draw it in the plane.&lt;/p&gt;
-
-&lt;p&gt;A few extra technical remarks: since the vertices correspond to clusters of points in a vector space, we can represent them by the centroids of those clusters, and then map them into the plane by using a t-SNE projection of the centroids [2].
-I suppressed drawing of the edges because they are often long-range and less helpful to the eye. (Though they are meaningful: they represent the many words which inhabit multiple semantic communities.) 
-And colour denotes word frequency: white for common words to red for rare words.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;References&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Google &lt;a href=&quot;https://code.google.com/p/word2vec/&quot; target=&quot;_blank&quot;&gt;word2vec&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Laurens van der Maaten, Geoffrey Hinton: &lt;a href=&quot;https://www.cs.toronto.edu/~hinton/absps/tsne.pdf&quot; target=&quot;_blank&quot;&gt;Visualizing Data using t-SNE&lt;/a&gt;, Journal of Machine Learning Research 1 (2008).&lt;/li&gt;
-  &lt;li&gt;Gunnar Carlsson: &lt;a href=&quot;https://www.ams.org/journals/bull/2009-46-02/S0273-0979-09-01249-X/S0273-0979-09-01249-X.pdf&quot;&gt;Topology and Data&lt;/a&gt;, Bull. Amer. Math. Soc. 46 (2009)&lt;/li&gt;
-&lt;/ol&gt;</content><author><name>Bill Oxbury</name></author><category term="data_science" /><summary type="html"></summary></entry></feed>
+&lt;p&gt;Of course, when we’re training neural networks, it’s precisely the low entropy, boundary distributions that matter. It’s the vertex points (one-hot distributions) that we use for training — in the vicinity of which cross-entropy is highly sensitive, while the Euclidean metric is blunt and unobservant.&lt;/p&gt;</content><author><name>Bill Oxbury</name></author><category term="data_science" /><summary type="html"></summary></entry></feed>
