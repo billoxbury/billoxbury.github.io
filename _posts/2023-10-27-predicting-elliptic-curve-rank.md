@@ -94,13 +94,13 @@ In my experiments, I've tried to reproduce most of the results of [1]. I've used
 
 The paper [1] makes a remarkable observation. 
 
-As a preamble, suppose the starting question is _'can the sequence of $a_p$ counts discriminate curves of different rank?' Then, looking directly at examples does not offer much hope:
+As a preamble, suppose the starting question is _'can the sequences of $a_p$ counts discriminate curves of different rank?'_ If so, then looking directly at examples does not offer much hope:
 
 <img src="/assets/img/2023-10-27/ap_counts.png" width="100%">
 
 This plot takes a random curve and shows the sequence $(a_p)$ for the first 1,000 primes. We see that $a_p$ takes values within a range that grows as $O(\sqrt{p})$ in accordance with Hasse's Theorem. But there is no obvious pattern in the sign of $a_p$, and the picture is indistinguishable to the eye for curves of rank 0,1 or 2.
 
-However, if instead of looking at individual curves, we look at the average of $a_p$ over lots of curves (I've taken all those with conductor in the range 5,000-10,000 here) we see quite a different picture:
+However, instead of looking at individual curves, [1] looks at the average of $a_p$ over lots of curves (I've taken all those with conductor in the range 5,000-10,000 here). Then we see quite a different picture:
 
 <img src="/assets/img/2023-10-27/average0-1.png" width="100%">
 <img src="/assets/img/2023-10-27/average0-2.png" width="100%">

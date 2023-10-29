@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-10-29T13:52:20+00:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Bills.Data</title><subtitle>Exploring ideas in data science</subtitle><author><name>Bill Oxbury</name></author><entry><title type="html">Predicting the rank of an elliptic curve</title><link href="http://localhost:4000/mathematics/predicting-elliptic-curve-rank/" rel="alternate" type="text/html" title="Predicting the rank of an elliptic curve" /><published>2023-10-27T00:00:00+00:00</published><updated>2023-10-27T00:00:00+00:00</updated><id>http://localhost:4000/mathematics/predicting-elliptic-curve-rank</id><content type="html" xml:base="http://localhost:4000/mathematics/predicting-elliptic-curve-rank/">&lt;p&gt;&lt;img src=&quot;/assets/img/2023-10-27/tsne.png&quot; width=&quot;90%&quot; /&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-10-29T14:54:12+00:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Bills.Data</title><subtitle>Exploring ideas in data science</subtitle><author><name>Bill Oxbury</name></author><entry><title type="html">Predicting the rank of an elliptic curve</title><link href="http://localhost:4000/mathematics/predicting-elliptic-curve-rank/" rel="alternate" type="text/html" title="Predicting the rank of an elliptic curve" /><published>2023-10-27T00:00:00+00:00</published><updated>2023-10-27T00:00:00+00:00</updated><id>http://localhost:4000/mathematics/predicting-elliptic-curve-rank</id><content type="html" xml:base="http://localhost:4000/mathematics/predicting-elliptic-curve-rank/">&lt;p&gt;&lt;img src=&quot;/assets/img/2023-10-27/tsne.png&quot; width=&quot;90%&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Of all the hype that attaches to machine learning these days, perhaps the least hyped applications - but to my mind some of the most interesting - are those applications of machine learning to mathematics itself. In this post I want to talk about an application demonstrated in the paper [1] &lt;em&gt;‘Murmurations of elliptic curves’&lt;/em&gt;.&lt;/p&gt;
 
@@ -84,13 +84,13 @@ This database contains, among other things, around 3.8 million elliptic curves o
 
 &lt;p&gt;The paper [1] makes a remarkable observation.&lt;/p&gt;
 
-&lt;p&gt;As a preamble, suppose the starting question is _‘can the sequence of $a_p$ counts discriminate curves of different rank?’ Then, looking directly at examples does not offer much hope:&lt;/p&gt;
+&lt;p&gt;As a preamble, suppose the starting question is &lt;em&gt;‘can the sequences of $a_p$ counts discriminate curves of different rank?’&lt;/em&gt; If so, then looking directly at examples does not offer much hope:&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/img/2023-10-27/ap_counts.png&quot; width=&quot;100%&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;This plot takes a random curve and shows the sequence $(a_p)$ for the first 1,000 primes. We see that $a_p$ takes values within a range that grows as $O(\sqrt{p})$ in accordance with Hasse’s Theorem. But there is no obvious pattern in the sign of $a_p$, and the picture is indistinguishable to the eye for curves of rank 0,1 or 2.&lt;/p&gt;
 
-&lt;p&gt;However, if instead of looking at individual curves, we look at the average of $a_p$ over lots of curves (I’ve taken all those with conductor in the range 5,000-10,000 here) we see quite a different picture:&lt;/p&gt;
+&lt;p&gt;However, instead of looking at individual curves, [1] looks at the average of $a_p$ over lots of curves (I’ve taken all those with conductor in the range 5,000-10,000 here). Then we see quite a different picture:&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/img/2023-10-27/average0-1.png&quot; width=&quot;100%&quot; /&gt;
 &lt;img src=&quot;/assets/img/2023-10-27/average0-2.png&quot; width=&quot;100%&quot; /&gt;&lt;/p&gt;
