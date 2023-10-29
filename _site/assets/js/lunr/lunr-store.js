@@ -126,7 +126,7 @@ var store = [{
         "teaser": "/assets/img/2023-09-08/nbot-2.gif"
       },{
         "title": "Predicting the rank of an elliptic curve",
-        "excerpt":"   Of all the hype that attaches to machine learning these days, perhaps the least hyped applications - but in my opinion the most fascinating - are those application of machine learning to mathemtics itself.  ","categories": ["mathematics"],
+        "excerpt":"Of all the hype that attaches to machine learning these days, perhaps the least hyped applications - but to my mind some of the most interesting - are those applications of machine learning to mathematics itself. In this post I want to talk about an application demonstrated in the paper...","categories": ["mathematics"],
         "tags": [],
         "url": "/mathematics/predicting-elliptic-curve-rank/",
         "teaser": "/assets/img/2023-10-27/tsne.png"

@@ -49,4 +49,3 @@ Note that at the extremes: if the number of bins is 1 then the graph is totally 
 
 1. Gunnar Carlsson: <a href="https://www.ams.org/journals/bull/2009-46-02/S0273-0979-09-01249-X/S0273-0979-09-01249-X.pdf">Topology and Data</a>, Bull. Amer. Math. Soc. 46 (2009)
 2. Trevor Hastie, Robert Tibshirani, Jerome Friedman: <a href="https://hastie.su.domains/Papers/ESLII.pdf">The Elements of Statistical Learning</a>, Springer Series in Statistics (2001)
-
