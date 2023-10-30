@@ -127,7 +127,7 @@ Projecting these 100-dimensional $b$-vectors (for a sample of 30,000 elliptic cu
 Using t-SNE [4] for a better nonlinear dimensional reduction sharpens the picture (this was the graphic shown at the top of this post):
 <img src="/assets/img/2023-10-27/tsneplot.png" width="100%">
 
-What this plot shows is that in the 100-dimensional ($b_p$) feature space we've chosen, there are very clean decision buondaries separating the three values of the rank. So it's then a routine matter to train a classifier. 
+What this plot shows is that in the 100-dimensional ($b_p$) feature space we've chosen, there are very clean decision boundaries separating the three values of the rank. So it's then a routine matter to train a classifier. 
 
 As usual, we'll partition the data into a training set and a test set, balancing the classes within each.
 Here are the test results for three models:
