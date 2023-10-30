@@ -10,7 +10,7 @@ header:
 
 <img src="/assets/img/2023-10-27/tsne.png" width="90%">
 
-Of all the hype that attaches to machine learning these days, among the least trumpeted applications - but to my mind some of the most interesting - are those applications of machine learning to mathematics itself. In this post I want to talk about an application demonstrated in the paper [1] <a href="https://doi.org/10.48550/arXiv.2204.10140" target="_blank">Murmurations of elliptic curves</a>. I will discuss some experiments reproducing the results of that paper. 
+Of all the hype that attaches to machine learning these days, among the least trumpeted applications - but to my mind some of the most interesting - are those applications of machine learning to mathematics itself. In this post I want to talk about an application demonstrated in the paper [1] <a href="https://doi.org/10.48550/arXiv.2204.10140" target="_blank">Murmurations of elliptic curves</a>. I will discuss some experiments of my own reproducing the results of that paper. 
 
 Spoiler for the graphic above: each dot represents an elliptic curve over ${\mathbb Q}$ coloured by the rank of the curve; its position in the plane depending only on the numbers of points on the curve modulo the first 100 prime numbers. (I'll explain all this as we go!)
 
