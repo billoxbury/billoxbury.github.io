@@ -10,9 +10,9 @@ header:
 
 <img src="/assets/img/2023-10-27/tsne.png" width="90%">
 
-Of all the hype that attaches to machine learning these days, perhaps the least hyped applications - but to my mind some of the most interesting - are those applications of machine learning to mathematics itself. In this post I want to talk about an application demonstrated in the paper [1] _'Murmurations of elliptic curves'_.
+Of all the hype that attaches to machine learning these days, among the least trumpeted applications - but to my mind some of the most interesting - are those applications of machine learning to mathematics itself. In this post I want to talk about an application demonstrated in the paper [1] <a href="https://doi.org/10.48550/arXiv.2204.10140" target="_blank">Murmurations of elliptic curves</a>. I will discuss some experiments reproducing the results of that paper. 
 
-I will show some experiments reproducing the results of that paper. Spoiler for the graphic above: each dot represents an elliptic curve over ${\mathbb Q}$ coloured by the rank of the curve, its position in the plane depending only on the numbers of points on the curve modulo the first 100 prime numbers. I'll explain all this as we go!
+Spoiler for the graphic above: each dot represents an elliptic curve over ${\mathbb Q}$ coloured by the rank of the curve; its position in the plane depending only on the numbers of points on the curve modulo the first 100 prime numbers. (I'll explain all this as we go!)
 
 The subject requires quite a bit of background, but it's a story worth telling: it relates closely to a problem, the _Birch-Swinnerton-Dyer Conjecture_, which is one of the seven \$1,000,000 <a href="https://en.wikipedia.org/wiki/Millennium_Prize_Problems" target="_blank">Millennium Prize Problems</a> announced by the Clay Mathematics Institute in 2000.
 
@@ -24,21 +24,23 @@ An <a href="https://en.wikipedia.org/wiki/Elliptic_curve" target="_blank">ellipt
 \\[
 y^2 + xy + y = x^3 - x^2 - 9916x - 377564.
 \\]
-The coefficients can be any real or complex numbers, but in this post I'm only concerned with curves with coefficients in the rational numbers ${\mathbb Q}$, as with this example. These are called elliptic curves over ${\mathbb Q}$.
+The coefficients can be any real or complex numbers, but in this post I'm only concerned with curves with coefficients in the rational numbers ${\mathbb Q}$, as in this example. These are called elliptic curves over ${\mathbb Q}$.
 
 Elliptic curves have both a long mathematical history and a surprising modern relevance - both on account of the fact that points on the curve naturally form a _group_, via the rule that three points are collinear in the plane if and only if they add to zero in the group law:
 
 <img src="/assets/img/2023-10-27/grouplaw.png" width="100%">
 
+(The identity element $O_E$ is usually taken to be the point at infinity on the $y$-axis.)
+
 The modern relevance of this is the use of elliptic curve groups in <a href="https://en.wikipedia.org/wiki/Elliptic_Curve_Digital_Signature_Algorithm" target="_blank">digital security</a>. The mathematical relevance is in understanding the structure of this group for any given curve. (And, of course, the mathematical theory is critical for the secure use of elliptic curves in encryption and signature schemes.)
 
 **What is the rank?**
 
-The rational points on an elliptic curve $E$, which we denote by $E({\mathbb Q})$, form an _abelian group_ - that is, the group is commutative $P + Q = Q + P$. Moreover, the *Mordell-Weil Theorem* (from the 1920s) says that this group is _finitely generated_. 
+The rational points on an elliptic curve $E$, which we denote by $E({\mathbb Q})$, form an _abelian group_ - that is, the group is commutative $P + Q = Q + P$. Moreover, the *Mordell-Weil Theorem*, proved in the 1920s, says that this group is _finitely generated_. 
 
-(Notice that above I've specified points in the rational field ${\mathbb Q}$. If I'd said points in the complex field ${\mathbb C}$, the theorem would not be true - in fact the group $E({\mathbb C})$ is isomorphic to a _torus group_ $S^1 \times S^1$. So the field matters!)
+(Notice that I've specified points in the rational field ${\mathbb Q}$. If I'd said points in the complex field ${\mathbb C}$, the theorem would not be true - in fact the group $E({\mathbb C})$ is isomorphic to a _torus group_ $S^1 \times S^1$. So the field matters! Most of what I'll say below is true for any _algebraic number field_ - but I want to keep things simple and only talk about curves over ${\mathbb Q}$.)
 
-So $E({\mathbb Q})$ is a finitely generated abelian group. More generally, this is true for any _algebraic number field_ (along with most of the discussion below) - but I want to keep things simple and only talk about curves over ${\mathbb Q}$. This means that the group must be isomorphic to 
+So $E({\mathbb Q})$ is a finitely generated abelian group. This means that the group must be isomorphic to 
 
 \\[
 {\mathbb Z}^r \oplus E({\mathbb Q})_{\rm torsion}
@@ -48,7 +50,7 @@ where the torsion part is a finite group and the number $r$ is called the _rank_
 
 Computing the <a href="https://en.wikipedia.org/wiki/Rank_of_an_elliptic_curve" target="_blank">rank of an elliptic curve</a> over a number field (or over ${\mathbb Q}$) turns out to be a hard problem. We need to locate rational points of infinite order, and to figure out the maximum number of such points that are ${\mathbb Z}$-linearly independent. After more than a century of study, there is still no general method for doing this.
 
-Nonetheless, we can compute many examples using special and ad hoc methods. I'll talk about a database of known examples in a moment. 
+Nonetheless, we can compute many examples using special and ad hoc methods. I'll talk about a database of these in a moment. 
 
 Based on a careful study of examples, the <a href="https://en.wikipedia.org/wiki/Birch_and_Swinnerton-Dyer_conjecture" target="_blank">Birch-Swinnerton-Dyer Conjecture</a> (of Millennium Prize fame) suggests that the rank depends on the relationship of an elliptic curve with the _prime numbers_.
 
@@ -88,7 +90,7 @@ Incidentally, most known elliptic curves over ${\mathbb Q}$ have rank 0 or 1, wi
 The data source used in this research is the database <a href="https://www.lmfdb.org" target="_blank">LMFDB</a> [3].
 This database contains, among other things, around 3.8 million elliptic curves over ${\mathbb Q}$ of known rank up to 5. They are organised by _conductor_ - this is a number whose factorisation encodes primes under which a curve has bad reduction.
 
-In my experiments, I've tried to reproduce most of the results of [1]. I've used 59,573 elliptic curves (up to isogeny) of rank 0 ,1 or 2 and conductor in the range 1,000-10,000. This is comparable to the experiments in [1] that I'll talk about, though they also do some work with curves of higher conductor which I will ignore.
+In my experiments, I've tried to reproduce most of the results of [1]. I've used 59,573 elliptic curves (up to isogeny) of rank 0 ,1 or 2 and conductor in the range 1,000-10,000. This is comparable to the experiments in [1] that I'll talk about, though that paper also does some work with curves of higher conductor which I will ignore.
 
 **Murmurations**
 
@@ -107,7 +109,7 @@ However, instead of looking at individual curves, [1] looks at the average of $a
 
 These beautiful patterns are the 'murmurations' of the title of [1]. Just to be clear: in these plots, each dot represents not an elliptic curve but a prime number. The key observation in [1] and in these plots is that _on average_ there is a very clear signal distinguishing curves of different rank.
 
-(Incidentally, the paper [1] goes on to fit curves to the patterns above and tries to understand these. I won't go there in this post - my interest here is just how to get a predictive model for the rank.)
+(Incidentally, the paper [1] goes on to fit curves to these patterns and tries to understand them. I won't go there in this post - my interest here is just how to get a predictive model for the rank.)
 
 **Predicting the rank**
 
