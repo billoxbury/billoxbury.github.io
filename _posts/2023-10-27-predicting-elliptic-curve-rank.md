@@ -130,7 +130,7 @@ Using t-SNE [4] for a better nonlinear dimensional reduction sharpens the pictur
 What this plot shows is that in the 100-dimensional ($b_p$) feature space we've chosen, there are very clean decision boundaries separating the three values of the rank. So it's then a routine matter to train a classifier. 
 
 As usual, we'll partition the data into a training set and a test set, balancing the classes within each.
-Here are the test results for three models:
+Here are my test results for three models:
 
 *Logistic regression using the $a_p$ features:*
 <img src="/assets/img/2023-10-27/model_lr_a.png" width="100%">
