@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-11-17T11:53:17+00:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Bills.Data</title><subtitle>Exploring ideas in data science</subtitle><author><name>Bill Oxbury</name></author><entry><title type="html">Neural networks in microbes</title><link href="http://localhost:4000/artificial_intelligence/wetware/" rel="alternate" type="text/html" title="Neural networks in microbes" /><published>2023-11-15T00:00:00+00:00</published><updated>2023-11-15T00:00:00+00:00</updated><id>http://localhost:4000/artificial_intelligence/wetware</id><content type="html" xml:base="http://localhost:4000/artificial_intelligence/wetware/">&lt;figure&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-11-20T12:57:16+00:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Bills.Data</title><subtitle>Exploring ideas in data science</subtitle><author><name>Bill Oxbury</name></author><entry><title type="html">Neural networks in microbes</title><link href="http://localhost:4000/artificial_intelligence/wetware/" rel="alternate" type="text/html" title="Neural networks in microbes" /><published>2023-11-15T00:00:00+00:00</published><updated>2023-11-15T00:00:00+00:00</updated><id>http://localhost:4000/artificial_intelligence/wetware</id><content type="html" xml:base="http://localhost:4000/artificial_intelligence/wetware/">&lt;figure&gt;
   &lt;img src=&quot;/assets/img/2023-11-15/ecoli_size.jpg&quot; width=&quot;100%&quot; /&gt;
   &lt;figcaption&gt;Source: &lt;a href=&quot;https://www.uq.edu.au/news/article/2022/01/scientists-uncover-resistance-gene%E2%80%99-deadly-e-coli&quot; target=&quot;_blank&quot;&gt;University of Queensland&lt;/a&gt;
   &lt;/figcaption&gt;
@@ -12,9 +12,9 @@
   &lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;p&gt;This blog post is inspired by, and heavily draws upon, Dennis Bray’s beautiful 2009 book &lt;em&gt;Wetware&lt;/em&gt; [1], which describes how this information processing works. The vast majority of organisms do not have nervous systems or brains, and yet they are able to exhibit biological ‘intelligence’. The biggest surprise for me in Bray’s account is how the molecular information processing that takes place in the cell can be modelled as a &lt;a href=&quot;https://en.wikipedia.org/wiki/Artificial_neural_network&quot; target=&quot;_blank&quot;&gt;neural network&lt;/a&gt; in the same sense as understood in computer science. The units of the network are not nerve cells as we think of for vertebrates (including humans), but are &lt;a href=&quot;https://en.wikipedia.org/wiki/Protein&quot; target=&quot;_blank&quot;&gt;proteins&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This blog post is inspired by, and heavily draws upon, Dennis Bray’s beautiful 2009 book &lt;em&gt;Wetware&lt;/em&gt; [2], which describes how this information processing works (following [1]). The vast majority of organisms do not have nervous systems or brains, and yet they are able to exhibit biological ‘intelligence’. The biggest surprise for me in Bray’s account is how the molecular information processing that takes place in the cell can be modelled as a &lt;a href=&quot;https://en.wikipedia.org/wiki/Artificial_neural_network&quot; target=&quot;_blank&quot;&gt;neural network&lt;/a&gt; in the same sense as understood in computer science. The units of the network are not nerve cells as we think of for vertebrates (including humans), but are &lt;a href=&quot;https://en.wikipedia.org/wiki/Protein&quot; target=&quot;_blank&quot;&gt;proteins&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;Now, although artificial neural networks (ANNs) were originally inspired by the human brain, they are inevitably too coarse a model to represent what really goes on in the brain. In the machine learning community we understand that. We know that we’re not really modelling brains, but that ANNs are still a powerful computational device nonetheless - underpinning virtually all of contemporary AI.&lt;/p&gt;
+&lt;p&gt;Now, although artificial neural networks (ANNs) were originally inspired by the human brain, they are inevitably too coarse a model to represent what really goes on in the brain. In the machine learning community we understand that. We know that we’re not really modelling brains, but that ANNs are still a powerful computational device nonetheless - underpinning most of modern AI.&lt;/p&gt;
 
 &lt;p&gt;What is much less well known is that ANNs as a model are also a way to represent protein-protein interactions (PPIs) in the cell – and probably a much closer model of this than they are of animal brains.&lt;/p&gt;
 
@@ -46,7 +46,7 @@ It must make decisions based on trade-offs between different (good and bad) chem
 &lt;p&gt;&lt;em&gt;Protozoa&lt;/em&gt; are single-celled eukaryotes (cells with a nucleus) and are some orders of magnitude larger than bacteria such as &lt;em&gt;E.coli&lt;/em&gt;. One of the best known, for example is &lt;em&gt;Amoeba proteus&lt;/em&gt;, a large predatory protozoan that hunts bacteria and other small organisms. Its mode of transport is different from the swimming of &lt;em&gt;E.coli&lt;/em&gt; - it stretches out ‘arms’ called &lt;em&gt;pseudopodia&lt;/em&gt;, via cytoplasmic streaming, and changing its whole body shape by flowing into one or more of these pdeudopodia.&lt;/p&gt;
 
 &lt;figure&gt;
-  &lt;img src=&quot;/assets/img/2023-11-15/amoeba_proteus_size.jpg&quot; width=&quot;100%&quot; /&gt;
+  &lt;img src=&quot;/assets/img/2023-11-15/amoeba_proteus_scale.jpg&quot; width=&quot;100%&quot; /&gt;
   &lt;figcaption&gt;
   Source: &lt;a href=&quot;https://en.wikipedia.org/wiki/Amoeba&quot; target=&quot;_blank&quot;&gt;Wikipedia&lt;/a&gt;
   &lt;/figcaption&gt;
@@ -59,7 +59,7 @@ move between distinct states of activity (feeding, travelling, resting, dividing
 
 &lt;p&gt;It’s interesting to note in passing that &lt;em&gt;individuality&lt;/em&gt; of behaviour is observed by researchers - with each bacterium (this is from [1], referring to &lt;em&gt;E.coli&lt;/em&gt;) “displaying a distinct pattern of swimming”! This shouldn’t surprise us as random variation is the basis of evolution by natural selection. We also observe it in much simpler simulated systems too (see the &lt;a href=&quot;https://billoxbury.github.io/artificial_intelligence/zombie-bots-and-neural-bots/&quot; target=&quot;_blank&quot;&gt;earlier blog&lt;/a&gt; mentioned above).&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;Associative learning&lt;/em&gt; - that is, an organism’s ability to change its response to a given stimulus in the light of experience - is something we usually associate with brainy animals. However, it turns out there there is a long literature claiming associative learning in various protozoa including &lt;em&gt;Amoeba&lt;/em&gt;. Many examples can be found in the references [2,3,4].&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Associative learning&lt;/em&gt; - that is, an organism’s ability to change its response to a given stimulus in the light of experience - is something we usually associate with brainy animals. However, it turns out there there is a long literature claiming associative learning in various protozoa including &lt;em&gt;Amoeba&lt;/em&gt;. Many examples can be found in the references [3,4,5].&lt;/p&gt;
 
 &lt;p&gt;In summary, we can say that in evolutionary terms, biological information processing predated the evolution of nerve cells, nervous systems and brains by about 3 billion years. Not only that, but the capability of biological organisms to &lt;em&gt;learn&lt;/em&gt; preceded nervous systems by maybe 1 billion years. In other words, brains and nervous systems are not actually &lt;em&gt;fundamental&lt;/em&gt; to biological intelligence. Understanding what is could be really illuminating for those of us thinking about artificial intelligence.&lt;/p&gt;
 
@@ -93,7 +93,7 @@ move between distinct states of activity (feeding, travelling, resting, dividing
 &lt;figure style=&quot;width:100%&quot; class=&quot;align-center&quot;&gt;
   &lt;img src=&quot;/assets/img/2023-11-15/ecoli_ppi_notext.png&quot; /&gt;
   &lt;figcaption&gt;
-  Source: &lt;a href=&quot;https://www.nature.com/articles/nbt.2831&quot; target=&quot;_blank&quot;&gt;Nature&lt;/a&gt;, reference [5]
+  Source: &lt;a href=&quot;https://www.nature.com/articles/nbt.2831&quot; target=&quot;_blank&quot;&gt;Nature&lt;/a&gt;, reference [6]
   &lt;/figcaption&gt;
 &lt;/figure&gt;
 
@@ -101,18 +101,18 @@ move between distinct states of activity (feeding, travelling, resting, dividing
 
 &lt;p&gt;The key to this is that a protein molecule can exist in more than one (geometric) state. Recalling that the folding geometry of a protein $P$ depends on the net effect of mutual affinities of the amino acids in the constituent chain, it’s easy to see that in the presence of a binding protein $Q$ this total effect can change, so that the geometry of $P$ jumps to a different configuration. In this new configuration, new binding properties may appear, switching on or off interactions with other proteins.&lt;/p&gt;
 
-&lt;p&gt;The following diagram is taken from [1] directly, and shows a protein which functions as an enzyme (converting $A$ to $A’$) but under regulation by protein $B$. It has the signalling effect of a transistor:&lt;/p&gt;
+&lt;p&gt;The following diagram is taken from [2] directly, and shows a protein which functions as an enzyme (converting $A$ to $A’$) but under regulation by protein $B$. It has the signalling effect of a transistor:&lt;/p&gt;
 
 &lt;figure style=&quot;width:75%&quot; class=&quot;align-center&quot;&gt;
   &lt;img src=&quot;/assets/img/2023-11-15/transistor.jpg&quot; /&gt;
   &lt;figcaption&gt;
-  Source: reference [1] page 67.
+  Source: reference [2] page 67.
   &lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;p&gt;To quote directly from [1]:&lt;/p&gt;
+&lt;p&gt;To quote directly from [2]:&lt;/p&gt;
 
-&lt;p&gt;&lt;small&gt;&quot;Two-state proteins are everywhere in a living cell ... they are the building blocks of flagella and cilia ... the molecular motors that harness chemical energy to make a cell divide, a muscle contract, an amoeba crawl ... They are at the heart of the electrical signals produced by nerve cells in our brain and hence underpin all our mental activities.&quot;
+&lt;p&gt;&lt;small&gt;Two-state proteins are everywhere in a living cell ... they are the building blocks of flagella and cilia ... the molecular motors that harness chemical energy to make a cell divide, a muscle contract, an amoeba crawl ... They are at the heart of the electrical signals produced by nerve cells in our brain and hence underpin all our mental activities.
 &lt;/small&gt;&lt;/p&gt;
 
 &lt;p&gt;Some protein switches are held in ‘solid state’, for increased sensitivity or amplification, or for mechanical reasons. This includes the chemical receptors (signalling across the cell membrane) and the motors (which spin the flagella) in &lt;em&gt;E.coli&lt;/em&gt;:&lt;/p&gt;
@@ -120,7 +120,7 @@ move between distinct states of activity (feeding, travelling, resting, dividing
 &lt;figure style=&quot;width:75%&quot; class=&quot;align-center&quot;&gt;
   &lt;img src=&quot;/assets/img/2023-11-15/ecoli_machine.jpg&quot; /&gt;
   &lt;figcaption&gt;
-  Source: reference [1] page 91.
+  Source: reference [2] page 91.
   &lt;/figcaption&gt;
 &lt;/figure&gt;
 
@@ -132,117 +132,62 @@ move between distinct states of activity (feeding, travelling, resting, dividing
 
 &lt;p&gt;Let’s turn to the internal processing - the decision making that processes the sensory signal and controls the operation of the motor proteins - how does this work?&lt;/p&gt;
 
-&lt;p&gt;Bray explicitly recognises that the cell PPIs can be interpreted as a neural network (and has a chapter on this), and illustrate the possible congurations of inputs/outputs with the following diagram:&lt;/p&gt;
+&lt;p&gt;Bray explicitly recognises that the cell PPIs can be interpreted as a neural network, and illustrates the possible congurations of inputs/outputs with the following figure:&lt;/p&gt;
 
 &lt;figure style=&quot;width:75%&quot; class=&quot;align-center&quot;&gt;
   &lt;img src=&quot;/assets/img/2023-11-15/processing.jpg&quot; /&gt;
   &lt;figcaption&gt;
-  Source: reference [1] page 81.
+  Source: reference [2] page 81.
   &lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;p&gt;/&lt;strong&gt;**&lt;/strong&gt;&lt;strong&gt;**&lt;/strong&gt;&lt;strong&gt;**&lt;/strong&gt;&lt;strong&gt;**&lt;/strong&gt;&lt;strong&gt;**&lt;/strong&gt;&lt;strong&gt;**&lt;/strong&gt;&lt;strong&gt;**&lt;/strong&gt;&lt;strong&gt;**&lt;/strong&gt;&lt;strong&gt;**&lt;/strong&gt;&lt;em&gt;**&lt;/em&gt;/&lt;/p&gt;
+&lt;p&gt;The modelling of each (protein) unit $P$ as a perceptron is explained in more detail in [1]. The inputs to $P$, at any point in time, are the concentrations of its incoming regulators. These are weighted by their catalytic efficiency as determined by binding strengths and other factors. The activation function is typically sigmoidal and the output of $P$ is its concentration at that time.&lt;/p&gt;
 
-&lt;p&gt;Protein switches can be controlled by &lt;em&gt;feedback&lt;/em&gt; - for example, a process that manufactures an amino acid $A$ runs fast when $A$ is scarce, and slows down as $A$ becomes more abundant. Or they may be controlled by the presence of higher-order regulators in the cell. But at each level there is a primary target and a regulator - and most proteins will have several of each.&lt;/p&gt;
+&lt;p&gt;The network architeture is far from layered or feed-forward, but is inherently &lt;em&gt;recurrent&lt;/em&gt;, including complex cyclic catalytic relationships among groups of proteins.&lt;/p&gt;
 
-&lt;p&gt;p.79 Relevant to part III: there are many kinds of modification to protein structure, which be complex and hierarchical - “they constitute a feature unique to living systems and have no electronic equivalent.”
-(What’s a good algorithmic model?)&lt;/p&gt;
+&lt;p&gt;Of course, all models are simplifications and this is no exception. Units in the network are not all alike in their behaviours: each protein has its own characteristics including timescale of reaction and 
+non-uniformity of distribution in the cell. Thermal diffusion operates at different timescales for smaller molecules compared to larger molecules; and proteins may exhibit localisation near, or impedance by, large scale structures within the cell such as vesicles, filaments and membranes. So a good model might include per-unit parameters to allow for such factors.&lt;/p&gt;
 
-&lt;p&gt;Fig 4.3 enzymes as computational elements.&lt;/p&gt;
+&lt;p&gt;What is the training process for a molecular neural network?&lt;/p&gt;
 
-&lt;p&gt;p.81 examples of simple tasks eg oscillators for time keeping etc&lt;/p&gt;
+&lt;p&gt;By far the most important training signal comes from the evolution of PPIs through natural selection. On the other hand, we’ve seen that cells can learn, and so there must also be mechanisms by which the weights of the network (rates of catalytic efficiency) can change in response to stimuli, allowing reinforcement learning. In multi-cellular organisms this is seen, for example, in cells of the nervous system and the immune system. Bray discusses some moelcular mechanisms by which this may work - but I won’t discuss these here.&lt;/p&gt;
 
-&lt;p&gt;“Living organisms, by contrast [with digital computers], seem to be incorrigibly analog.”
-Then argues that it’s less clear cut - with analog aspects of electronic computation and digital aspects in biology such as DNA base sequence, protein switches etc.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;3. Lessons for AI&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;(This segues to an argument that NNs provide exactly a model combining digital and analog.)&lt;/p&gt;
+&lt;p&gt;Most of us, learning for the first time about artificial neural networks (ANNs), were introduced to them as a simplified model of neurons in the brain. Researchers of AI and of algorithms generally have derived huge benefit from &lt;a href=&quot;https://en.wikipedia.org/wiki/Bio-inspired_computing&quot; target=&quot;_blank&quot;&gt;imitating biology&lt;/a&gt;, and neural networks have been one of the most successful examples.&lt;/p&gt;
 
-&lt;p&gt;p.86 relevant to part I: discussion of complex cell reactions for physical motion of cell eg amoeba. Signals have to propagate across the cell for coordinated movement with overall goal eg entrapping prey.&lt;/p&gt;
+&lt;p&gt;However, what the work of Bray and others shows is that the ANN model has even greater depth and significance in biology than we realised. What conclusions should AI researchers draw from this?&lt;/p&gt;
 
-&lt;p&gt;p.92 [In discussion of E.Coli pathways] 
-Protein complexes: not all PPIs take place via diffusion - some proteins held in solid state e.g. at sensory protein complexes and at motor ‘protein machines’. At sensory end this increases sensitivity and amplification of signals; at motor end enable translation to physical motion.&lt;/p&gt;
+&lt;p&gt;One question to consider is the evolutionary relationship between molecular neural networks in single cells and multi-celled nervous systems in animals. Did the latter evolve independently and by coincidence? Almost certainly not: it turns out that key (PPI) signalling pathways that control motor behaviour in bacteria and protozoa were co-opted by evolution for use in the firing of action potentials - that collectively determine the computational processes in the brain - between nerve cells.&lt;/p&gt;
 
-&lt;p&gt;p 104 remarks about population of protein molecules as not at all homogeneous - more like an irregular slurry with different individuals having quite different loc environments. But still simplify in the PPI network or NN to relating the population as a single functional node&lt;/p&gt;
+&lt;p&gt;Consider this: a single dendritic spine - just one of a nerve cell’s 1000s of receptors for incoming axons - is about the size of a bacterium and operates, like a bacterium, by having a complex of receptor proteins in its membrane. 
+When the incoming axon fires, these receptors detect the neurotransmitter glutamate crossing the synapse. Some of the receptors can additionally detect the change of voltage within the spine that occurs when the receiving cell fires. This in turn can regulate an increase in sensitivity of that dentritic spine, driving a process of &lt;a href=&quot;https://en.wikipedia.org/wiki/Hebbian_theory&quot; target=&quot;_blank&quot;&gt;Hebbian learning&lt;/a&gt; for the formation of long-term memories in the brain.&lt;/p&gt;
 
-&lt;p&gt;p.120
-“The biochemical pathways regulating glucose in a liver cell make up a sort of neural network.”
-This is complicated network with multiple inputs at each node (e.g. glucagon, insulin, adrenaline and so on).
-Each node is a population of molecules of a particular protein, therefore distinct from other nodes.
-Also the network is recurrent (not simply feedforward).&lt;/p&gt;
+&lt;p&gt;In effect, evolution has co-opted ancient and successful signalling PPIs to solve the problem of scaling of information processing and intelligence in multi-cellular organisms - at least in animals - for which the basic processes of thermal diffusion and geometric recognition of molecules are no longer sufficient.&lt;/p&gt;
 
-&lt;p&gt;What is the training process? In many cases (e.g. a liver cell) the network connections (i.e. binding strengths, rates of catalysis) are learned through evolution. This is by far the most importnat training signal.
-(Cf. ‘Zombie bots and neural bots’) 
-But in some other cases (e.g. cells in the nervous systems and the immune system) there are reinforcement learning processes at work that are only partially understood.&lt;/p&gt;
+&lt;p&gt;(Indeed, this raises a fascinating question for plants and fungi: these multi-cellular organisms must also process environmental information and decision-making, and the mechanisms for this can also be expected to be derived from ancestral single-cell PPIs. Can their (macroscopic) solutions likewise be modelled as neural networks?)&lt;/p&gt;
 
-&lt;p&gt;Evolution of optimal pathways for specific biochemical scenarios demonstrated in computer simulations by Dennis Bray and collaborators.&lt;/p&gt;
+&lt;p&gt;So here is the bad news for AI. As long as we seek to model anything of the complexity of the human brain (or of animal intelligence more generally), artificial neural networks, even at the scale of current deep learning systems and large language models - despite their success on the problems for which they are designed - will always be absolutely inadequate.&lt;/p&gt;
 
-&lt;p&gt;p.125 observes that if biochemical reactions have properties of neural networks, then cells can be expected to react optimally to combinations of stimuli - which is what is observed.&lt;/p&gt;
+&lt;p&gt;To highlight this point, I cannot do better than quote again from [2]. He points out that animal nerve cells are “self-contained entities … each a molecular metropolis in its own right”, and goes on to observe:&lt;/p&gt;
 
-&lt;p&gt;p.126 Gives examples of regulator proteins that behave in typical hidden-unit fashion, taking input from many physiological indicator chemicals and outputting their signal to many targets.&lt;/p&gt;
+&lt;p&gt;&lt;small&gt; Imprisoned in the crowded confines of the cortex, your pyramidal cells have no opportunity to escape. But there is nothing to stop them moving in place. They can grow and shrink, extend or retract their dendrites or branches of their axons. Their synaptic spines can be ... just as dynamic as an amoeba&apos;s pseudopodia. The movements of a nerve cell in the brain may be of shorter duration and harder to observe than those of a free-living cell, but why should they be less well informed? The millieu of such a cell is a rich and ever-changing broth of ions and neurotransmitters. There has been every opportunity for nerve cells evolving over millenia to learn how to extract information from this chemical soup.
+&lt;/small&gt;&lt;/p&gt;
 
-&lt;p&gt;p.127 cites as a benefit of this NN-like system its built-in redundancy: in most cases, if one node of the network is damaged - if the supply of one enzyme or hormone is defective - the system as a whole degrades gracefully rather than catastrophically.&lt;/p&gt;
+&lt;p&gt;But here’s the good news. The model of artificial neural networks, stumbled upon as a huge but very happy over-simplification of animal brains, turns out to be more fundamental in biology than we realised. It should be no coincidence, then, that it’s been so successful on such a broad range of hard tasks.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;BLOG 3: Lessons for AI&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Chap 9: ‘cells together’
-Chemical signals in communities of bacteria. E.g. bioluminescent behaviours, quorum sensing, recognition of foreigners.
-These signals can lead to collective behaviour reminiscent of higher organisms. This led to symbiotes (e.g. mitochondria, chloroplasts) and the evolution of multicellular organisms.&lt;/p&gt;
-
-&lt;p&gt;p.170 The biochemical signal pathways in a single cell now extend across the cell membrane and to receptors in other cells.&lt;/p&gt;
-
-&lt;p&gt;Some points to note:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;animal nervous system represents a scaling up of molecular NNs. But each neuron contains the same molecular NN capability as the E Coli. So how does this shape info proc of a brain beyond the NN model?&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;plants and fungi also process information and like animals have evolutionary root in molecular NNs. This suggests their info proc system might be formally described in NN terms - is that the case?&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;if NNs are ubiquitous in biological info proc then they have a universality which suggests NN-based AGI could be very likely.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;“Protein-protein interactions are critical steps in many signalling pathways, including those involved in immune cell activation and hormone response.”
-https://eandt.theiet.org/content/articles/2021/07/engineers-create-protein-circuits-which-respond-in-seconds/&lt;/p&gt;
-
-&lt;p&gt;The idea that the biological system for AI to emulate is the human brain feels very 1950s! - which is appropriate since that is when AI research was born. But in the 21st century we can see that this is too naive, and perhaps a better system - or at least more realistic in terms of emulating actual physical processes - is that of protein circuits and cellular information processing.&lt;/p&gt;
-
-&lt;p&gt;Main conclusions for AI: ANN-based AGI may soon be a reality processing/deploying multimedia content, writing/deploying code to the cloud BUT&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;despite the terminology, it’s incorrect to think of ANNs as simulating biological nervous systems&lt;/li&gt;
-  &lt;li&gt;it would be more accurate to think of ANN-based AGI as akin to a ‘synthetic amoeba’ operating in human cyber and social networks&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;For cross-fertilisation of ideas, AI researchers should be more aware of synthetic biology.&lt;/p&gt;
+&lt;p&gt;But evolving ANNs to models that get closer to &lt;a href=&quot;https://en.wikipedia.org/wiki/Artificial_general_intelligence&quot; target=&quot;_blank&quot;&gt;AGI&lt;/a&gt; will likely benefit from a more subtle understanding of biological intelligence.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;References&lt;/strong&gt;&lt;/p&gt;
 
 &lt;ol&gt;
+  &lt;li&gt;Dennis Bray, &lt;em&gt;Protein molecules as computational elements in living cells&lt;/em&gt;, &lt;a href=&quot;https://doi.org/10.1038/376307a0&quot; target=&quot;_blank&quot;&gt;Nature 376, 307–312&lt;/a&gt; (1995)&lt;/li&gt;
   &lt;li&gt;Dennis Bray, &lt;em&gt;Wetware, A Computer in Every Cell&lt;/em&gt;, Yale University Press (2009)&lt;/li&gt;
   &lt;li&gt;Philip Applewhite, &lt;a href=&quot;https://books.google.co.uk/books?hl=en&amp;amp;lr=&amp;amp;id=SznlULZ3hi0C&amp;amp;oi=fnd&amp;amp;pg=PA341&amp;amp;dq=learning+in+protozoa&amp;amp;ots=AjJ1310une&amp;amp;sig=ZtGWboHuutf2BXBDqGWg2QJCjhk&amp;amp;redir_esc=y#v=onepage&amp;amp;q=learning%20in%20protozoa&amp;amp;f=false&quot; target=&quot;_blank&quot;&gt;Learning in protozoa&lt;/a&gt;, Biochemistry and physiology of protozoa (1979)&lt;/li&gt;
   &lt;li&gt;De la Fuente, I.M., Bringas, C., Malaina, I. et al. &lt;em&gt;Evidence of conditioned behavior in amoebae&lt;/em&gt;,  &lt;a href=&quot;https://doi.org/10.1038/s41467-019-11677-w&quot; target=&quot;_blank&quot;&gt;Nat Commun 10, 3690&lt;/a&gt; (2019)&lt;/li&gt;
   &lt;li&gt;Samuel Gershman, Petra Balbi, Randy Gallistel, Jeremy Gunawardena, &lt;em&gt;Reconsidering the evidence for learning in single cells&lt;/em&gt; &lt;a href=&quot;https://doi.org/10.7554/eLife.61907&quot; target=&quot;_blank&quot;&gt;eLife 10:e61907&lt;/a&gt; (2021)&lt;/li&gt;
   &lt;li&gt;Rajagopala, S., Sikorski, P., Kumar, A. et al., &lt;em&gt;The binary protein-protein interaction landscape of Escherichia coli.&lt;/em&gt; &lt;a href=&quot;https://doi.org/10.1038/nbt.2831&quot; target=&quot;_blank&quot;&gt;Nat Biotechnol 32, 285–290&lt;/a&gt; (2014)&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;strong&gt;NOT USED&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/2023-11-15/microbesize.jpg&quot; width=&quot;100%&quot; /&gt;
-Source: https://courses.lumenlearning.com/suny-microbiology/chapter/types-of-microorganisms/&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/2023-11-15/amoeba.png&quot; width=&quot;100%&quot; /&gt;
-Source: https://www.livescience.com/54281-amoeba-definition.html&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/2023-11-15/synapse.png&quot; width=&quot;100%&quot; /&gt;
-Source: https://en.wikipedia.org/wiki/Chemical_synapse&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/2023-11-15/soma.png&quot; width=&quot;100%&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/2023-11-15/folding.png&quot; width=&quot;100%&quot; /&gt;
-Source: https://www.technologyreview.com/2020/11/30/1012712/deepmind-protein-folding-ai-solved-biology-science-drugs-disease/&lt;/p&gt;</content><author><name>Bill Oxbury</name></author><category term="artificial_intelligence" /><summary type="html">Source: University of Queensland</summary></entry><entry><title type="html">Predicting the rank of an elliptic curve</title><link href="http://localhost:4000/mathematics/predicting-elliptic-curve-rank/" rel="alternate" type="text/html" title="Predicting the rank of an elliptic curve" /><published>2023-10-27T00:00:00+00:00</published><updated>2023-10-27T00:00:00+00:00</updated><id>http://localhost:4000/mathematics/predicting-elliptic-curve-rank</id><content type="html" xml:base="http://localhost:4000/mathematics/predicting-elliptic-curve-rank/">&lt;p&gt;&lt;img src=&quot;/assets/img/2023-10-27/tsne.png&quot; width=&quot;90%&quot; /&gt;&lt;/p&gt;
+&lt;/ol&gt;</content><author><name>Bill Oxbury</name></author><category term="artificial_intelligence" /><summary type="html">Source: University of Queensland</summary></entry><entry><title type="html">Predicting the rank of an elliptic curve</title><link href="http://localhost:4000/mathematics/predicting-elliptic-curve-rank/" rel="alternate" type="text/html" title="Predicting the rank of an elliptic curve" /><published>2023-10-27T00:00:00+00:00</published><updated>2023-10-27T00:00:00+00:00</updated><id>http://localhost:4000/mathematics/predicting-elliptic-curve-rank</id><content type="html" xml:base="http://localhost:4000/mathematics/predicting-elliptic-curve-rank/">&lt;p&gt;&lt;img src=&quot;/assets/img/2023-10-27/tsne.png&quot; width=&quot;90%&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Of all the hype that attaches to machine learning these days, among the least trumpeted applications - but to my mind some of the most interesting - are those applications of machine learning to mathematics itself. In this post I want to talk about an application demonstrated in the paper [1] &lt;a href=&quot;https://doi.org/10.48550/arXiv.2204.10140&quot; target=&quot;_blank&quot;&gt;Murmurations of elliptic curves&lt;/a&gt;. I will discuss some experiments of my own reproducing the results of that paper.&lt;/p&gt;
 
