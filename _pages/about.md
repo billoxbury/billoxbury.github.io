@@ -3,4 +3,4 @@ permalink: /about/
 title: "About"
 ---
 
-Bill is an independent computer scientist living in Durham in the North-East of England. Since 2022 he has been focussing on data science applications to biodiversity conservation and security.
+Mathematician living in Durham in the North-East of England. Professor in Practice at Lancaster University, Visiting Researcher at the Alan Turing Institute and the Heilbronn Institute for Mathematical Research.
