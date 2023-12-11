@@ -90,7 +90,7 @@ var store = [{
         "teaser": "/assets/img/2023-10-27/tsne.png"
       },{
         "title": "Neural networks in single-celled organisms",
-        "excerpt":"Source: University of Queensland We tend to think of biological intelligence as arising from animal nervous systems and brains. But consider this. The bacterium Escherichia coli pictured above is about 0.5 micron across. Thousands could sit in the the cross-section of a human hair. Notably, 0.5 micron is about the...","categories": ["artificial_intelligence"],
+        "excerpt":"Source: University of Queensland We tend to think of biological intelligence as arising from animal nervous systems and brains. But consider this. The bacterium Escherichia coli pictured above is about 0.5 micron across. Thousands could sit in the cross-section of a human hair. Notably, 0.5 micron is about the same...","categories": ["artificial_intelligence"],
         "tags": [],
         "url": "/artificial_intelligence/wetware/",
         "teaser": "/assets/img/2023-11-15/ecoli.jpg"
