@@ -74,11 +74,11 @@ In the recent work [4], researchers at DeepMind found a brilliant way to test th
 Prime numbers: long-standing conjecture that the primes contain arbitrarily long arithmetic progressions $a, a + d, \ldots , a + (k-1)d$.
 (Proved in 2004 by Green and Tao.)
 
-Dense subsets $A \subset{mathbb N}$: I'll say $A$ is dense if $\sum_{n \in A} 1/n = \infty$. E.g. $A = \{ \hbox{primes} \}$, as proved by Erd\"os.
+Dense subsets $A \subset{\mathbb N}$: I'll say $A$ is dense if $\sum_{n \in A} 1/n = \infty$. E.g. $A = \{ \hbox{primes} \}$, as proved by Erd¨os.
 
-Erd\"os conjectured that dense subsets $A \subset{mathbb N}$ contain arbitrarily long arithmetic progressions. That is, this property is not telling us anything about the primes uniquely, but follows from the (known) density of the primes.
+Erd¨os conjectured that dense subsets $A \subset{\mathbb N}$ contain arbitrarily long arithmetic progressions. That is, this property is not telling us anything about the primes uniquely, but follows from the (known) density of the primes.
 
-The Erd\"os conjecture is a hard problem - and even if we restrict to $k=3$ a proff is not known.
+The Erd¨os conjecture is a hard problem - and even the case $k=3$ is not solved.
 
 
 
