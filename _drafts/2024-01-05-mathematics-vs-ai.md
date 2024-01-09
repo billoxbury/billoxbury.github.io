@@ -64,6 +64,22 @@ The question is, can the LLM do maths that it hasn't seen before? Had the Olympi
 
 **3. Can AI really discover new mathematics?**
 
+In the recent work [4], researchers at DeepMind found a brilliant way to test the general claim that one can indeed find completely new solutions to mathematical problems by consulting a LLM. Namely, suppose we pick a problem whose solutions can be directly evaluated for quality - as is often the case for problems of optimisation or combinatorics. If such a problem is also sufficiently well studied that the state of the art is well known in the mathematical community, then improving on that state of the art using a LLM will provide compelling evidence that the LLM has found novel mathematics.
+
+
+
+
+**Aside: why is the cap set problem interesting?**
+
+Prime numbers: long-standing conjecture that the primes contain arbitrarily long arithmetic progressions $a, a + d, \ldots , a + (k-1)d$.
+(Proved in 2004 by Green and Tao.)
+
+Dense subsets $A \subset{mathbb N}$: I'll say $A$ is dense if $\sum_{n \in A} 1/n = \infty$. E.g. $A = \{ \hbox{primes} \}$, as proved by Erd\"os.
+
+Erd\"os conjectured that dense subsets $A \subset{mathbb N}$ contain arbitrarily long arithmetic progressions. That is, this property is not telling us anything about the primes uniquely, but follows from the (known) density of the primes.
+
+The Erd\"os conjecture is a hard problem - and even if we restrict to $k=3$ a proff is not known.
+
 
 
 
