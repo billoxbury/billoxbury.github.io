@@ -108,7 +108,7 @@ LLMs exhibit powerful capability to generate not just natural language text but 
 
 The DeepMind work [4] has two key novelties. The first is that it approaches the problems _bin packing_ and _cap set_ by asking the LLM not just for solutions, but for code to generate a solution. The LLM used here, incidentally, is not GPT-4 but Google's specialist <a href="https://lablab.ai/tech/google/codey" target="_blank">Codey</a> model. 
 
-So, for example, the model is not asked _'what is the largest cap set you can find in ${\mathbb F}_3^n$?'_ but rather _'give me Python code to do the following ...'_ More precisely, it is asked to complete a code template in which a particular function is to be filled in. For the cap set problem, for example, the template implements a greedy algorithm for building a cap set point by point, and the model is asked to fill in the crucial priority function that scores each candidate point for inclusion.
+So, for example, the model is not asked _'what is the largest cap set you can find in ${\mathbb F}_3^n$?'_ but rather _'give me Python code to do the following ...'_ More precisely, it is asked to complete a code template in which a particular function is to be filled in. For the cap set problem the template implements a greedy algorithm for building a cap set point by point, and the model is asked to fill in the crucial priority function that scores each candidate point for inclusion.
 
 It goes without saying that this is a much more interpretable use of the AI: the code returned can be examined, understood and can inform subsequent mathematical analysis.
 
