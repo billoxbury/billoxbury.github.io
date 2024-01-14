@@ -14,7 +14,7 @@ header:
   </figcaption>
 </figure>
 
-This post is to review some amazing observations by Microsoft and DeepMind researchers regarding the apparent ability of Large Language Models (LLMs) to solve mathematical problems. I believe mathematicians should sit up and take notice of these examples: we need at the very least to understand them - and to ask what they might mean for the future.
+This post is to review some remarkable observations by Microsoft and DeepMind researchers regarding the apparent ability of Large Language Models (LLMs) to solve mathematical problems. I believe mathematicians should sit up and take notice of these examples: we need at the very least to understand them - and to ask what they might mean for the future.
 
 **1. A surprising example**
 
