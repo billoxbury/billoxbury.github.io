@@ -116,7 +116,7 @@ The second key novelty is that the LLM is not used for a single query, but for a
 
 The LLM is thus used not for one-time query but as an oracle step in an iterative algorithm. The full algorithm is evolutionary in the sense that a population of highest-performing codes is maintained, and the LLM prompts (the code versions _v0,v1_ etc) drawn from this population.
 
-The details of DeepMind's evolutionary approach - their use of the LLM to develop a code to solve the original mathematical problem - are themselves very interesting. There's no need for me to say more about them here as that is much better done by the blog [5] (and by [4]). 
+The details of DeepMind's evolutionary approach - their use of the LLM to develop a code to solve the original mathematical problem - are themselves very interesting. There's no need for me to say more about them here as that is much better done in the blog [5] (and in [4]). 
 
 But the work sends a signal to the mathematical community, in my opinion, that there are very powerful new tools for us coming from language modelling.
 
