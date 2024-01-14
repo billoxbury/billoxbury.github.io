@@ -30,7 +30,7 @@ OK, thought about it enough? This an example cited in a recent study of GPT-4 by
   <img src="/assets/img/2024-01-05/answer.png" width="100%">
 </figure>
 
-What do we see? In principle, the chatbot is based on a sophisticated auto-complete - probilistic next-word selection to construct a text response. Yet the result is some coherent reasoning which correctly solves the problem presented. Moreover, it's not a standard problem: it would be surprising and challenging to most students. 
+What do we see? In principle, the chatbot is based on a sophisticated auto-complete - probabilistic next-word selection to construct a text response. Yet the result is some coherent reasoning which correctly solves the problem presented. Moreover, it's not a standard problem: it would be surprising and challenging to most students. 
 
 Conceivably, this same problem occured somewhere in the training corpus used to build the language model and GPT-4 is simply regurgitating a known answer - I'll return to this possibility below. Yet this example is just one of many similarly jaw-dropping interactions with GPT-4 cited in [1]. Could they all have been in the training data?
 
@@ -38,11 +38,11 @@ What is going on here?
 
 **2. It's Reinforcement Learning, stupid!**
 
-A base LLM is a sequence-to-sequence (transformer) model built on a huge amount of text - typically 10s of billions of words - trawled from the Internet. It is built to model next-word probabilities based on long stretches of text. In this sense, it can be described as a very powerful 'autocomplete' capability. 
+A base LLM is a sequence-to-sequence (<a href="https://en.wikipedia.org/wiki/Transformer_(machine_learning_model)" target="_blank">transformer</a>) model built on a huge amount of text - typically 10s of billions of words - trawled from the Internet. It is built to model next-word probabilities based on long stretches of text. In this sense, it can be described as a very powerful 'autocomplete' capability. 
 
 This does not tell the whole story, however. A base LLM alone would not be able to produce the kind of performance illustrated above. In a user-facing system such as GPT-4 there is much more going on, as introduced by OpenAI in [2] and explained in the excellent article by Aerin Kim [3].
 
-The magic that turns a base LLM into the a high-performing, all-knowing chatbot is referred to as _Reinforcement Learning from Human Feedback_ (RLHF). In my view, this rather modest terminology doesn't do justice to the engineering design - though it does reveal that the most important 'secret sauce' is human input - lots of it, of high quality and meticulously managed.
+The magic that turns a base LLM into the a high-performing, all-knowing chatbot is referred to as _Reinforcement Learning from Human Feedback_ (RLHF). In my view, this rather modest terminology doesn't do justice to the cleverness of the design - though it does reveal that the most important 'secret sauce' is human input - lots of it, of high quality and meticulously managed.
 
 Briefly, the design consists to three machine learnt models:
 
@@ -56,7 +56,7 @@ The success of the system comes from having, at each step, the best actions to c
 
 The _instruction data_ used to train the SFT model consists of human curated pairs _(prompt, response)_. The reward model, likewise, is trained on significant human input. For this, the training data consists of a large set of prompts (independent of those used for the SFT!), and selections of responses are ranked by human labellers.
 
-According to the discussion in [2,3], this human-generated input is not cheap, crowd-sourced data but follows detailed guidelines and is carefully choreographed. The performance of the system is critically depenedent on the quality of this data and not on the power of the LLM alone.
+According to the discussion in [2,3], this human-generated input is not cheap, crowd-sourced data but follows detailed guidelines and is carefully choreographed. The performance of the system is critically dependent on the quality of this data and not on the power of the LLM alone.
 
 Back to mathematics. Examples like the one above suggest that LLMs can actually 'do' maths. What this is based on is models that are in effect compressions of data: of vast amounts of Internet data in the base LLM, but also of large amounts of human-curated data in the SFT and reward models.
 
@@ -84,13 +84,13 @@ Then, for each $n$, what is the largest possible size $s_n$ of a cap set?
 For example, the figure illustrates $s_2 = 4$. As an exercise, you might be able to see (by drawing some pictures) that $s_3 = 9$.
 Here are <a href="https://oeis.org/A090245" target="_blank">a few more values</a>. But for most $n$, the exact value of $s_n$ is not known, and the game is mainly to improve on known bounds and asymptotics.
 
-It won't surprise you that [4], using their LLM methods, improves on previously known results for $s_n$. In particular, for $n=8$ they improve the previously best known result $s_8 \geq 496$ to $s_8 \geq 512$.
+Well, it won't surprise you that the authors of [4], using their LLM methods, improve on previously known results for $s_n$. In particular, for $n=8$ they improve the previously best known result $s_8 \geq 496$ to $s_8 \geq 512$.
 
 Just before coming to the LLM methods behind this, why is the cap set problem interesting? I feel this needs a few words of background.
 
 The story starts with the relationship betwen the _prime numbers_ $2,3,5,7,11,\ldots$ and _arithmetic progressions_ (APs) (whole number sequences of the form $a, a+d, a+2d,a+3d, \ldots$). A long time ago Dirichlet showed that every (infinite) AP with $a,d$ coprime contains infinitely many primes. In 2004, Green and Tao proved a sort of converse, that the sequence of primes contains arbitrarily long finite APs. 
 
-(For example $3,5,7$ is an AP of length 3. Exercise: find APs in the primes of lengths 4,5,...)
+(For example $3,5,7$ is an AP of length 3. Here's an exercise: find APs in the primes of lengths 4,5,...)
 
 It is generally believed that this property results from the _density_ of the primes in ${\mathbb N}$ as they go to infinity. Let's say a subset $A \subset{\mathbb N}$ is _dense_ if $\sum_{n \in A} 1/n = \infty$. Erdős had shown that the prime numbers are dense in this sense - and he conjectured that this property of being dense is enough to force $A$ to contain arbitrarily long APs. 
 
@@ -104,7 +104,7 @@ So back to the point: the DeepMind researchers were able to generate demonstrabl
 
 **4. Using LLM as a search tool**
 
-LLMs exhibit powerful capability to generate not just natural language text but also computer code - and code in response to natural language prompts. Take a look, for example, the graphic at the top of this post. The unicorn pictures shown are the compiled images from <a href="https://en.wikipedia.org/wiki/PGF/TikZ" target="_blank">TikZ</a> code output by GPT-4. 
+LLMs exhibit powerful capability to generate not just natural language text but also computer code - and code in response to natural language prompts. Take a look, for example, at the graphic at the top of this post. The unicorn pictures shown are the compiled images from <a href="https://en.wikipedia.org/wiki/PGF/TikZ" target="_blank">TikZ</a> code output by GPT-4. 
 
 The DeepMind work [4] has two key novelties. The first is that it approaches the problems _bin packing_ and _cap set_ by asking the LLM not just for solutions, but for code to generate a solution. The LLM used here, incidentally, is not GPT-4 but Google's specialist <a href="https://lablab.ai/tech/google/codey" target="_blank">Codey</a> model. 
 
