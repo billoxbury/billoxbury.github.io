@@ -3,7 +3,7 @@ title:  "Why mathematicians should care about Large Language Models"
 date:   2024-01-05
 categories: artificial_intelligence mathematics
 blurb: >- 
-    What implication does modern AI have for mathematics?
+    What implications does modern AI have for mathematics?
 header:
   teaser: "/assets/img/2024-01-05/unicorn.png"
 ---
