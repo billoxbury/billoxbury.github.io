@@ -24,7 +24,7 @@ Let's start with a teaser - actually a version of a question from the 2022 Inter
 
 If you haven't seen this before, I invite you to give it a little thought before proceeding.
 
-OK, thought about it enough? This an example cited in a recent study of GPT-4 by Microsoft researchers [1 section 4.4]. It is put to GPT-4 as a prompt - here is the model's response:
+OK, thought about it enough? This is an example cited in a study of GPT-4 last year by Microsoft researchers [1 section 4.4]. It is put to GPT-4 as a prompt - here is the model's response:
 
 <figure>
   <img src="/assets/img/2024-01-05/answer.png" width="100%">
