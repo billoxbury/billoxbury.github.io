@@ -114,7 +114,7 @@ It goes without saying that this is a much more interpretable use of the AI: the
 
 The second key novelty is that the LLM is not used for a single query, but for a sequence of queries, each of which seeks to improve on previous answers. So each query is not _'fill in the priority function in this code template'_, but rather, _'given versions v0, v1 of the priority function in this code template, what should version v2 be?'_.
 
-The LLM is thus used not for one-time query but as an oracle step in an iterative algorithm. The full algorithm is evolutionary in the sense that a population of highest-performing codes is maintained, and the LLM prompts (the code versions _v0,v1_ etc) drawn from this population.
+The LLM is thus used not for one-time query but as an oracle step in an iterative algorithm. The full algorithm is evolutionary in the sense that a population of highest-performing codes is maintained, and the LLM prompts (the code versions _v0,v1_ etc) are drawn from this population.
 
 The details of DeepMind's evolutionary approach - their use of the LLM to develop a code to solve the original mathematical problem - are themselves very interesting. There's no need for me to say more about them here as that is much better done in the blog [5] (and in [4]). 
 
