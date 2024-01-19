@@ -42,7 +42,7 @@ A base LLM is a sequence-to-sequence (<a href="https://en.wikipedia.org/wiki/Tra
 
 This does not tell the whole story, however. A base LLM alone would not be able to produce the kind of performance illustrated above. In a user-facing system such as GPT-4 there is much more going on, as introduced by OpenAI in [2] and explained in the excellent article by Aerin Kim [3].
 
-The magic that turns a base LLM into the a high-performing, all-knowing chatbot is referred to as _Reinforcement Learning from Human Feedback_ (RLHF). In my view, this rather modest terminology doesn't do justice to the cleverness of the design - though it does reveal that the most important 'secret sauce' is human input - lots of it, of high quality and meticulously managed.
+The magic that turns a base LLM into a high-performing, all-knowing chatbot is referred to as _Reinforcement Learning from Human Feedback_ (RLHF). In my view, this rather modest terminology doesn't do justice to the cleverness of the design - though it does reveal that the most important 'secret sauce' is human input - lots of it, of high quality and meticulously managed.
 
 Briefly, the design consists to three machine learnt models:
 
