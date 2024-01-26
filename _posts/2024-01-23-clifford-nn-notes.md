@@ -117,7 +117,7 @@ A neural network is a composite function $f: {\bf x} \to \cdots \to {\bf y}$ whi
 
 A training data set $D$ for $f$ consists of pairs $(x,y)$ drawn from the joint distribution of $X$ and $Y$. For each such pair we can evaluate $\hat{y} = f(x)$ and measure the distance $d(\hat{y}, y)$ (for a suitable metric $d$).
 
-We can define an error function 
+We can define an error function (usually called the _loss function_)
 \\[
 E_D(f) = \sum_{(x,y) \in D} d(\hat{y}, y).
 \\]
