@@ -63,7 +63,7 @@ In other words, the kernel $K$ is a filter which slides around the 2D pixel arra
 
 For a given pixel $i \in I$ and filter position $j \in J$, the linear coefficient $W_{ij}$ in the NN layer is simply the entry in $K$ over $i$ when the filter is at position $j$. (Exercise: write down a formula!)
 
-What are the benefits of a CNN layer?
+What are the benefits of a convolutional layer?
 
 - It's efficient in model size: the matrix $W$ has $O(n)$ degrees of freedom 
 instead of $O(n^2)$ (where $n = |I|$).
@@ -74,7 +74,7 @@ instead of $O(n^2)$ (where $n = |I|$).
 **3. Group-equivariant CNNs**
 
 CNNs have a useful generalisation, first introduced in [2] (and probably elsewhere around that time). 
-Suppose that a group $G$ acts on both $I,J$. For simplicity I'll assuming these actions are transitive - otherwise the arguments below are applied orbit-wise. 
+Suppose that a group $G$ acts on both $I,J$. For simplicity I'll assume these actions are transitive - otherwise the arguments below are applied orbit-wise. 
 
 So we are generalising the case $G = {\mathbb Z}^2$ above. Just as in that case, we get induced actions on the functions ${\bf x}, {\bf y}$ by ${\bf x}^g (i) = {\bf x} (i^{g^{-1}})$ and similar for ${\bf y}$. We seek equivariance, meaning that these actions commute with $W$:
 \\[
