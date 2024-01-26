@@ -141,7 +141,7 @@ Here's a picture of what we do:
   From an old PowerPoint c2014. Not sure what I was on.
   </figcaption>
 </figure>
-I've decomposed $F$ into a directed acyclic graph (DAG) of simple compononents. Evaluating the function involves a forward pass through this DAG. 
+I've decomposed $F$ into a directed acyclic graph (DAG) of simple components. Evaluating the function involves a forward pass through this DAG. 
 
 The reverse (red) arrows are the computed derivatives of each arrow on its own. The chain rule for the end-to-end derivative can be written as:
 \\[
