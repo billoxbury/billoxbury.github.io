@@ -123,8 +123,9 @@ E_D(f) = \sum_{(x,y) \in D} d(\hat{y}, y).
 \\]
 Training the model now means choosing the parameters of $f$ to minimise $E_D(f)$.
 
-This minimisation takes place over linear coefficients in the $W$-matrices and kernels $K$ in the layers of the network. We assume the 'architecture' is fixed - that is the number of size of layers, and filter structure in the convolutional kernels. We can assume WLOG that all layers are convolutional.
+This minimisation takes place over linear coefficients in the $W$-matrices and kernels $K$ in the layers of the network. We assume the 'architecture' is fixed - that is, the number and size of layers, and the filter structure in the convolutional kernels. 
 
+We can assume WLOG that all layers are convolutional.
 That means we can treat the error as a function of the linear $K$ coefficients in all the layers, $E_D(K)$. This is a function over a big vector space, we need to compute the derivative $\nabla_K(E_D)$. 
 
 Computing this derivative uses the chain rule. Let's recall how this works.
