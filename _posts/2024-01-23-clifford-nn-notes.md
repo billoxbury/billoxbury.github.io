@@ -115,7 +115,7 @@ Before coming to that, though, let's remind ourselves that a NN model is to be l
 
 A neural network is a composite function $f: {\bf x} \to \cdots \to {\bf y}$ which seeks to model the conditional distribution $P(Y \mid X)$ for random variables $X,Y$. For example, $X$ may represent 2D pixel arrays and $Y$ the binary variable 'image contains a cat'.
 
-A training data set $D$ for $f$ consists of pairs $(x,y)$ where $x$ is drawn from the random variable $X$ and $y$ from $Y$. For each such pair we can evaluate $\hat{y} = f(x)$ and measure the distance $d(\hat{y}, y)$ (for a suitable metric $d$).
+A training data set $D$ for $f$ consists of pairs $(x,y)$ drawn from the joint distribution of $X$ and $Y$. For each such pair we can evaluate $\hat{y} = f(x)$ and measure the distance $d(\hat{y}, y)$ (for a suitable metric $d$).
 
 We can define an error function 
 \\[
