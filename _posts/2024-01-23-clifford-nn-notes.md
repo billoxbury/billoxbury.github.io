@@ -276,7 +276,7 @@ e_3 \mapsto
 $$</p>
 where $i = \sqrt{-1}$.
 
-Whether we choose to learn rotational of Fourier Clifford kernels is a design choice, as are other aspects of the NN architecture. For either choice, the kernels are learnt (by back-propagation) and deployed in exactly the same way as for layers defined purely over ${\mathbb R}$ - but now the $O(2)$-geometric structure is built in.
+Whether we choose to learn rotational or Fourier Clifford kernels is a design choice, as are other aspects of the NN architecture. For either choice, the kernels are learnt (by back-propagation) and deployed in exactly the same way as for layers defined purely over ${\mathbb R}$ - but now the $O(2)$-geometric structure is built in.
 
 For 3D problems, where we want a model to respect $O(3)$ geometry, the story is similar. The Clifford algebra (for choice of signature, or choice of sign on the Euclidean inner product) is 8-dimensional over ${\mathbb R}$, with basis illustrated in the picture at the top of these notes. It's a fine graphic - but for my money less useful than a clear representation of the algebra in terms of matrices over ${\mathbb R}$, ${\mathbb C}$ or ${\mathbb H}$. 
 
