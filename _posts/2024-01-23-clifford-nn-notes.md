@@ -173,9 +173,10 @@ Our input images now have three colour (RGB) channels, so we imagine a model wit
 {\bf x} : I = {\mathbb Z}^2 \rightarrow {\mathbb R} \oplus {\mathbb R} \oplus{\mathbb R}.
 \\]
 For this, an initial NN layer will be constructed by learning an independent kernel on each channel and summing the convolutions: 
-\\[
+<p>$$
 K_{\rm red} \star {\bf x}_1 + K_{\rm blue} \star {\bf x}_2 + K_{\rm green} \star {\bf x}_3.
-\\]
+$$
+</p>
 
 *Problem 2: shallow water flow.*
 

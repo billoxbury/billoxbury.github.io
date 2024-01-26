@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-01-26T07:47:55+00:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Bills.Data</title><subtitle>Exploring ideas in data science</subtitle><author><name>Bill Oxbury</name></author><entry><title type="html">What are geometric neural networks?</title><link href="http://localhost:4000/data_science/mathematics/clifford-nn-notes/" rel="alternate" type="text/html" title="What are geometric neural networks?" /><published>2024-01-23T00:00:00+00:00</published><updated>2024-01-23T00:00:00+00:00</updated><id>http://localhost:4000/data_science/mathematics/clifford-nn-notes</id><content type="html" xml:base="http://localhost:4000/data_science/mathematics/clifford-nn-notes/">&lt;figure&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-01-26T14:15:12+00:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Bills.Data</title><subtitle>Exploring ideas in data science</subtitle><author><name>Bill Oxbury</name></author><entry><title type="html">What are geometric neural networks?</title><link href="http://localhost:4000/data_science/mathematics/clifford-nn-notes/" rel="alternate" type="text/html" title="What are geometric neural networks?" /><published>2024-01-23T00:00:00+00:00</published><updated>2024-01-23T00:00:00+00:00</updated><id>http://localhost:4000/data_science/mathematics/clifford-nn-notes</id><content type="html" xml:base="http://localhost:4000/data_science/mathematics/clifford-nn-notes/">&lt;figure&gt;
   &lt;img src=&quot;/assets/img/2024-01-23/multivector.png&quot; width=&quot;100%&quot; /&gt;
   &lt;figcaption&gt;
   Clifford group equivariance for ${\mathbb R}^3$. From [5].
@@ -52,7 +52,7 @@ More precisely, we think of each of $I,J$ as the &lt;em&gt;set&lt;/em&gt; ${\mat
 
 &lt;p&gt;For a given pixel $i \in I$ and filter position $j \in J$, the linear coefficient $W_{ij}$ in the NN layer is simply the entry in $K$ over $i$ when the filter is at position $j$. (Exercise: write down a formula!)&lt;/p&gt;
 
-&lt;p&gt;What are the benefits of a CNN layer?&lt;/p&gt;
+&lt;p&gt;What are the benefits of a convolutional layer?&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;It’s efficient in model size: the matrix $W$ has $O(n)$ degrees of freedom 
@@ -64,7 +64,7 @@ instead of $O(n^2)$ (where $n = |I|$).&lt;/li&gt;
 &lt;p&gt;&lt;strong&gt;3. Group-equivariant CNNs&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;CNNs have a useful generalisation, first introduced in [2] (and probably elsewhere around that time). 
-Suppose that a group $G$ acts on both $I,J$. For simplicity I’ll assuming these actions are transitive - otherwise the arguments below are applied orbit-wise.&lt;/p&gt;
+Suppose that a group $G$ acts on both $I,J$. For simplicity I’ll assume these actions are transitive - otherwise the arguments below are applied orbit-wise.&lt;/p&gt;
 
 &lt;p&gt;So we are generalising the case $G = {\mathbb Z}^2$ above. Just as in that case, we get induced actions on the functions ${\bf x}, {\bf y}$ by ${\bf x}^g (i) = {\bf x} (i^{g^{-1}})$ and similar for ${\bf y}$. We seek equivariance, meaning that these actions commute with $W$:
 \[
@@ -78,9 +78,9 @@ W {\bf x}  = K \star {\bf x} \in {\mathbb R}^J
 \qquad
 \hbox{for some $K \in {\mathbb R}^G$.}
 \]
-To be precise: fix some origins $i_0 \in I$ and $j_0 \in J$. Under the assumption of transitivity, any $i,j$ can be represented as $i = i_0^{g_i}$, $j = j_0^{g_j}$ for some $g^i, g^j \in G$. Then the convolution statement is equivalent to 
+To be precise: fix some origins $i_0 \in I$ and $j_0 \in J$. Under the assumption of transitivity, any $i,j$ can be represented as $i = i_0^{g_i}$, $j = j_0^{g_j}$ for some $g_i, g_j \in G$. Then the convolution statement is equivalent to 
 \[
-W_{i,j}  = K(g_i^{-1} g_j).
+W_{ij}  = K(g_i^{-1} g_j).
 \]&lt;/p&gt;
 
 &lt;p&gt;Why does equivariance matter? If, as in the 2D image case, it is a natural requirement in the scenario we’re modelling, then it makes sense to build it into the mathemtical structure of the model. The alternative is that it is learned - imperfectly - from training data. Having equivariance (or &lt;em&gt;invariance&lt;/em&gt; of the final output such as a classification of the image) built in directly represents an important saving in the data requirements for training.&lt;/p&gt;
@@ -105,17 +105,18 @@ whose computation requires some &lt;a href=&quot;https://en.wikipedia.org/wiki/W
 
 &lt;p&gt;A neural network is a composite function $f: {\bf x} \to \cdots \to {\bf y}$ which seeks to model the conditional distribution $P(Y \mid X)$ for random variables $X,Y$. For example, $X$ may represent 2D pixel arrays and $Y$ the binary variable ‘image contains a cat’.&lt;/p&gt;
 
-&lt;p&gt;A training data set $D$ for $f$ consists of pairs $(x,y)$ where $x$ is drawn from the random variable $X$ and $y$ from $Y$. For each such pair we can evaluate $\hat{y} = f(x)$ and measure the distance $d(\hat{y}, y)$ (for a suitable metric $d$).&lt;/p&gt;
+&lt;p&gt;A training data set $D$ for $f$ consists of pairs $(x,y)$ drawn from the joint distribution of $X$ and $Y$. For each such pair we can evaluate $\hat{y} = f(x)$ and measure the distance $d(\hat{y}, y)$ (for a suitable metric $d$).&lt;/p&gt;
 
-&lt;p&gt;We can define an error function 
+&lt;p&gt;We can define an error function (usually called the &lt;em&gt;loss function&lt;/em&gt;)
 \[
 E_D(f) = \sum_{(x,y) \in D} d(\hat{y}, y).
 \]
 Training the model now means choosing the parameters of $f$ to minimise $E_D(f)$.&lt;/p&gt;
 
-&lt;p&gt;This minimisation takes place over linear coefficients in the $W$-matrices and kernels $K$ in the layers of the network. We assume the ‘architecture’ is fixed - that is the number of size of layers, and filter structure in the convolutional kernels. We can assume WLOG that all layers are convolutional.&lt;/p&gt;
+&lt;p&gt;This minimisation takes place over linear coefficients in the $W$-matrices and kernels $K$ in the layers of the network. We assume the ‘architecture’ is fixed - that is, the number and size of layers, and the filter structure in the convolutional kernels.&lt;/p&gt;
 
-&lt;p&gt;That means we can treat the error as a function of the linear $K$ coefficients in all the layers, $E_D(K)$. This is a function over a big vector space, we need to compute the derivative $\nabla_K(E_D)$.&lt;/p&gt;
+&lt;p&gt;We can assume WLOG that all layers are convolutional.
+That means we can treat the error as a function of the linear $K$ coefficients in all the layers, $E_D(K)$. This is a function over a big vector space, we need to compute the derivative $\nabla_K(E_D)$.&lt;/p&gt;
 
 &lt;p&gt;Computing this derivative uses the chain rule. Let’s recall how this works.&lt;/p&gt;
 
@@ -158,18 +159,19 @@ Here’s a picture of what we do:&lt;/p&gt;
 
 &lt;p&gt;Our input images now have three colour (RGB) channels, so we imagine a model with input
 \[
-X : I = {\mathbb Z}^2 \rightarrow {\mathbb R} \oplus {\mathbb R} \oplus{\mathbb R}.
+{\bf x} : I = {\mathbb Z}^2 \rightarrow {\mathbb R} \oplus {\mathbb R} \oplus{\mathbb R}.
 \]
-For this, an initial NN layer will be constructed by learning an independent kernel on each channel and summing the convolutions: 
-\[
-K_{\rm red} \star X_1 + K_{\rm blue} \star X_2 + K_{\rm green} \star X_3.
-\]&lt;/p&gt;
+For this, an initial NN layer will be constructed by learning an independent kernel on each channel and summing the convolutions:&lt;/p&gt;
+&lt;p&gt;$$
+K_{\rm red} \star {\bf x}_1 + K_{\rm blue} \star {\bf x}_2 + K_{\rm green} \star {\bf x}_3.
+$$
+&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;Problem 2: shallow water flow.&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;Here, the task is to predict fluid flow in the plane - that is to model velocity and pressure fields a few time steps in the future, given those fields now. So at each time step, input to the model looks like
 \[
-X : I = {\mathbb Z}^2 \rightarrow {\mathbb R} \oplus {\mathbb R}^2
+{\bf x} : I = {\mathbb Z}^2 \rightarrow {\mathbb R} \oplus {\mathbb R}^2
 \]&lt;/p&gt;
 
 &lt;figure&gt;
@@ -185,7 +187,7 @@ X : I = {\mathbb Z}^2 \rightarrow {\mathbb R} \oplus {\mathbb R}^2
 
 &lt;p&gt;This can be achieved by treating ${\mathbb R} \oplus {\mathbb R}^2$ as contained in one of the Clifford algebras $Cl_{2,0}$ or $Cl_{0,2}$ (we can choose either). I’ll spell this out in just a moment, but the key thing to note is that as soon as 
 \[
-X : I \rightarrow A
+{\bf x} : I \rightarrow A
 \quad
 \hbox{and}
 \quad
@@ -227,10 +229,10 @@ e_3 \mapsto
   0 &amp;amp; 1 \\
 1 &amp;amp; 0  \end{pmatrix}.
 $$&lt;/p&gt;
-&lt;p&gt;Exercise: show that for any ${\bf x}, {\bf y} \in {\mathbb R}^2$, their product in&lt;br /&gt;
+&lt;p&gt;Exercise: show that for any ${ x}, { y} \in {\mathbb R}^2$, their product in&lt;br /&gt;
 $Cl_{2,0}$ is
 \[
-{\bf x} {\bf y} = ({\bf x}\cdot {\bf y}, 0,0, \det |{\bf x}\, {\bf y}|) \in  {\mathbb R}^4 \cong Cl_{2,0}.
+{x}  {y} = ({ x}\cdot { y}, 0,0, \det |{ x}\, { y}|) \in  {\mathbb R}^4 \cong Cl_{2,0}.
 \]&lt;/p&gt;
 
 &lt;p&gt;&lt;b&gt; Case $A = Cl_{0,2}$ &lt;/b&gt; (called ‘rotational Clifford’ in [7])&lt;/p&gt;
@@ -263,7 +265,7 @@ $$&lt;/p&gt;
 
 &lt;p&gt;Whether we choose to learn rotational of Fourier Clifford kernels is a design choice, as are other aspects of the NN architecture. For either choice, the kernels are learnt (by back-propagation) and deployed in exactly the same way as for layers defined purely over ${\mathbb R}$ - but now the $O(2)$-geometric structure is built in.&lt;/p&gt;
 
-&lt;p&gt;For 3D problems, where we want a model to respect $O(3)$ geometry, the story is similar. The Clifford algebra (for choice of signature, or choice of sign on the Euclidean inner product) is 8-dimensional, with basis illustrated in the picture at the top of these notes. It’s a fine graphic - but for my money less useful than a clear representation of the algebra in terms of matrices over ${\mathbb R}$, ${\mathbb C}$ or ${\mathbb H}$.&lt;/p&gt;
+&lt;p&gt;For 3D problems, where we want a model to respect $O(3)$ geometry, the story is similar. The Clifford algebra (for choice of signature, or choice of sign on the Euclidean inner product) is 8-dimensional over ${\mathbb R}$, with basis illustrated in the picture at the top of these notes. It’s a fine graphic - but for my money less useful than a clear representation of the algebra in terms of matrices over ${\mathbb R}$, ${\mathbb C}$ or ${\mathbb H}$.&lt;/p&gt;
 
 &lt;p&gt;So (exercise!) - we can find isomorphisms
 \[
@@ -279,7 +281,7 @@ Cl_{0,3} \cong {\mathbb C}(2)
 
 &lt;p&gt;&lt;strong&gt;7. A short zoo of applications&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;The following list summarises some of the experiments and applications described in the references. It’s not complete, but I’ve separated the symmetries of the index space $I$ from those of the values taken by $X: I \to V$.&lt;/p&gt;
+&lt;p&gt;The following list summarises some of the experiments and applications described in the references. It’s not complete, but I’ve separated the symmetries of the index space $I$ from those of the values taken by ${\bf x} : I \to V$.&lt;/p&gt;
 
 &lt;table border=&quot;1&quot;&gt;
   &lt;tr&gt;
@@ -302,9 +304,9 @@ Cl_{0,3} \cong {\mathbb C}(2)
   &lt;/tr&gt;
   &lt;tr&gt;
     &lt;td&gt;Signed volume of
-     a polytope&lt;/td&gt;
+     a polyhedron&lt;/td&gt;
     &lt;td&gt;$n$ indices&lt;/td&gt;
-    &lt;td&gt;${\mathbb R}^3$&lt;/td&gt;
+    &lt;td&gt;${\mathbb R}^3$ up to $SO(3)$&lt;/td&gt;
     &lt;td&gt;[5]&lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
