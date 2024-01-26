@@ -126,7 +126,7 @@ Training the model now means choosing the parameters of $f$ to minimise $E_D(f)$
 This minimisation takes place over linear coefficients in the $W$-matrices and kernels $K$ in the layers of the network. We assume the 'architecture' is fixed - that is, the number and size of layers, and the filter structure in the convolutional kernels. 
 
 We can assume WLOG that all layers are convolutional.
-That means we can treat the error as a function of the linear $K$ coefficients in all the layers, $E_D(K)$. This is a function over a big vector space, we need to compute the derivative $\nabla_K(E_D)$. 
+That means we can treat the error as a function of the linear $K$ coefficients in all the layers, $E_D(K)$. This is a function over a big vector space, and we need to compute the derivative $\nabla_K(E_D)$. 
 
 Computing this derivative uses the chain rule. Let's recall how this works.
 
@@ -173,7 +173,8 @@ Our input images now have three colour (RGB) channels, so we imagine a model wit
 {\bf x} : I = {\mathbb Z}^2 \rightarrow {\mathbb R} \oplus {\mathbb R} \oplus{\mathbb R}.
 \\]
 For this, an initial NN layer will be constructed by learning an independent kernel on each channel and summing the convolutions: 
-<p>$$
+<p>
+$$
 K_{\rm red} \star {\bf x}_1 + K_{\rm blue} \star {\bf x}_2 + K_{\rm green} \star {\bf x}_3.
 $$
 </p>
