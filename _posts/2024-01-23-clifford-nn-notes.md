@@ -88,7 +88,7 @@ W {\bf x}  = K \star {\bf x} \in {\mathbb R}^J
 \qquad
 \hbox{for some $K \in {\mathbb R}^G$.}
 \\]
-To be precise: fix some origins $i_0 \in I$ and $j_0 \in J$. Under the assumption of transitivity, any $i,j$ can be represented as $i = i_0^{g_i}$, $j = j_0^{g_j}$ for some $g^i, g^j \in G$. Then the convolution statement is equivalent to 
+To be precise: fix some origins $i_0 \in I$ and $j_0 \in J$. Under the assumption of transitivity, any $i,j$ can be represented as $i = i_0^{g_i}$, $j = j_0^{g_j}$ for some $g_i, g_j \in G$. Then the convolution statement is equivalent to 
 \\[
 W_{i,j}  = K(g_i^{-1} g_j).
 \\]
