@@ -1,10 +1,361 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-01-14T15:04:30+00:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Bills.Data</title><subtitle>Exploring ideas in data science</subtitle><author><name>Bill Oxbury</name></author><entry><title type="html">Why mathematicians should care about Large Language Models</title><link href="http://localhost:4000/artificial_intelligence/mathematics/mathematics-vs-ai/" rel="alternate" type="text/html" title="Why mathematicians should care about Large Language Models" /><published>2024-01-05T00:00:00+00:00</published><updated>2024-01-05T00:00:00+00:00</updated><id>http://localhost:4000/artificial_intelligence/mathematics/mathematics-vs-ai</id><content type="html" xml:base="http://localhost:4000/artificial_intelligence/mathematics/mathematics-vs-ai/">&lt;figure&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-01-26T07:41:43+00:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Bills.Data</title><subtitle>Exploring ideas in data science</subtitle><author><name>Bill Oxbury</name></author><entry><title type="html">What are geometric neural networks?</title><link href="http://localhost:4000/artificial_intelligence/mathematics/cliffor-nn-notes/" rel="alternate" type="text/html" title="What are geometric neural networks?" /><published>2024-01-23T00:00:00+00:00</published><updated>2024-01-23T00:00:00+00:00</updated><id>http://localhost:4000/artificial_intelligence/mathematics/cliffor-nn-notes</id><content type="html" xml:base="http://localhost:4000/artificial_intelligence/mathematics/cliffor-nn-notes/">&lt;figure&gt;
+  &lt;img src=&quot;/assets/img/2024-01-23/multivector.png&quot; width=&quot;100%&quot; /&gt;
+  &lt;figcaption&gt;
+  Clifford group equivariance for ${\mathbb R}^3$. From [5].
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;This is intended as working notes to get my head round some of the literature on geometric deep learning and Clifford algebra neural networks (NNs). I found that to understand this, it helps to start by looking closely at &lt;em&gt;convolutional NNs&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;small&gt;
+&lt;b&gt;Contents:&lt;/b&gt;
+&lt;ol&gt;
+  &lt;li&gt;Notation for NN layers&lt;/li&gt;
+  &lt;li&gt;Convolutional NNs&lt;/li&gt;
+  &lt;li&gt;Group-equivariant CNNs&lt;/li&gt;
+  &lt;li&gt;Example: spherical CNNs&lt;/li&gt;
+  &lt;li&gt;How convolutional kernels are learned from data&lt;/li&gt;
+  &lt;li&gt;Enter Clifford algebras&lt;/li&gt;
+  &lt;li&gt;A short zoo of applications&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/small&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1. Notation for NN layers&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Recall that a NN layer is a function ${\bf x} \in {\mathbb R}^n \rightarrow {\bf y} \in {\mathbb R}^m$ of the form
+${\bf \sigma} \circ W$ where $W$ is a $m \times n$ matrix and ${\bf \sigma} = (\sigma, \ldots , \sigma)$ is componentwise application of a nonlinear function $\sigma: {\mathbb R} \to {\mathbb R}$ (which maybe sigmoidal, or piecewise linear, or a step function, or something else).&lt;/p&gt;
+
+&lt;p&gt;A neural network is simply a composition of such layers.&lt;/p&gt;
+
+&lt;p&gt;Let $I$ be the index set {$1, \ldots , n $} for the units on the left (the components of ${\bf x}$) and $J$ the index set {$ 1, \ldots , m$} for the units on the right.
+It will be helpful to treat ${\bf x} , {\bf y}$ as functions $I \to {\mathbb R}$, $J \to {\mathbb R}$ respectively. 
+To emphasise this, I’ll write ${\bf x}  \in  {\mathbb R}^I$ and ${\bf y}  \in  {\mathbb R}^J$.&lt;/p&gt;
+
+&lt;p&gt;We’ll first generalise $I,J$ to sets with more structure; then eventually we’ll generalise ${\mathbb R}$ to a bigger algebra.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2. Convolutional NNs&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;In the 2010s, the use of NNs for image processing was revolutionised by the introduction of &lt;em&gt;convolutional NNs&lt;/em&gt; (CNNs). (See [1].)&lt;/p&gt;
+
+&lt;p&gt;In a CNN, we first take $I,J \subset {\mathbb Z}^2$. That is, NN units represent pixels in a 2D array. WLOG we can treat $I,J$ as &lt;em&gt;equal to&lt;/em&gt; ${\mathbb Z}^2$ (but then constrain the support of the functions ${\bf x} , {\bf y}$).
+More precisely, we think of each of $I,J$ as the &lt;em&gt;set&lt;/em&gt; ${\mathbb Z}^2$, acted on by the &lt;em&gt;group&lt;/em&gt; ${\mathbb Z}^2$.&lt;/p&gt;
+
+&lt;p&gt;All or some of the layers of a CNN then have the form of a convolution: that is, the function $W{\bf x}: J \to {\mathbb R}$ is a convolution $K \star {\bf x}$ for some function (with finite support) $K: {\mathbb Z}^2 \to {\mathbb R}$.&lt;/p&gt;
+
+&lt;p&gt;In other words, the kernel $K$ is a filter which slides around the 2D pixel array $I$. Here’s a picture where $K$ has $2\times 2$ support:&lt;/p&gt;
+
+&lt;figure&gt;
+  &lt;img src=&quot;/assets/img/2024-01-23/cnn-filter.jpg&quot; width=&quot;100%&quot; /&gt;
+  &lt;figcaption&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;For a given pixel $i \in I$ and filter position $j \in J$, the linear coefficient $W_{ij}$ in the NN layer is simply the entry in $K$ over $i$ when the filter is at position $j$. (Exercise: write down a formula!)&lt;/p&gt;
+
+&lt;p&gt;What are the benefits of a CNN layer?&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;It’s efficient in model size: the matrix $W$ has $O(n)$ degrees of freedom 
+instead of $O(n^2)$ (where $n = |I|$).&lt;/li&gt;
+  &lt;li&gt;It regularises across the image - reducing the likelihood of overfitting to treat the left-hand side of the image differently from the right-hand side, say.&lt;/li&gt;
+  &lt;li&gt;It is &lt;em&gt;translation-equivariant&lt;/em&gt;. That is, as a function, the layer commutes with translation by ${\mathbb Z}^2$. If the image is shifted north-east a bit, the model won’t notice.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;3. Group-equivariant CNNs&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;CNNs have a useful generalisation, first introduced in [2] (and probably elsewhere around that time). 
+Suppose that a group $G$ acts on both $I,J$. For simplicity I’ll assuming these actions are transitive - otherwise the arguments below are applied orbit-wise.&lt;/p&gt;
+
+&lt;p&gt;So we are generalising the case $G = {\mathbb Z}^2$ above. Just as in that case, we get induced actions on the functions ${\bf x}, {\bf y}$ by ${\bf x}^g (i) = {\bf x} (i^{g^{-1}})$ and similar for ${\bf y}$. We seek equivariance, meaning that these actions commute with $W$:
+\[
+W {\bf x}^g = (W {\bf x})^g
+\qquad
+\hbox{for all $g \in G$.}
+\]
+In [2] it is shown that $W$ is equivariant in this sense if and only if it is convolutional:
+\[
+W {\bf x}  = K \star {\bf x} \in {\mathbb R}^J
+\qquad
+\hbox{for some $K \in {\mathbb R}^G$.}
+\]
+To be precise: fix some origins $i_0 \in I$ and $j_0 \in J$. Under the assumption of transitivity, any $i,j$ can be represented as $i = i_0^{g_i}$, $j = j_0^{g_j}$ for some $g^i, g^j \in G$. Then the convolution statement is equivalent to 
+\[
+W_{i,j}  = K(g_i^{-1} g_j).
+\]&lt;/p&gt;
+
+&lt;p&gt;Why does equivariance matter? If, as in the 2D image case, it is a natural requirement in the scenario we’re modelling, then it makes sense to build it into the mathemtical structure of the model. The alternative is that it is learned - imperfectly - from training data. Having equivariance (or &lt;em&gt;invariance&lt;/em&gt; of the final output such as a classification of the image) built in directly represents an important saving in the data requirements for training.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;4. Example: spherical CNNs&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Here’s an example from [3]. Various 3D imaging applications need to model pixels on the 2-sphere - for example, from drone or satellite imagery.&lt;/p&gt;
+
+&lt;p&gt;In this case $I,J \subset S^2$ and $G$ is the 3D rotation group $SO(3)$. The matrix $W$ is a linear transformation of ${\bf x}: I = S^2 \to {\mathbb R}$ and is modelled as a convolution with a kernel $K : SO(3) \to {\mathbb R}$.&lt;/p&gt;
+
+&lt;p&gt;The group $SO(3)$ is 3-dimensional, with a coordinate chart given by &lt;a href=&quot;https://en.wikipedia.org/wiki/Euler_angles&quot; target=&quot;_blank&quot;&gt;Euler angles&lt;/a&gt; $\alpha,\beta,\gamma$. A kernel $K$ is specified to have bounded support in some window of $(\alpha,\beta,\gamma)$-space. The convolution is then expressed as an integral
+\[
+(K \star {\bf x}) (R) = \int_{SO(3)} K(R^{-1} Q) {\bf x}(Q) dQ,
+\]
+whose computation requires some &lt;a href=&quot;https://en.wikipedia.org/wiki/Wigner_D-matrix&quot; target=&quot;_blank&quot;&gt;representation theory of $SO(3).$&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Clifford algebras will offer a cleaner way to encode $SO(n)$ and $O(n)$-equivariance - and also with more tractable generalisation to $n &amp;gt; 3$.&lt;/p&gt;
+
+&lt;p&gt;Before coming to that, though, let’s remind ourselves that a NN model is to be learned from training data - how that is done, and how to incorporate convolutional layers in that process.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;5. How convolutional kernels are learned from data&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;A neural network is a composite function $f: {\bf x} \to \cdots \to {\bf y}$ which seeks to model the conditional distribution $P(Y \mid X)$ for random variables $X,Y$. For example, $X$ may represent 2D pixel arrays and $Y$ the binary variable ‘image contains a cat’.&lt;/p&gt;
+
+&lt;p&gt;A training data set $D$ for $f$ consists of pairs $(x,y)$ where $x$ is drawn from the random variable $X$ and $y$ from $Y$. For each such pair we can evaluate $\hat{y} = f(x)$ and measure the distance $d(\hat{y}, y)$ (for a suitable metric $d$).&lt;/p&gt;
+
+&lt;p&gt;We can define an error function 
+\[
+E_D(f) = \sum_{(x,y) \in D} d(\hat{y}, y).
+\]
+Training the model now means choosing the parameters of $f$ to minimise $E_D(f)$.&lt;/p&gt;
+
+&lt;p&gt;This minimisation takes place over linear coefficients in the $W$-matrices and kernels $K$ in the layers of the network. We assume the ‘architecture’ is fixed - that is the number of size of layers, and filter structure in the convolutional kernels. We can assume WLOG that all layers are convolutional.&lt;/p&gt;
+
+&lt;p&gt;That means we can treat the error as a function of the linear $K$ coefficients in all the layers, $E_D(K)$. This is a function over a big vector space, we need to compute the derivative $\nabla_K(E_D)$.&lt;/p&gt;
+
+&lt;p&gt;Computing this derivative uses the chain rule. Let’s recall how this works.&lt;/p&gt;
+
+&lt;p&gt;Suppose, as an example, we want to differentiate the function
+\[
+F(u,v) = u + v\sin(u+v).
+\]
+Here’s a picture of what we do:&lt;/p&gt;
+&lt;figure&gt;
+  &lt;img src=&quot;/assets/img/2024-01-23/chainrule.png&quot; width=&quot;100%&quot; /&gt;
+  &lt;figcaption&gt;
+  From an old PowerPoint c2014. Not sure what I was on.
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;I’ve decomposed $F$ into a directed acyclic graph (DAG) of simple compononents. Evaluating the function involves a forward pass through this DAG.&lt;/p&gt;
+
+&lt;p&gt;The reverse (red) arrows are the computed derivatives of each arrow on its own. The chain rule for the end-to-end derivative can be written as:
+\[
+\frac{\partial F}{\partial u} = \sum_{\hbox{paths $u \leftarrow F$}} \prod (\hbox{edges along the path}).
+\]
+(Exercise: check this for the example!)&lt;/p&gt;
+
+&lt;p&gt;The beauty of this formulation is that &lt;em&gt;we don’t need to enumerate all the paths&lt;/em&gt;: we only need to pass messages back along the red edges, multiplying as we go and summing the incoming messages. The messages that then arrive at the variables $u,v$ will then be the respective partial derivatives.&lt;/p&gt;
+
+&lt;p&gt;This formulation of the chain rule is called &lt;em&gt;back-propagation&lt;/em&gt;. Let’s see how it works for the derivative $\nabla_K(E_D)$.&lt;/p&gt;
+
+&lt;p&gt;The DAG for the function $E_D(K)$ decomposes in the following way:
+\[
+\hbox{$K$ coeffs} \rightarrow \hbox{$W$ coeffs} \rightarrow \hbox{NN units} \rightarrow E_D.&lt;br /&gt;
+\]
+(Plus arrows among the NN units corresponding to network connections, not drawn.)&lt;/p&gt;
+
+&lt;p&gt;Back-propagation has only a simple derivative to compute along each edge in this graph.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;6. Enter Clifford algebras&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;To motivate what comes next, let’s briefly compare two problems.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Problem 1: colour image classification.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Our input images now have three colour (RGB) channels, so we imagine a model with input
+\[
+X : I = {\mathbb Z}^2 \rightarrow {\mathbb R} \oplus {\mathbb R} \oplus{\mathbb R}.
+\]
+For this, an initial NN layer will be constructed by learning an independent kernel on each channel and summing the convolutions: 
+\[
+K_{\rm red} \star X_1 + K_{\rm blue} \star X_2 + K_{\rm green} \star X_3.
+\]&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Problem 2: shallow water flow.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Here, the task is to predict fluid flow in the plane - that is to model velocity and pressure fields a few time steps in the future, given those fields now. So at each time step, input to the model looks like
+\[
+X : I = {\mathbb Z}^2 \rightarrow {\mathbb R} \oplus {\mathbb R}^2
+\]&lt;/p&gt;
+
+&lt;figure&gt;
+  &lt;img src=&quot;/assets/img/2024-01-23/fluidflow.png&quot; width=&quot;100%&quot; /&gt;
+  &lt;figcaption&gt;
+  A problem with 3 scalar fields over the plane (columns), with the aim of predicting future evolution (rows). Clearly the fields are far from independent. From [7].
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;The standard approach would be to treat Problem 2 in the same way as Problem 1. However, this fails to exploit the geometric structure of the problem: two of the columns should be encoded not as independent scalars but as a single vector.&lt;/p&gt;
+
+&lt;p&gt;Mathematically, what this means is that we’d like to build in not just ${\mathbb Z}^2$-equivariance with respect to $I,J$, but $O(2)$-equivariance with respect to ${\mathbb R} \oplus {\mathbb R}^2$ (where $O(2)$ acts trivially on the first factor and as rotations/reflections on the second).&lt;/p&gt;
+
+&lt;p&gt;This can be achieved by treating ${\mathbb R} \oplus {\mathbb R}^2$ as contained in one of the Clifford algebras $Cl_{2,0}$ or $Cl_{0,2}$ (we can choose either). I’ll spell this out in just a moment, but the key thing to note is that as soon as 
+\[
+X : I \rightarrow A
+\quad
+\hbox{and}
+\quad
+K : {\mathbb Z}^2 \rightarrow A
+\]
+(where $A$ is one of the two Clifford algebras) then convolution works exactly as before - all the formulae work fine over $A$ because we can add and multiply elements just as for ${\mathbb R}$.&lt;/p&gt;
+
+&lt;p&gt;OK, so let’s spell this out. In both cases, $A$ has a basis $1, e_1, e_2, e_3 := e_1e_2$ where $e_1, e_2$ is a basis for the Euclidean ${\mathbb R}^2$ we’re interested in. By definition,
+\[
+x^2 := \pm (x \cdot x) 1
+\qquad
+\hbox{for $x \in {\mathbb R}^2 \subset A$.}
+\]
+The sign determines which of the two cases we’re in.&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt; Case $A = Cl_{2,0}$ &lt;/b&gt; (called ‘Clifford Fourier’ in [7])&lt;/p&gt;
+
+&lt;p&gt;In this case $e_1^2 = e_2^2 = 1$ and it’s easy to check that $e_1 e_2 = - e_2 e_1$ and $e_3^2 = -1$.
+So we can write down an (algebra) isomorphism to real $2 \times 2$ matrices $Cl_{2,0} \cong {\mathbb R}(2)$&lt;/p&gt;
+
+&lt;p&gt;$$
+1 \mapsto
+  \begin{pmatrix} 
+  1 &amp;amp; 0 \\
+0 &amp;amp; 1  \end{pmatrix},
+\quad
+e_1 \mapsto
+  \begin{pmatrix} 
+  0 &amp;amp; 1 \\
+-1 &amp;amp; 0 \end{pmatrix},
+$$$$
+e_2 \mapsto
+  \begin{pmatrix} 
+  1 &amp;amp; 0 \\
+0 &amp;amp; -1  \end{pmatrix},
+\quad
+e_3 \mapsto
+  \begin{pmatrix} 
+  0 &amp;amp; 1 \\
+1 &amp;amp; 0  \end{pmatrix}.
+$$&lt;/p&gt;
+&lt;p&gt;Exercise: show that for any ${\bf x}, {\bf y} \in {\mathbb R}^2$, their product in&lt;br /&gt;
+$Cl_{2,0}$ is
+\[
+{\bf x} {\bf y} = ({\bf x}\cdot {\bf y}, 0,0, \det |{\bf x}\, {\bf y}|) \in  {\mathbb R}^4 \cong Cl_{2,0}.
+\]&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt; Case $A = Cl_{0,2}$ &lt;/b&gt; (called ‘rotational Clifford’ in [7])&lt;/p&gt;
+
+&lt;p&gt;In this case $e_1^2 = e_2^2 = -1$ but as in the previous case $e_1 e_2 = - e_2 e_1$ and $e_3^2 = -1$.
+So this time the algebra is isomorphic to the quarternions $Cl_{2,0} \cong {\mathbb H}$. If we want to we can represent the algebra as $2 \times 2$ complex matrices ${\mathbb H} \subset {\mathbb C}(2)$. Then the basis elements map to the &lt;em&gt;Pauli matrices&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;$$
+1 \mapsto
+  \begin{pmatrix} 
+  1 &amp;amp; 0 \\
+0 &amp;amp; 1  \end{pmatrix},
+\quad
+e_1 \mapsto
+  \begin{pmatrix} 
+  0 &amp;amp; i \\
+i &amp;amp; 0 \end{pmatrix},
+$$$$
+e_2 \mapsto
+  \begin{pmatrix} 
+  0 &amp;amp; 1 \\
+-1 &amp;amp; 0  \end{pmatrix},
+\quad
+e_3 \mapsto
+  \begin{pmatrix} 
+  -i &amp;amp; 0 \\
+0 &amp;amp; i  \end{pmatrix}
+$$&lt;/p&gt;
+&lt;p&gt;where $i = \sqrt{-1}$.&lt;/p&gt;
+
+&lt;p&gt;Whether we choose to learn rotational of Fourier Clifford kernels is a design choice, as are other aspects of the NN architecture. For either choice, the kernels are learnt (by back-propagation) and deployed in exactly the same way as for layers defined purely over ${\mathbb R}$ - but now the $O(2)$-geometric structure is built in.&lt;/p&gt;
+
+&lt;p&gt;For 3D problems, where we want a model to respect $O(3)$ geometry, the story is similar. The Clifford algebra (for choice of signature, or choice of sign on the Euclidean inner product) is 8-dimensional, with basis illustrated in the picture at the top of these notes. It’s a fine graphic - but for my money less useful than a clear representation of the algebra in terms of matrices over ${\mathbb R}$, ${\mathbb C}$ or ${\mathbb H}$.&lt;/p&gt;
+
+&lt;p&gt;So (exercise!) - we can find isomorphisms
+\[
+Cl_{3,0} \cong {\mathbb H} \oplus {\mathbb H} 
+\]
+(where multiplication is componentwise) and
+\[
+Cl_{0,3} \cong {\mathbb C}(2) 
+\]
+(all $2 \times 2$ complex matrices). Again, one can learn (from data) and work with convolutional kernels taking values in either of these algebras.&lt;/p&gt;
+
+&lt;p&gt;And so on for higher dimensions.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;7. A short zoo of applications&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;The following list summarises some of the experiments and applications described in the references. It’s not complete, but I’ve separated the symmetries of the index space $I$ from those of the values taken by $X: I \to V$.&lt;/p&gt;
+
+&lt;table border=&quot;1&quot;&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Application&lt;/th&gt;
+    &lt;th&gt;Index space $I$&lt;/th&gt;
+    &lt;th&gt;Value space $V$&lt;/th&gt;
+    &lt;th&gt;Reference&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Image classification&lt;/td&gt;
+    &lt;td&gt;${\mathbb R}^2$ up to translation&lt;/td&gt;
+    &lt;td&gt;${\mathbb R}$&lt;/td&gt;
+    &lt;td&gt;[1]&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Spherical images&lt;/td&gt;
+    &lt;td&gt;${S}^2$ up to $SO(3)$&lt;/td&gt;
+    &lt;td&gt;${\mathbb R}$&lt;/td&gt;
+    &lt;td&gt;[3]&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Signed volume of
+     a polytope&lt;/td&gt;
+    &lt;td&gt;$n$ indices&lt;/td&gt;
+    &lt;td&gt;${\mathbb R}^3$&lt;/td&gt;
+    &lt;td&gt;[5]&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Convex hull of points&lt;/td&gt;
+    &lt;td&gt;$n$ indices up to $S_n$&lt;/td&gt;
+    &lt;td&gt;${\mathbb R}^5$ up to $O(5)$&lt;/td&gt;
+    &lt;td&gt;[5]&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;O(5)-invariant regression&lt;/td&gt;
+    &lt;td&gt;{0,1}&lt;/td&gt;
+    &lt;td&gt;${\mathbb R}^5$ up to $O(5)$&lt;/td&gt;
+    &lt;td&gt;[5]&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;$n$-body system&lt;/td&gt;
+    &lt;td&gt;$n$ indices&lt;/td&gt;
+    &lt;td&gt;${\mathbb R}^3$ up to $E(3)$&lt;/td&gt;
+    &lt;td&gt;[5]&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Navier-Stokes PDE&lt;/td&gt;
+    &lt;td&gt;${\mathbb R}^2$ up to translation&lt;/td&gt;
+    &lt;td&gt;${\mathbb R} \oplus {\mathbb R}^2$ up to $SO(2)$&lt;/td&gt;
+    &lt;td&gt;[7]&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Maxwell&apos;s PDE&lt;/td&gt;
+    &lt;td&gt;${\mathbb R}^3$ up to translation&lt;/td&gt;
+    &lt;td&gt;${\mathbb R}^3 \oplus {\mathbb R}^3$ up to $SO(3)$&lt;/td&gt;
+    &lt;td&gt;[7]&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;strong&gt;References&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Ian Goodfellow, Yoshua Bengio, Aaron Courville, &lt;em&gt;Deep Learning&lt;/em&gt;, MIT Press (2016)&lt;/li&gt;
+  &lt;li&gt;Taco Cohen, Max Welling, &lt;a href=&quot;https://arxiv.org/abs/1602.07576&quot; target=&quot;_blank&quot;&gt;Group equivariant convolutional networks&lt;/a&gt;, arXiv.1602.07576 (2016)&lt;/li&gt;
+  &lt;li&gt;Taco S. Cohen, Mario Geiger, Jonas Koehler, Max Welling, &lt;a href=&quot;https://arxiv.org/abs/1801.10130&quot; target=&quot;_blank&quot;&gt;Spherical CNNs&lt;/a&gt;, arXiv.1801.10130 (2018)&lt;/li&gt;
+  &lt;li&gt;Michael M. Bronstein, Joan Bruna, Taco Cohen, Petar Veličković, &lt;a href=&quot;https://arxiv.org/abs/2104.13478&quot; target=&quot;_blank&quot;&gt;Geometric Deep Learning: Grids, Groups, Graphs, Geodesics and Gauges&lt;/a&gt;, arXiv.2104.13478 (2021)&lt;/li&gt;
+  &lt;li&gt;David Ruhe, Johannes Brandstetter, Patrick Forré, &lt;a href=&quot;https://arxiv.org/abs/2305.11141&quot; target=&quot;_blank&quot;&gt;Clifford group equivariant neural networks&lt;/a&gt;, arXiv.2305.11141 (2023)&lt;/li&gt;
+  &lt;li&gt;David Ruhe, Jayesh K. Gupta, Steven de Keninck, Max Welling, Johannes Brandstetter, &lt;a href=&quot;https://arxiv.org/abs/2302.06594&quot; target=&quot;_blank&quot;&gt;Geometric Clifford algebra networks&lt;/a&gt;, arXiv.2302.06594 (2023)&lt;/li&gt;
+  &lt;li&gt;Johannes Brandstetter, Rianne van den Berg, Max Welling, Jayesh K. Gupta, &lt;a href=&quot;https://arxiv.org/abs/2209.04934&quot; target=&quot;_blank&quot;&gt;Clifford neural layers for PDE modelling&lt;/a&gt;, arXiv.2209.04934 (2023)&lt;/li&gt;
+&lt;/ol&gt;</content><author><name>Bill Oxbury</name></author><category term="artificial_intelligence" /><category term="mathematics" /><summary type="html">Clifford group equivariance for ${\mathbb R}^3$. From [5].</summary></entry><entry><title type="html">Why mathematicians should care about Large Language Models</title><link href="http://localhost:4000/artificial_intelligence/mathematics/mathematics-vs-ai/" rel="alternate" type="text/html" title="Why mathematicians should care about Large Language Models" /><published>2024-01-05T00:00:00+00:00</published><updated>2024-01-05T00:00:00+00:00</updated><id>http://localhost:4000/artificial_intelligence/mathematics/mathematics-vs-ai</id><content type="html" xml:base="http://localhost:4000/artificial_intelligence/mathematics/mathematics-vs-ai/">&lt;figure&gt;
   &lt;img src=&quot;/assets/img/2024-01-05/unicorn.png&quot; width=&quot;100%&quot; /&gt;
   &lt;figcaption&gt;&quot;Draw a unicorn in TikZ.&quot; Successive renderings by GPT-4, from [1]. Their relevance to the discussion will be revealed, all in good time.
   &lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;p&gt;This post is to review some amazing observations by Microsoft and DeepMind researchers regarding the apparent ability of Large Language Models (LLMs) to solve mathematical problems. I believe mathematicians should sit up and take notice of these examples: we need at the very least to understand them - and to ask what they might mean for the future.&lt;/p&gt;
+&lt;p&gt;This post is to review some remarkable observations by Microsoft and DeepMind researchers regarding the apparent ability of Large Language Models (LLMs) to solve mathematical problems. I believe mathematicians should sit up and take notice of these examples: we need at the very least to understand them - and to ask what they might mean for the future.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;1. A surprising example&lt;/strong&gt;&lt;/p&gt;
 
@@ -16,13 +367,13 @@
 
 &lt;p&gt;If you haven’t seen this before, I invite you to give it a little thought before proceeding.&lt;/p&gt;
 
-&lt;p&gt;OK, thought about it enough? This an example cited in a recent study of GPT-4 by Microsoft researchers [1 section 4.4]. It is put to GPT-4 as a prompt - here is the model’s response:&lt;/p&gt;
+&lt;p&gt;OK, thought about it enough? This is an example cited in a study of GPT-4 last year by Microsoft researchers [1 section 4.4]. It is put to GPT-4 as a prompt - here is the model’s response:&lt;/p&gt;
 
 &lt;figure&gt;
   &lt;img src=&quot;/assets/img/2024-01-05/answer.png&quot; width=&quot;100%&quot; /&gt;
 &lt;/figure&gt;
 
-&lt;p&gt;What do we see? In principle, the chatbot is based on a sophisticated auto-complete - probilistic next-word selection to construct a text response. Yet the result is some coherent reasoning which correctly solves the problem presented. Moreover, it’s not a standard problem: it would be surprising and challenging to most students.&lt;/p&gt;
+&lt;p&gt;What do we see? In principle, the chatbot is based on a sophisticated auto-complete - probabilistic next-word selection to construct a text response. Yet the result is some coherent reasoning which correctly solves the problem presented. Moreover, it’s not a standard problem: it would be surprising and challenging to most students.&lt;/p&gt;
 
 &lt;p&gt;Conceivably, this same problem occured somewhere in the training corpus used to build the language model and GPT-4 is simply regurgitating a known answer - I’ll return to this possibility below. Yet this example is just one of many similarly jaw-dropping interactions with GPT-4 cited in [1]. Could they all have been in the training data?&lt;/p&gt;
 
@@ -30,11 +381,11 @@
 
 &lt;p&gt;&lt;strong&gt;2. It’s Reinforcement Learning, stupid!&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;A base LLM is a sequence-to-sequence (transformer) model built on a huge amount of text - typically 10s of billions of words - trawled from the Internet. It is built to model next-word probabilities based on long stretches of text. In this sense, it can be described as a very powerful ‘autocomplete’ capability.&lt;/p&gt;
+&lt;p&gt;A base LLM is a sequence-to-sequence (&lt;a href=&quot;https://en.wikipedia.org/wiki/Transformer_(machine_learning_model)&quot; target=&quot;_blank&quot;&gt;transformer&lt;/a&gt;) model built on a huge amount of text - typically 10s of billions of words - trawled from the Internet. It is built to model next-word probabilities based on long stretches of text. In this sense, it can be described as a very powerful ‘autocomplete’ capability.&lt;/p&gt;
 
 &lt;p&gt;This does not tell the whole story, however. A base LLM alone would not be able to produce the kind of performance illustrated above. In a user-facing system such as GPT-4 there is much more going on, as introduced by OpenAI in [2] and explained in the excellent article by Aerin Kim [3].&lt;/p&gt;
 
-&lt;p&gt;The magic that turns a base LLM into the a high-performing, all-knowing chatbot is referred to as &lt;em&gt;Reinforcement Learning from Human Feedback&lt;/em&gt; (RLHF). In my view, this rather modest terminology doesn’t do justice to the engineering design - though it does reveal that the most important ‘secret sauce’ is human input - lots of it, of high quality and meticulously managed.&lt;/p&gt;
+&lt;p&gt;The magic that turns a base LLM into a high-performing, all-knowing chatbot is referred to as &lt;em&gt;Reinforcement Learning from Human Feedback&lt;/em&gt; (RLHF). In my view, this rather modest terminology doesn’t do justice to the cleverness of the design - though it does reveal that the most important ‘secret sauce’ is human input - lots of it, of high quality and meticulously managed.&lt;/p&gt;
 
 &lt;p&gt;Briefly, the design consists to three machine learnt models:&lt;/p&gt;
 
@@ -50,7 +401,7 @@
 
 &lt;p&gt;The &lt;em&gt;instruction data&lt;/em&gt; used to train the SFT model consists of human curated pairs &lt;em&gt;(prompt, response)&lt;/em&gt;. The reward model, likewise, is trained on significant human input. For this, the training data consists of a large set of prompts (independent of those used for the SFT!), and selections of responses are ranked by human labellers.&lt;/p&gt;
 
-&lt;p&gt;According to the discussion in [2,3], this human-generated input is not cheap, crowd-sourced data but follows detailed guidelines and is carefully choreographed. The performance of the system is critically depenedent on the quality of this data and not on the power of the LLM alone.&lt;/p&gt;
+&lt;p&gt;According to the discussion in [2,3], this human-generated input is not cheap, crowd-sourced data but follows detailed guidelines and is carefully choreographed. The performance of the system is critically dependent on the quality of this data and not on the power of the LLM alone.&lt;/p&gt;
 
 &lt;p&gt;Back to mathematics. Examples like the one above suggest that LLMs can actually ‘do’ maths. What this is based on is models that are in effect compressions of data: of vast amounts of Internet data in the base LLM, but also of large amounts of human-curated data in the SFT and reward models.&lt;/p&gt;
 
@@ -78,13 +429,13 @@ problem is less well known outside of number theory and extremal combinatorics. 
 &lt;p&gt;For example, the figure illustrates $s_2 = 4$. As an exercise, you might be able to see (by drawing some pictures) that $s_3 = 9$.
 Here are &lt;a href=&quot;https://oeis.org/A090245&quot; target=&quot;_blank&quot;&gt;a few more values&lt;/a&gt;. But for most $n$, the exact value of $s_n$ is not known, and the game is mainly to improve on known bounds and asymptotics.&lt;/p&gt;
 
-&lt;p&gt;It won’t surprise you that [4], using their LLM methods, improves on previously known results for $s_n$. In particular, for $n=8$ they improve the previously best known result $s_8 \geq 496$ to $s_8 \geq 512$.&lt;/p&gt;
+&lt;p&gt;Well, it won’t surprise you that the authors of [4], using their LLM methods, improve on previously known results for $s_n$. In particular, for $n=8$ they improve the previously best known result $s_8 \geq 496$ to $s_8 \geq 512$.&lt;/p&gt;
 
 &lt;p&gt;Just before coming to the LLM methods behind this, why is the cap set problem interesting? I feel this needs a few words of background.&lt;/p&gt;
 
 &lt;p&gt;The story starts with the relationship betwen the &lt;em&gt;prime numbers&lt;/em&gt; $2,3,5,7,11,\ldots$ and &lt;em&gt;arithmetic progressions&lt;/em&gt; (APs) (whole number sequences of the form $a, a+d, a+2d,a+3d, \ldots$). A long time ago Dirichlet showed that every (infinite) AP with $a,d$ coprime contains infinitely many primes. In 2004, Green and Tao proved a sort of converse, that the sequence of primes contains arbitrarily long finite APs.&lt;/p&gt;
 
-&lt;p&gt;(For example $3,5,7$ is an AP of length 3. Exercise: find APs in the primes of lengths 4,5,…)&lt;/p&gt;
+&lt;p&gt;(For example $3,5,7$ is an AP of length 3. Here’s an exercise: find APs in the primes of lengths 4,5,…)&lt;/p&gt;
 
 &lt;p&gt;It is generally believed that this property results from the &lt;em&gt;density&lt;/em&gt; of the primes in ${\mathbb N}$ as they go to infinity. Let’s say a subset $A \subset{\mathbb N}$ is &lt;em&gt;dense&lt;/em&gt; if $\sum_{n \in A} 1/n = \infty$. Erdős had shown that the prime numbers are dense in this sense - and he conjectured that this property of being dense is enough to force $A$ to contain arbitrarily long APs.&lt;/p&gt;
 
@@ -98,19 +449,19 @@ Here are &lt;a href=&quot;https://oeis.org/A090245&quot; target=&quot;_blank&quo
 
 &lt;p&gt;&lt;strong&gt;4. Using LLM as a search tool&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;LLMs exhibit powerful capability to generate not just natural language text but also computer code - and code in response to natural language prompts. Take a look, for example, the graphic at the top of this post. The unicorn pictures shown are the compiled images from &lt;a href=&quot;https://en.wikipedia.org/wiki/PGF/TikZ&quot; target=&quot;_blank&quot;&gt;TikZ&lt;/a&gt; code output by GPT-4.&lt;/p&gt;
+&lt;p&gt;LLMs exhibit powerful capability to generate not just natural language text but also computer code - and code in response to natural language prompts. Take a look, for example, at the graphic at the top of this post. The unicorn pictures shown are the compiled images from &lt;a href=&quot;https://en.wikipedia.org/wiki/PGF/TikZ&quot; target=&quot;_blank&quot;&gt;TikZ&lt;/a&gt; code output by GPT-4.&lt;/p&gt;
 
 &lt;p&gt;The DeepMind work [4] has two key novelties. The first is that it approaches the problems &lt;em&gt;bin packing&lt;/em&gt; and &lt;em&gt;cap set&lt;/em&gt; by asking the LLM not just for solutions, but for code to generate a solution. The LLM used here, incidentally, is not GPT-4 but Google’s specialist &lt;a href=&quot;https://lablab.ai/tech/google/codey&quot; target=&quot;_blank&quot;&gt;Codey&lt;/a&gt; model.&lt;/p&gt;
 
-&lt;p&gt;So, for example, the model is not asked &lt;em&gt;‘what is the largest cap set you can find in ${\mathbb F}_3^n$?’&lt;/em&gt; but rather &lt;em&gt;‘give me Python code to do the following …‘&lt;/em&gt; More precisely, it is asked to complete a code template in which a particular function is to be filled in. For the cap set problem, for example, the template implements a greedy algorithm for building a cap set point by point, and the model is asked to fill in the crucial priority function that scores each candidate point for inclusion.&lt;/p&gt;
+&lt;p&gt;So, for example, the model is not asked &lt;em&gt;‘what is the largest cap set you can find in ${\mathbb F}_3^n$?’&lt;/em&gt; but rather &lt;em&gt;‘give me Python code to do the following …‘&lt;/em&gt; More precisely, it is asked to complete a code template in which a particular function is to be filled in. For the cap set problem the template implements a greedy algorithm for building a cap set point by point, and the model is asked to fill in the crucial priority function that scores each candidate point for inclusion.&lt;/p&gt;
 
 &lt;p&gt;It goes without saying that this is a much more interpretable use of the AI: the code returned can be examined, understood and can inform subsequent mathematical analysis.&lt;/p&gt;
 
 &lt;p&gt;The second key novelty is that the LLM is not used for a single query, but for a sequence of queries, each of which seeks to improve on previous answers. So each query is not &lt;em&gt;‘fill in the priority function in this code template’&lt;/em&gt;, but rather, &lt;em&gt;‘given versions v0, v1 of the priority function in this code template, what should version v2 be?’&lt;/em&gt;.&lt;/p&gt;
 
-&lt;p&gt;The LLM is thus used not for one-time query but as an oracle step in an iterative algorithm. The full algorithm is evolutionary in the sense that a population of highest-performing codes is maintained, and the LLM prompts (the code versions &lt;em&gt;v0,v1&lt;/em&gt; etc) drawn from this population.&lt;/p&gt;
+&lt;p&gt;The LLM is thus used not for one-time query but as an oracle step in an iterative algorithm. The full algorithm is evolutionary in the sense that a population of highest-performing codes is maintained, and the LLM prompts (the code versions &lt;em&gt;v0,v1&lt;/em&gt; etc) are drawn from this population.&lt;/p&gt;
 
-&lt;p&gt;The details of DeepMind’s evolutionary approach - their use of the LLM to develop a code to solve the original mathematical problem - are themselves very interesting. There’s no need for me to say more about them here as that is much better done by the blog [5] (and by [4]).&lt;/p&gt;
+&lt;p&gt;The details of DeepMind’s evolutionary approach - their use of the LLM to develop a code to solve the original mathematical problem - are themselves very interesting. There’s no need for me to say more about them here as that is much better done in the blog [5] (and in [4]).&lt;/p&gt;
 
 &lt;p&gt;But the work sends a signal to the mathematical community, in my opinion, that there are very powerful new tools for us coming from language modelling.&lt;/p&gt;
 
@@ -936,21 +1287,4 @@ Here are my test results for three models:&lt;/p&gt;
 
 &lt;p&gt;So the threats are real and current climate change is very much a crisis. But it is still not too late in the day, and there is no doubt that humanity has the ingenuity and resourcefulness to rise to the challenge. Rising to the challenge is just what we have to look to COP26 to do.&lt;/p&gt;
 
-&lt;p&gt;The problem to be solved is stated as a number, 1.5 degrees – so any solutions have to play a numbers game. I’ll talk about that in the last blog.&lt;/p&gt;</content><author><name>Bill Oxbury</name></author><category term="environment" /><summary type="html"></summary></entry><entry><title type="html">COP26: the climate crisis today</title><link href="http://localhost:4000/environment/cop26-today/" rel="alternate" type="text/html" title="COP26: the climate crisis today" /><published>2021-11-01T00:00:00+00:00</published><updated>2021-11-01T00:00:00+00:00</updated><id>http://localhost:4000/environment/cop26-today</id><content type="html" xml:base="http://localhost:4000/environment/cop26-today/">&lt;p&gt;&lt;img src=&quot;/assets/img/2021-11-01/image1.png&quot; width=&quot;100%&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;This is the first of three blogs in which I’d like to share a few thoughts on the climate crisis and on the COP26 conference which launches in Glasgow this week. In the &lt;a href=&quot;/environment/cop26-why1pt5/&quot;&gt;second blog&lt;/a&gt; I’ll say a bit about the figure of 1.5 degrees warming and what it means; in the &lt;a href=&quot;/environment/cop26-nzs/&quot;&gt;third&lt;/a&gt; I’ll focus on COP itself.&lt;/p&gt;
-
-&lt;p&gt;But let’s start with today. As we look back over the summer of 2021, we’ve seen a number of tragic events in the news: the Pacific North-West of the US and Canada was hit by a ‘heat dome’ killing more than 500 people – as well as up to a billion marine animals. Southern Europe was hit by record wildfires killing many people in Greece, Italy and Portugal. Wildfires in Siberia were reported to be larger than the rest of the world’s combined – as rain was observed on the summit of the Greenland icecap for the first time. During the same few weeks major floods hit China (302 deaths), Germany (196 deaths), Belgium (42 deaths), Mexico (17 deaths) and Pakistan (160 deaths). Back in the US, hurricane Ida travelled up the east coast from Louisiana to New York with a death toll of 82.&lt;/p&gt;
-
-&lt;p&gt;This is just a snapshot of recent times. The climate crisis, and our response to it, is not just about ‘saving the planet’, it’s about saving lives. And extreme weather is not a ‘new normal’ – because the Earth system is in a state of transition and will take many decades, or even centuries, to settle into a new stable state.&lt;/p&gt;
-
-&lt;p&gt;The climate crisis is also about national security. Our security depends not only on safety from wildfires and floods, but also on resilient infrastructure, a stable economy and secure food and water supplies. It depends on stable international relationships and supply chains and the ability of our people, from tourists and business people to diplomats and military personnel, to travel and operate safely overseas.&lt;/p&gt;
-
-&lt;p&gt;The evolving threat around the world is not only from extreme weather events. It’s also from changing rainfall patterns and failing agriculture, from depleted water sources and from sea level rise and storm surges. It will drive tensions over these resources and over displaced populations.
-The graphic at the top of this post, illustrating some of these cascading risks to security, is taken from a &lt;a href=&quot;https://www.chathamhouse.org/2021/09/climate-change-risk-assessment-2021&quot;&gt;recent Chatham House report&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;According to the &lt;a href=&quot;https://imccs.org/the-world-climate-and-security-report-2021/&quot;&gt;World Climate and Security Report (WCSR) 2021&lt;/a&gt;, “within the next twenty years, security risks stemming from climate phenomena will present severe and catastrophic levels of risk”. That’s a stark message, and I shall offer a bit more optimism in the third of these blogs. But there is no doubt that as the crisis unfolds it will affect the politics, rivalries and stability of all nations.&lt;/p&gt;
-
-&lt;p&gt;Examples cited in the WCSR report include: floods in Sudan in 2020 exacerbating the country’s already fragile security infrastructure, as well as requiring assistance from the Egyptian military for humanitarian aid; the impact of recent floods and wildfires on US military bases and equipment; and increased tensions in the Arctic. China’s economic dominance in the 21st century is argued to be “not guaranteed” because of the dense concentration of population and economic hubs in cities most at risk from sea level rise and from water shortages. Russia may perceive that it is less at risk from climate change than other countries, yet it is vulnerable both from the threat to infrastructure of melting permafrost, and from exposed fossil fuel assets if the world succeeds in shifting rapidly to renewable energy sources.&lt;/p&gt;
-
-&lt;p&gt;These are just examples of the ways in which the climate crisis will have deep implications for behaviours and intents of nation states. So the COP26 conference matters to us. It is a milestone event which will have huge implications for the direction that humanity takes. I’ll say a bit about the problem it has to solve in the next two blogs.&lt;/p&gt;</content><author><name>Bill Oxbury</name></author><category term="environment" /><summary type="html"></summary></entry></feed>
+&lt;p&gt;The problem to be solved is stated as a number, 1.5 degrees – so any solutions have to play a numbers game. I’ll talk about that in the last blog.&lt;/p&gt;</content><author><name>Bill Oxbury</name></author><category term="environment" /><summary type="html"></summary></entry></feed>
