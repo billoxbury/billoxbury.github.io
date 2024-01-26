@@ -1,40 +1,4 @@
 var store = [{
-        "title": "Post: Modified Date",
-        "excerpt":"This post has been updated and should show a modified date if used in a layout. All children, except one, grow up. They soon know that they will grow up, and the way Wendy knew was this. One day when she was two years old she was playing in a...","categories": ["Blog"],
-        "tags": ["Post Formats","readability","standard"],
-        "url": "/blog/post-modified/",
-        "teaser": "/assets/img/2019-07-01/zip2.png"
-      },{
-        "title": "Post: Standard",
-        "excerpt":"All children, except one, grow up. They soon know that they will grow up, and the way Wendy knew was this. One day when she was two years old she was playing in a garden, and she plucked another flower and ran with it to her mother. I suppose she...","categories": ["Blog"],
-        "tags": ["Post Formats","readability","standard"],
-        "url": "/blog/post-standard/",
-        "teaser": "/assets/img/2019-07-01/zip2.png"
-      },{
-        "title": "Post: Chat",
-        "excerpt":"Abbott: Strange as it may seem, they give ball players nowadays very peculiar names. Costello: Funny names? Abbott: Nicknames, nicknames. Now, on the St. Louis team we have Who’s on first, What’s on second, I Don’t Know is on third– Costello: That’s what I want to find out. I want...","categories": ["Blog"],
-        "tags": ["chat","Post Formats"],
-        "url": "/blog/post-chat/",
-        "teaser": "/assets/img/2019-07-01/zip2.png"
-      },{
-        "title": "Post: Notice",
-        "excerpt":"A notice displays information that explains nearby content. Often used to call attention to a particular detail. When using Kramdown {: .notice} can be added after a sentence to assign the .notice to the &lt;p&gt;&lt;/p&gt; element. Changes in Service: We just updated our privacy policy here to better service our...","categories": ["Blog"],
-        "tags": ["Post Formats","notice"],
-        "url": "/blog/post-notice/",
-        "teaser": "/assets/img/2019-07-01/zip2.png"
-      },{
-        "title": "Post: Quote",
-        "excerpt":"   Only one thing is impossible for God: To find any sense in any copyright law on the planet.       Mark Twain   ","categories": ["Blog"],
-        "tags": ["Post Formats","quote"],
-        "url": "/blog/post-quote/",
-        "teaser": "/assets/img/2019-07-01/zip2.png"
-      },{
-        "title": "Post: Link",
-        "excerpt":"This theme supports link posts, made famous by John Gruber. To use, just add link: http://url-you-want-linked to the post’s YAML front matter and you’re done.      And this is how a quote looks.    Some link can also be shown.  ","categories": ["Blog"],
-        "tags": ["link","Post Formats"],
-        "url": "/blog/post-link/",
-        "teaser": "/assets/img/2019-07-01/zip2.png"
-      },{
         "title": "Exploring a computer network from its netflow traffic I",
         "excerpt":"This blog takes a look at (part of) a data set released a few years ago by Los Alamos US National Labs [1]. There are five files in all, consisting of anonymised netflow, DNS records, authentication events, Windows process and red-team events on the lab’s internal network. In this first...","categories": ["data_science"],
         "tags": [],
@@ -46,12 +10,6 @@ var store = [{
         "tags": [],
         "url": "/data_science/lanl-netflow-2/",
         "teaser": "/assets/img/2018-08-01/lanl_drl.jpg"
-      },{
-        "title": "Welcome to Jekyll!",
-        "excerpt":"You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when...","categories": ["blog"],
-        "tags": ["Jekyll","update"],
-        "url": "/blog/welcome-to-jekyll/",
-        "teaser": "/assets/img/2019-07-01/zip2.png"
       },{
         "title": "A topological trick for data visualisation",
         "excerpt":"How do hand-written digits arrange themselves in pixel space? The visualisation above (and the interactive version linked to it) illustrates the mapper construction described by Gunnar Carlsson in [1] — here applied to the well known ‘Zip’ data set consisting of 7,291 hand-written digits (a relative of MNIST - this...","categories": ["data_science"],
@@ -146,6 +104,6 @@ var store = [{
         "title": "What are geometric neural networks?",
         "excerpt":"Clifford group equivariance for ${\\mathbb R}^3$. From [5]. This is intended as working notes to get my head round some of the literature on geometric deep learning and Clifford algebra neural networks (NNs). I found that to understand this, it helps to start by looking closely at convolutional NNs. Contents:...","categories": ["artificial_intelligence","mathematics"],
         "tags": [],
-        "url": "/artificial_intelligence/mathematics/cliffor-nn-notes/",
+        "url": "/artificial_intelligence/mathematics/clifford-nn-notes/",
         "teaser": "/assets/img/2024-01-23/multivector.png"
       }]
