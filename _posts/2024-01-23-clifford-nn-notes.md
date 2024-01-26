@@ -90,7 +90,7 @@ W {\bf x}  = K \star {\bf x} \in {\mathbb R}^J
 \\]
 To be precise: fix some origins $i_0 \in I$ and $j_0 \in J$. Under the assumption of transitivity, any $i,j$ can be represented as $i = i_0^{g_i}$, $j = j_0^{g_j}$ for some $g_i, g_j \in G$. Then the convolution statement is equivalent to 
 \\[
-W_{i,j}  = K(g_i^{-1} g_j).
+W_{ij}  = K(g_i^{-1} g_j).
 \\]
 
 Why does equivariance matter? If, as in the 2D image case, it is a natural requirement in the scenario we're modelling, then it makes sense to build it into the mathemtical structure of the model. The alternative is that it is learned - imperfectly - from training data. Having equivariance (or _invariance_ of the final output such as a classification of the image) built in directly represents an important saving in the data requirements for training.
@@ -170,18 +170,18 @@ To motivate what comes next, let's briefly compare two problems.
 
 Our input images now have three colour (RGB) channels, so we imagine a model with input
 \\[
-X : I = {\mathbb Z}^2 \rightarrow {\mathbb R} \oplus {\mathbb R} \oplus{\mathbb R}.
+{\bf x} : I = {\mathbb Z}^2 \rightarrow {\mathbb R} \oplus {\mathbb R} \oplus{\mathbb R}.
 \\]
 For this, an initial NN layer will be constructed by learning an independent kernel on each channel and summing the convolutions: 
 \\[
-K_{\rm red} \star X_1 + K_{\rm blue} \star X_2 + K_{\rm green} \star X_3.
+K_{\rm red} \star {\bf x}_1 + K_{\rm blue} \star {\bf x}_2 + K_{\rm green} \star {\bf x}_3.
 \\]
 
 *Problem 2: shallow water flow.*
 
 Here, the task is to predict fluid flow in the plane - that is to model velocity and pressure fields a few time steps in the future, given those fields now. So at each time step, input to the model looks like
 \\[
-X : I = {\mathbb Z}^2 \rightarrow {\mathbb R} \oplus {\mathbb R}^2
+{\bf x} : I = {\mathbb Z}^2 \rightarrow {\mathbb R} \oplus {\mathbb R}^2
 \\]
 
 <figure>
@@ -197,7 +197,7 @@ Mathematically, what this means is that we'd like to build in not just ${\mathbb
 
 This can be achieved by treating ${\mathbb R} \oplus {\mathbb R}^2$ as contained in one of the Clifford algebras $Cl_{2,0}$ or $Cl_{0,2}$ (we can choose either). I'll spell this out in just a moment, but the key thing to note is that as soon as 
 \\[
-X : I \rightarrow A
+{\bf x} : I \rightarrow A
 \quad
 \hbox{and}
 \quad
@@ -239,10 +239,10 @@ e_3 \mapsto
   0 & 1 \\
 1 & 0  \end{pmatrix}.
 $$</p>
-Exercise: show that for any ${\bf x}, {\bf y} \in {\mathbb R}^2$, their product in  
+Exercise: show that for any ${ x}, { y} \in {\mathbb R}^2$, their product in  
 $Cl_{2,0}$ is
 \\[
-{\bf x} {\bf y} = ({\bf x}\cdot {\bf y}, 0,0, \det |{\bf x}\, {\bf y}|) \in  {\mathbb R}^4 \cong Cl_{2,0}.
+{x}  {y} = ({ x}\cdot { y}, 0,0, \det |{ x}\, { y}|) \in  {\mathbb R}^4 \cong Cl_{2,0}.
 \\]
 
 
@@ -293,7 +293,7 @@ And so on for higher dimensions.
 
 **7. A short zoo of applications**
 
-The following list summarises some of the experiments and applications described in the references. It's not complete, but I've separated the symmetries of the index space $I$ from those of the values taken by $X: I \to V$.
+The following list summarises some of the experiments and applications described in the references. It's not complete, but I've separated the symmetries of the index space $I$ from those of the values taken by ${\bf x} : I \to V$.
 
  <table border="1">
   <tr>
