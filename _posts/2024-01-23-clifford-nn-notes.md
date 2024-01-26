@@ -1,7 +1,7 @@
 ---
 title:  "What are geometric neural networks?"
 date:   2024-01-23
-categories: artificial_intelligence mathematics
+categories: data_science mathematics
 blurb: >- 
     Some notes for a Clifford algebra NN study group
 header:
@@ -16,7 +16,7 @@ usemathjax: true
   </figcaption>
 </figure>
 
-This is intended as working notes to get my head round some of the literature on geometric deep learning and Clifford algebra neural networks (NNs). I found that to understand this, it helps to start by looking closely at _convolutional NNs_.
+This is intended as working notes to get my head round some of the literature on geometric deep learning and Clifford algebra neural networks (NNs).
 
 <p><small>
 <b>Contents:</b>

@@ -102,8 +102,8 @@ var store = [{
         "teaser": "/assets/img/2024-01-05/unicorn.png"
       },{
         "title": "What are geometric neural networks?",
-        "excerpt":"Clifford group equivariance for ${\\mathbb R}^3$. From [5]. This is intended as working notes to get my head round some of the literature on geometric deep learning and Clifford algebra neural networks (NNs). I found that to understand this, it helps to start by looking closely at convolutional NNs. Contents:...","categories": ["artificial_intelligence","mathematics"],
+        "excerpt":"Clifford group equivariance for ${\\mathbb R}^3$. From [5]. This is intended as working notes to get my head round some of the literature on geometric deep learning and Clifford algebra neural networks (NNs). Contents: Notation for NN layers Convolutional NNs Group-equivariant CNNs Example: spherical CNNs How convolutional kernels are learned...","categories": ["data_science","mathematics"],
         "tags": [],
-        "url": "/artificial_intelligence/mathematics/clifford-nn-notes/",
+        "url": "/data_science/mathematics/clifford-nn-notes/",
         "teaser": "/assets/img/2024-01-23/multivector.png"
       }]
