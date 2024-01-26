@@ -315,9 +315,9 @@ The following list summarises some of the experiments and applications described
   </tr>
   <tr>
     <td>Signed volume of
-     a polytope</td>
+     a polyhedron</td>
     <td>$n$ indices</td>
-    <td>${\mathbb R}^3$</td>
+    <td>${\mathbb R}^3$ up to $SO(3)$</td>
     <td>[5]</td>
   </tr>
   <tr>
