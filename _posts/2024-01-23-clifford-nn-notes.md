@@ -189,7 +189,7 @@ Here, the task is to predict fluid flow in the plane - that is to model velocity
 <figure>
   <img src="/assets/img/2024-01-23/fluidflow.png" width="100%">
   <figcaption>
-  A problem with 3 scalar fields over the plane (columns), with the aim of predicting future evolution (rows). Clearly the fields are far from independent. From [7].
+  A problem with 3 scalar fields over the plane (columns), with the aim of predicting future evolution (rows). Clearly the fields are far from independent. From [6].
   </figcaption>
 </figure>
 
@@ -345,13 +345,13 @@ The following list summarises some of the experiments and applications described
     <td>Navier-Stokes PDE</td>
     <td>${\mathbb R}^2$ up to translation</td>
     <td>${\mathbb R} \oplus {\mathbb R}^2$ up to $SO(2)$</td>
-    <td>[7]</td>
+    <td>[6]</td>
   </tr>
   <tr>
     <td>Maxwell's PDE</td>
     <td>${\mathbb R}^3$ up to translation</td>
     <td>${\mathbb R}^3 \oplus {\mathbb R}^3$ up to $SO(3)$</td>
-    <td>[7]</td>
+    <td>[6]</td>
   </tr>
 </table>
 
@@ -362,7 +362,7 @@ The following list summarises some of the experiments and applications described
 1. Ian Goodfellow, Yoshua Bengio, Aaron Courville, _Deep Learning_, MIT Press (2016)
 2. Taco Cohen, Max Welling, <a href="https://arxiv.org/abs/1602.07576" target="_blank">Group equivariant convolutional networks</a>, arXiv.1602.07576 (2016)
 3. Taco S. Cohen, Mario Geiger, Jonas Koehler, Max Welling, <a href="https://arxiv.org/abs/1801.10130" target="_blank">Spherical CNNs</a>, arXiv.1801.10130 (2018)
-3. Michael M. Bronstein, Joan Bruna, Taco Cohen, Petar Veličković, <a href="https://arxiv.org/abs/2104.13478" target="_blank">Geometric Deep Learning: Grids, Groups, Graphs, Geodesics and Gauges</a>, arXiv.2104.13478 (2021)
-4. David Ruhe, Johannes Brandstetter, Patrick Forré, <a href="https://arxiv.org/abs/2305.11141" target="_blank">Clifford group equivariant neural networks</a>, arXiv.2305.11141 (2023)
-5. David Ruhe, Jayesh K. Gupta, Steven de Keninck, Max Welling, Johannes Brandstetter, <a href="https://arxiv.org/abs/2302.06594" target="_blank">Geometric Clifford algebra networks</a>, arXiv.2302.06594 (2023)
-6. Johannes Brandstetter, Rianne van den Berg, Max Welling, Jayesh K. Gupta, <a href="https://arxiv.org/abs/2209.04934" target="_blank">Clifford neural layers for PDE modelling</a>, arXiv.2209.04934 (2023)
+4. Michael M. Bronstein, Joan Bruna, Taco Cohen, Petar Veličković, <a href="https://arxiv.org/abs/2104.13478" target="_blank">Geometric Deep Learning: Grids, Groups, Graphs, Geodesics and Gauges</a>, arXiv.2104.13478 (2021)
+5. David Ruhe, Johannes Brandstetter, Patrick Forré, <a href="https://arxiv.org/abs/2305.11141" target="_blank">Clifford group equivariant neural networks</a>, arXiv.2305.11141 (2023) <a href="https://github.com/DavidRuhe/clifford-group-equivariant-neural-networks" target="_blank">(code here)</a>
+6. Johannes Brandstetter, Rianne van den Berg, Max Welling, Jayesh K. Gupta, <a href="https://arxiv.org/abs/2209.04934" target="_blank">Clifford neural layers for PDE modelling</a>, arXiv.2209.04934 (2023) <a href="https://github.com/microsoft/cliffordlayers" target="_blank">(code here)</a>
+7. David Ruhe, Jayesh K. Gupta, Steven de Keninck, Max Welling, Johannes Brandstetter, <a href="https://arxiv.org/abs/2302.06594" target="_blank">Geometric Clifford algebra networks</a>, arXiv.2302.06594 (2023)

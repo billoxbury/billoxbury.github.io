@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-01-26T14:15:12+00:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Bills.Data</title><subtitle>Exploring ideas in data science</subtitle><author><name>Bill Oxbury</name></author><entry><title type="html">What are geometric neural networks?</title><link href="http://localhost:4000/data_science/mathematics/clifford-nn-notes/" rel="alternate" type="text/html" title="What are geometric neural networks?" /><published>2024-01-23T00:00:00+00:00</published><updated>2024-01-23T00:00:00+00:00</updated><id>http://localhost:4000/data_science/mathematics/clifford-nn-notes</id><content type="html" xml:base="http://localhost:4000/data_science/mathematics/clifford-nn-notes/">&lt;figure&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-01-29T18:59:23+00:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Bills.Data</title><subtitle>Exploring ideas in data science</subtitle><author><name>Bill Oxbury</name></author><entry><title type="html">What are geometric neural networks?</title><link href="http://localhost:4000/data_science/mathematics/clifford-nn-notes/" rel="alternate" type="text/html" title="What are geometric neural networks?" /><published>2024-01-23T00:00:00+00:00</published><updated>2024-01-23T00:00:00+00:00</updated><id>http://localhost:4000/data_science/mathematics/clifford-nn-notes</id><content type="html" xml:base="http://localhost:4000/data_science/mathematics/clifford-nn-notes/">&lt;figure&gt;
   &lt;img src=&quot;/assets/img/2024-01-23/multivector.png&quot; width=&quot;100%&quot; /&gt;
   &lt;figcaption&gt;
   Clifford group equivariance for ${\mathbb R}^3$. From [5].
@@ -116,7 +116,7 @@ Training the model now means choosing the parameters of $f$ to minimise $E_D(f)$
 &lt;p&gt;This minimisation takes place over linear coefficients in the $W$-matrices and kernels $K$ in the layers of the network. We assume the ‘architecture’ is fixed - that is, the number and size of layers, and the filter structure in the convolutional kernels.&lt;/p&gt;
 
 &lt;p&gt;We can assume WLOG that all layers are convolutional.
-That means we can treat the error as a function of the linear $K$ coefficients in all the layers, $E_D(K)$. This is a function over a big vector space, we need to compute the derivative $\nabla_K(E_D)$.&lt;/p&gt;
+That means we can treat the error as a function of the linear $K$ coefficients in all the layers, $E_D(K)$. This is a function over a big vector space, and we need to compute the derivative $\nabla_K(E_D)$.&lt;/p&gt;
 
 &lt;p&gt;Computing this derivative uses the chain rule. Let’s recall how this works.&lt;/p&gt;
 
@@ -131,7 +131,7 @@ Here’s a picture of what we do:&lt;/p&gt;
   From an old PowerPoint c2014. Not sure what I was on.
   &lt;/figcaption&gt;
 &lt;/figure&gt;
-&lt;p&gt;I’ve decomposed $F$ into a directed acyclic graph (DAG) of simple compononents. Evaluating the function involves a forward pass through this DAG.&lt;/p&gt;
+&lt;p&gt;I’ve decomposed $F$ into a directed acyclic graph (DAG) of simple components. Evaluating the function involves a forward pass through this DAG.&lt;/p&gt;
 
 &lt;p&gt;The reverse (red) arrows are the computed derivatives of each arrow on its own. The chain rule for the end-to-end derivative can be written as:
 \[
@@ -162,7 +162,8 @@ Here’s a picture of what we do:&lt;/p&gt;
 {\bf x} : I = {\mathbb Z}^2 \rightarrow {\mathbb R} \oplus {\mathbb R} \oplus{\mathbb R}.
 \]
 For this, an initial NN layer will be constructed by learning an independent kernel on each channel and summing the convolutions:&lt;/p&gt;
-&lt;p&gt;$$
+&lt;p&gt;
+$$
 K_{\rm red} \star {\bf x}_1 + K_{\rm blue} \star {\bf x}_2 + K_{\rm green} \star {\bf x}_3.
 $$
 &lt;/p&gt;
@@ -177,7 +178,7 @@ $$
 &lt;figure&gt;
   &lt;img src=&quot;/assets/img/2024-01-23/fluidflow.png&quot; width=&quot;100%&quot; /&gt;
   &lt;figcaption&gt;
-  A problem with 3 scalar fields over the plane (columns), with the aim of predicting future evolution (rows). Clearly the fields are far from independent. From [7].
+  A problem with 3 scalar fields over the plane (columns), with the aim of predicting future evolution (rows). Clearly the fields are far from independent. From [6].
   &lt;/figcaption&gt;
 &lt;/figure&gt;
 
@@ -263,7 +264,7 @@ e_3 \mapsto
 $$&lt;/p&gt;
 &lt;p&gt;where $i = \sqrt{-1}$.&lt;/p&gt;
 
-&lt;p&gt;Whether we choose to learn rotational of Fourier Clifford kernels is a design choice, as are other aspects of the NN architecture. For either choice, the kernels are learnt (by back-propagation) and deployed in exactly the same way as for layers defined purely over ${\mathbb R}$ - but now the $O(2)$-geometric structure is built in.&lt;/p&gt;
+&lt;p&gt;Whether we choose to learn rotational or Fourier Clifford kernels is a design choice, as are other aspects of the NN architecture. For either choice, the kernels are learnt (by back-propagation) and deployed in exactly the same way as for layers defined purely over ${\mathbb R}$ - but now the $O(2)$-geometric structure is built in.&lt;/p&gt;
 
 &lt;p&gt;For 3D problems, where we want a model to respect $O(3)$ geometry, the story is similar. The Clifford algebra (for choice of signature, or choice of sign on the Euclidean inner product) is 8-dimensional over ${\mathbb R}$, with basis illustrated in the picture at the top of these notes. It’s a fine graphic - but for my money less useful than a clear representation of the algebra in terms of matrices over ${\mathbb R}$, ${\mathbb C}$ or ${\mathbb H}$.&lt;/p&gt;
 
@@ -331,13 +332,13 @@ Cl_{0,3} \cong {\mathbb C}(2)
     &lt;td&gt;Navier-Stokes PDE&lt;/td&gt;
     &lt;td&gt;${\mathbb R}^2$ up to translation&lt;/td&gt;
     &lt;td&gt;${\mathbb R} \oplus {\mathbb R}^2$ up to $SO(2)$&lt;/td&gt;
-    &lt;td&gt;[7]&lt;/td&gt;
+    &lt;td&gt;[6]&lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
     &lt;td&gt;Maxwell&apos;s PDE&lt;/td&gt;
     &lt;td&gt;${\mathbb R}^3$ up to translation&lt;/td&gt;
     &lt;td&gt;${\mathbb R}^3 \oplus {\mathbb R}^3$ up to $SO(3)$&lt;/td&gt;
-    &lt;td&gt;[7]&lt;/td&gt;
+    &lt;td&gt;[6]&lt;/td&gt;
   &lt;/tr&gt;
 &lt;/table&gt;
 
@@ -348,9 +349,9 @@ Cl_{0,3} \cong {\mathbb C}(2)
   &lt;li&gt;Taco Cohen, Max Welling, &lt;a href=&quot;https://arxiv.org/abs/1602.07576&quot; target=&quot;_blank&quot;&gt;Group equivariant convolutional networks&lt;/a&gt;, arXiv.1602.07576 (2016)&lt;/li&gt;
   &lt;li&gt;Taco S. Cohen, Mario Geiger, Jonas Koehler, Max Welling, &lt;a href=&quot;https://arxiv.org/abs/1801.10130&quot; target=&quot;_blank&quot;&gt;Spherical CNNs&lt;/a&gt;, arXiv.1801.10130 (2018)&lt;/li&gt;
   &lt;li&gt;Michael M. Bronstein, Joan Bruna, Taco Cohen, Petar Veličković, &lt;a href=&quot;https://arxiv.org/abs/2104.13478&quot; target=&quot;_blank&quot;&gt;Geometric Deep Learning: Grids, Groups, Graphs, Geodesics and Gauges&lt;/a&gt;, arXiv.2104.13478 (2021)&lt;/li&gt;
-  &lt;li&gt;David Ruhe, Johannes Brandstetter, Patrick Forré, &lt;a href=&quot;https://arxiv.org/abs/2305.11141&quot; target=&quot;_blank&quot;&gt;Clifford group equivariant neural networks&lt;/a&gt;, arXiv.2305.11141 (2023)&lt;/li&gt;
+  &lt;li&gt;David Ruhe, Johannes Brandstetter, Patrick Forré, &lt;a href=&quot;https://arxiv.org/abs/2305.11141&quot; target=&quot;_blank&quot;&gt;Clifford group equivariant neural networks&lt;/a&gt;, arXiv.2305.11141 (2023) &lt;a href=&quot;https://github.com/DavidRuhe/clifford-group-equivariant-neural-networks&quot; target=&quot;_blank&quot;&gt;(code here)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Johannes Brandstetter, Rianne van den Berg, Max Welling, Jayesh K. Gupta, &lt;a href=&quot;https://arxiv.org/abs/2209.04934&quot; target=&quot;_blank&quot;&gt;Clifford neural layers for PDE modelling&lt;/a&gt;, arXiv.2209.04934 (2023) &lt;a href=&quot;https://github.com/microsoft/cliffordlayers&quot; target=&quot;_blank&quot;&gt;(code here)&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;David Ruhe, Jayesh K. Gupta, Steven de Keninck, Max Welling, Johannes Brandstetter, &lt;a href=&quot;https://arxiv.org/abs/2302.06594&quot; target=&quot;_blank&quot;&gt;Geometric Clifford algebra networks&lt;/a&gt;, arXiv.2302.06594 (2023)&lt;/li&gt;
-  &lt;li&gt;Johannes Brandstetter, Rianne van den Berg, Max Welling, Jayesh K. Gupta, &lt;a href=&quot;https://arxiv.org/abs/2209.04934&quot; target=&quot;_blank&quot;&gt;Clifford neural layers for PDE modelling&lt;/a&gt;, arXiv.2209.04934 (2023)&lt;/li&gt;
 &lt;/ol&gt;</content><author><name>Bill Oxbury</name></author><category term="data_science" /><category term="mathematics" /><summary type="html">Clifford group equivariance for ${\mathbb R}^3$. From [5].</summary></entry><entry><title type="html">Why mathematicians should care about Large Language Models</title><link href="http://localhost:4000/artificial_intelligence/mathematics/mathematics-vs-ai/" rel="alternate" type="text/html" title="Why mathematicians should care about Large Language Models" /><published>2024-01-05T00:00:00+00:00</published><updated>2024-01-05T00:00:00+00:00</updated><id>http://localhost:4000/artificial_intelligence/mathematics/mathematics-vs-ai</id><content type="html" xml:base="http://localhost:4000/artificial_intelligence/mathematics/mathematics-vs-ai/">&lt;figure&gt;
   &lt;img src=&quot;/assets/img/2024-01-05/unicorn.png&quot; width=&quot;100%&quot; /&gt;
   &lt;figcaption&gt;&quot;Draw a unicorn in TikZ.&quot; Successive renderings by GPT-4, from [1]. Their relevance to the discussion will be revealed, all in good time.
