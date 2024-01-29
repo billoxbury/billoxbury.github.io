@@ -215,7 +215,7 @@ x^2 := \pm (x \cdot x) 1
 \\]
 The sign determines which of the two cases we're in.
 
-<b> Case $A = Cl_{2,0}$ </b> (called 'Clifford Fourier' in [7])
+<b> Case $A = Cl_{2,0}$ </b> (called 'Clifford Fourier' in [6])
 
 In this case $e_1^2 = e_2^2 = 1$ and it's easy to check that $e_1 e_2 = - e_2 e_1$ and $e_3^2 = -1$.
 So we can write down an (algebra) isomorphism to real $2 \times 2$ matrices $Cl_{2,0} \cong {\mathbb R}(2)$
@@ -248,7 +248,7 @@ $Cl_{2,0}$ is
 \\]
 
 
-<b> Case $A = Cl_{0,2}$ </b> (called 'rotational Clifford' in [7])
+<b> Case $A = Cl_{0,2}$ </b> (called 'rotational Clifford' in [6])
 
 In this case $e_1^2 = e_2^2 = -1$ but as in the previous case $e_1 e_2 = - e_2 e_1$ and $e_3^2 = -1$.
 So this time the algebra is isomorphic to the quarternions $Cl_{2,0} \cong {\mathbb H}$. If we want to we can represent the algebra as $2 \times 2$ complex matrices ${\mathbb H} \subset {\mathbb C}(2)$. Then the basis elements map to the _Pauli matrices_
