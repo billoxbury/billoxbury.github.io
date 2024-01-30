@@ -149,7 +149,7 @@ The reverse (red) arrows are the computed derivatives of each arrow on its own. 
 \\]
 (Exercise: check this for the example!)
 
-The beauty of this formulation is that _we don't need to enumerate all the paths_: we only need to pass messages back along the red edges, multiplying as we go and summing the incoming messages. The messages that then arrive at the variables $u,v$ will then be the respective partial derivatives. 
+The beauty of this formulation is that _we don't need to enumerate all the paths_: we only need to pass messages back along the red edges, multiplying as we go and summing the incoming messages. The messages that arrive at the variables $u,v$ will then be the respective partial derivatives. 
 
 This formulation of the chain rule is called _back-propagation_. Let's see how it works for the derivative $\nabla_K(E_D)$.
 
