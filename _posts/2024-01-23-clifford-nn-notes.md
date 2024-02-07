@@ -103,7 +103,7 @@ In this case $I,J \subset S^2$ and $G$ is the 3D rotation group $SO(3)$. The mat
 
 The group $SO(3)$ is 3-dimensional, with a coordinate chart given by <a href="https://en.wikipedia.org/wiki/Euler_angles" target="_blank">Euler angles</a> $\alpha,\beta,\gamma$. A kernel $K$ is specified to have bounded support in some window of $(\alpha,\beta,\gamma)$-space. The convolution is then expressed as an integral
 \\[
-(K \star {\bf x}) (R) = \int_{SO(3)} K(R^{-1} Q) {\bf x}(Q) dQ,
+(K \star {\bf x}) (R) = \int_{SO(3)} K(R Q^{-1}) {\bf x}(Q) dQ,
 \\]
 whose computation requires some <a href="https://en.wikipedia.org/wiki/Wigner_D-matrix" target="_blank">representation theory of $SO(3).$</a>
 
