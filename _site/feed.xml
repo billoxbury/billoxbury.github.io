@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-10-11T11:46:47+00:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Bills.Data</title><subtitle>Exploring ideas in data science</subtitle><author><name>Bill Oxbury</name></author><entry><title type="html">Does AI pose an existential threat?</title><link href="http://localhost:4000/artificial_intelligence/does-ai-pose-existential-threat/" rel="alternate" type="text/html" title="Does AI pose an existential threat?" /><published>2024-10-10T00:00:00+00:00</published><updated>2024-10-10T00:00:00+00:00</updated><id>http://localhost:4000/artificial_intelligence/does-ai-pose-existential%20threat</id><content type="html" xml:base="http://localhost:4000/artificial_intelligence/does-ai-pose-existential-threat/">&lt;figure&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-10-11T14:03:01+00:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Bills.Data</title><subtitle>Exploring ideas in data science</subtitle><author><name>Bill Oxbury</name></author><entry><title type="html">Does AI pose an existential threat?</title><link href="http://localhost:4000/artificial_intelligence/does-ai-pose-existential-threat/" rel="alternate" type="text/html" title="Does AI pose an existential threat?" /><published>2024-10-10T00:00:00+00:00</published><updated>2024-10-10T00:00:00+00:00</updated><id>http://localhost:4000/artificial_intelligence/does-ai-pose-existential%20threat</id><content type="html" xml:base="http://localhost:4000/artificial_intelligence/does-ai-pose-existential-threat/">&lt;figure&gt;
   &lt;img src=&quot;/assets/img/2024-10-10/1_context/1_title/title1.jpeg&quot; width=&quot;100%&quot; /&gt;
   &lt;figcaption&gt;
   Imagined from the title of this talk by &lt;a href=&quot;https://openai.com/index/dall-e-3/&quot; target=&quot;_blank&quot;&gt;DALL-E3&lt;/a&gt;
@@ -26,12 +26,12 @@
   &lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;p&gt;Their work, and that of a great many of their colleagues and fellow researchers, have revolutionised how we all interact with data and with the Internet, to the extent that Artificial Intelligence (AI) is now a recognisable of all our lives. It has created capabilities that were previously confined to human cognition, such as interpretation (and creation) of images and language; as well as scientific applications that are well beyond human cognition:&lt;/p&gt;
+&lt;p&gt;Their work, and that of a great many of their colleagues and fellow researchers, have revolutionised how we all interact with data and with the Internet, to the extent that Artificial Intelligence (AI) is now a recognisable part of all our lives. It has created capabilities that were previously confined to human cognition, such as interpretation (and creation) of images and language; as well as scientific applications that are well beyond human cognition:&lt;/p&gt;
 
 &lt;figure&gt;
-  &lt;img src=&quot;/assets/img/2024-10-10/1_context/2_showcase/bemodog.jpg&quot; width=&quot;100%&quot; /&gt;
+  &lt;img src=&quot;/assets/img/2024-10-10/1_context/2_showcase/bemoredog.png&quot; width=&quot;100%&quot; /&gt;
   &lt;figcaption&gt;
-  Recognising cats vs dogs: only a few years ago this seemed an intractable problem for computers.
+  Recognising cats vs dogs: only a few years ago this seemed an intractable problem for computers. Source: &lt;a href=&quot;https://www.youtube.com/watch?v=ExnWRuniooY&quot; target=&quot;_blank&quot;&gt;Be more dog&lt;/a&gt;
   &lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;figure&gt;
@@ -58,7 +58,7 @@
 &lt;figure&gt;
   &lt;img src=&quot;/assets/img/2024-10-10/1_context/2_showcase/gemini2.png&quot; width=&quot;100%&quot; /&gt;
   &lt;figcaption&gt;
-  Gemini 1.5: given a movie, recognising scenes from text description and from a hand drawing.
+  Gemini 1.5: given a movie, recognising and interpeting scenes from text description and from a hand drawing.
     &lt;/figcaption&gt;
 &lt;/figure&gt;
 
@@ -69,16 +69,7 @@
     &lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;p&gt;&lt;strong&gt;2. How does it work?&lt;/strong&gt;&lt;/p&gt;
-
-&lt;figure&gt;
-  &lt;img src=&quot;/assets/img/2024-10-10/2_what_is_ai/training.jpeg&quot; width=&quot;100%&quot; /&gt;
-  &lt;figcaption&gt;
-  “A machine learning model such as a neural network is obtained by compressing a large set of training data.&quot; Image by &lt;a href=&quot;https://openai.com/index/dall-e-3/&quot; target=&quot;_blank&quot;&gt;DALL-E3&lt;/a&gt;.
-  &lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;&lt;strong&gt;3. What can possibly go wrong?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Despite these successes - and in part because of them - the development of AI has been accompanied by growing unease about its risks. I’ll discuss what these risks are later, but for the moment let’s just note the open letters from the AI research commmunity that have attracted media attention over the years - including a high-profile letter in 2023 titled &lt;em&gt;Mitigating the risk of extinction from AI should be a global priority&lt;/em&gt; and signed by many leaders in the field including Geoffrey Hinton, Yoshua Bengio and Demis Hassabis among others:&lt;/p&gt;
 
 &lt;figure&gt;
   &lt;img src=&quot;/assets/img/2024-10-10/1_context/4_warnings/warnings.png&quot; width=&quot;100%&quot; /&gt;
@@ -87,27 +78,47 @@
     &lt;/figcaption&gt;
 &lt;/figure&gt;
 
+&lt;p&gt;The main aim of this talk is to discuss the various AI risks, including those highlighted in these calls. But first I want to try to demystify a little exactly what AI is and how it works.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2. How does it work?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;figure&gt;
+  &lt;img src=&quot;/assets/img/2024-10-10/2_what_is_ai/training.jpeg&quot; width=&quot;100%&quot; /&gt;
+  &lt;figcaption&gt;
+  “A machine learning model such as a neural network is obtained by compressing a large set of training data.&quot; Image by the author with the help of &lt;a href=&quot;https://openai.com/index/dall-e-3/&quot; target=&quot;_blank&quot;&gt;DALL-E3&lt;/a&gt;.
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;3. What can possibly go wrong?&lt;/strong&gt;&lt;/p&gt;
+
 &lt;p&gt;&lt;strong&gt;4. The future&lt;/strong&gt;&lt;/p&gt;
+
+&lt;figure&gt;
+  &lt;img src=&quot;/assets/img/2024-10-10/4_the_future/alien_email.png&quot; width=&quot;100%&quot; /&gt;
+  &lt;figcaption&gt;
+  An email arrives from an alien civilisation - as imagined by Stuart Russell.
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
 
 &lt;p&gt;&lt;strong&gt;References&lt;/strong&gt;&lt;/p&gt;
 
 &lt;ul&gt;
+  &lt;li&gt;Nick Bostrom, &lt;a href=&quot;https://www.amazon.co.uk/Superintelligence-Dangers-Strategies-Nick-Bostrom/dp/0198739834/&quot; target=&quot;_blank&quot;&gt;Superintelligence: Paths, Dangers, Strategies&lt;/a&gt;, Oxford University Press (2014)&lt;/li&gt;
   &lt;li&gt;Volodymyr Mnih, et al (DeepMind), &lt;a href=&quot;https://www.nature.com/articles/nature14236&quot; target=&quot;_blank&quot;&gt;Human-level control through deep reinforcement learning&lt;/a&gt;, &lt;em&gt;Nature 518, pp 529–533&lt;/em&gt; (2015)&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;https://futureoflife.org/open-letter/open-letter-autonomous-weapons-ai-robotics/&quot; target=&quot;_blank&quot;&gt;Autonomous Weapons Open Letter: AI &amp;amp; Robotics Researchers&lt;/a&gt; (2016)&lt;/p&gt;
-  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://futureoflife.org/open-letter/open-letter-autonomous-weapons-ai-robotics/&quot; target=&quot;_blank&quot;&gt;Autonomous Weapons Open Letter: AI &amp;amp; Robotics Researchers&lt;/a&gt; (2016)&lt;/li&gt;
+  &lt;li&gt;Stuart Russell, &lt;a href=&quot;https://www.amazon.co.uk/Human-Compatible-AI-Problem-Control/dp/0241335205&quot; target=&quot;_blank&quot;&gt;Human Compatible: AI and the Problem of Control&lt;/a&gt;, Allen Lane (2019)&lt;/li&gt;
   &lt;li&gt;Stathis Kamperis, &lt;a href=&quot;https://ekamperi.github.io/machine%20learning/2019/08/14/energy-considerations-dnn.html&quot; target=&quot;_blank&quot;&gt;Energy considerations for training deep neural networks&lt;/a&gt;, &lt;em&gt;blog&lt;/em&gt; (2019)&lt;/li&gt;
   &lt;li&gt;Kathryn Tunyasuvunakool et al (Deepmind), &lt;a href=&quot;https://www.nature.com/articles/s41586-021-03828-1&quot; target=&quot;_blank&quot;&gt;&lt;em&gt;Highly accurate protein structure prediction for the human proteome&lt;/em&gt;&lt;/a&gt;, &lt;em&gt;Nature 596, pp 590–596&lt;/em&gt; (2021)&lt;/li&gt;
   &lt;li&gt;Emily M. Bender, Timnit Gebru, Angelina McMillan-Major, Margaret Mitchell, &lt;a href=&quot;https://dl.acm.org/doi/10.1145/3442188.3445922&quot; target=&quot;_blank&quot;&gt;On the Dangers of Stochastic Parrots: Can Language Models Be Too Big?&lt;/a&gt;, &lt;em&gt;FAccT ‘21: Proceedings of the 2021 ACM Conference on Fairness, Accountability, and Transparency&lt;/em&gt; (2021)&lt;/li&gt;
   &lt;li&gt;Carole-Jean Wu et al (Facebook), &lt;a href=&quot;https://arxiv.org/abs/2111.00364&quot; target=&quot;_blank&quot;&gt;Sustainable AI: Environmental Implications, Challenges and Opportunities&lt;/a&gt; &lt;em&gt;https://arxiv.org/abs/2111.00364&lt;/em&gt; (2022)&lt;/li&gt;
   &lt;li&gt;Sébastien Bubeck, et al (Microsoft Research), &lt;a href=&quot;https://arxiv.org/abs/2303.12712&quot; target=&quot;_blank&quot;&gt;Sparks of Artificial General Intelligence: Early experiments with GPT-4&lt;/a&gt;, &lt;em&gt;https://arxiv.org/abs/2303.12712&lt;/em&gt; (2023)&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://futureoflife.org/open-letter/pause-giant-ai-experiments/&quot; target=&quot;_blank&quot;&gt;Pause Giant AI Experiments: An Open Letter&lt;/a&gt; (March 2023)&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.safe.ai/work/statement-on-ai-risk#open-letter&quot; target=&quot;_blank&quot;&gt;Mitigating the risk of extinction from AI should be a global priority&lt;/a&gt; (May 2023)&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.bcs.org/sign-our-open-letter-on-the-future-of-ai/&quot; target=&quot;_blank&quot;&gt;AI open letter to UK Government and Industry&lt;/a&gt; (July 2023)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.safe.ai/work/statement-on-ai-risk#open-letter&quot; target=&quot;_blank&quot;&gt;Mitigating the risk of extinction from AI should be a global priority&lt;/a&gt;, &lt;em&gt;open letter&lt;/em&gt; (May 2023)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.bcs.org/sign-our-open-letter-on-the-future-of-ai/&quot; target=&quot;_blank&quot;&gt;AI open letter to UK Government and Industry&lt;/a&gt;, &lt;em&gt;BCS The Chartered Institute for IT&lt;/em&gt; (July 2023)&lt;/li&gt;
   &lt;li&gt;Gemini Team Google, &lt;a href=&quot;https://arxiv.org/abs/2403.05530&quot; target=&quot;_blank&quot;&gt;Gemini 1.5: Unlocking multimodal
 understanding across millions of tokens of
 context&lt;/a&gt;, &lt;em&gt;https://arxiv.org/abs/2403.05530&lt;/em&gt; (2024)&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://righttowarn.ai/&quot; target=&quot;_blank&quot;&gt;A Right to Warn about Advanced Artificial Intelligence&lt;/a&gt; (June 2024)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://righttowarn.ai/&quot; target=&quot;_blank&quot;&gt;A Right to Warn about Advanced Artificial Intelligence&lt;/a&gt;, &lt;em&gt;open letter&lt;/em&gt; (June 2024)&lt;/li&gt;
 &lt;/ul&gt;</content><author><name>Bill Oxbury</name></author><category term="artificial_intelligence" /><summary type="html">Imagined from the title of this talk by DALL-E3</summary></entry><entry><title type="html">What are geometric neural networks?</title><link href="http://localhost:4000/data_science/mathematics/clifford-nn-notes/" rel="alternate" type="text/html" title="What are geometric neural networks?" /><published>2024-01-23T00:00:00+00:00</published><updated>2024-01-23T00:00:00+00:00</updated><id>http://localhost:4000/data_science/mathematics/clifford-nn-notes</id><content type="html" xml:base="http://localhost:4000/data_science/mathematics/clifford-nn-notes/">&lt;figure&gt;
   &lt;img src=&quot;/assets/img/2024-01-23/multivector.png&quot; width=&quot;100%&quot; /&gt;
   &lt;figcaption&gt;
