@@ -1,4 +1,114 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-01-29T18:59:23+00:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Bills.Data</title><subtitle>Exploring ideas in data science</subtitle><author><name>Bill Oxbury</name></author><entry><title type="html">What are geometric neural networks?</title><link href="http://localhost:4000/data_science/mathematics/clifford-nn-notes/" rel="alternate" type="text/html" title="What are geometric neural networks?" /><published>2024-01-23T00:00:00+00:00</published><updated>2024-01-23T00:00:00+00:00</updated><id>http://localhost:4000/data_science/mathematics/clifford-nn-notes</id><content type="html" xml:base="http://localhost:4000/data_science/mathematics/clifford-nn-notes/">&lt;figure&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-10-11T11:46:47+00:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Bills.Data</title><subtitle>Exploring ideas in data science</subtitle><author><name>Bill Oxbury</name></author><entry><title type="html">Does AI pose an existential threat?</title><link href="http://localhost:4000/artificial_intelligence/does-ai-pose-existential-threat/" rel="alternate" type="text/html" title="Does AI pose an existential threat?" /><published>2024-10-10T00:00:00+00:00</published><updated>2024-10-10T00:00:00+00:00</updated><id>http://localhost:4000/artificial_intelligence/does-ai-pose-existential%20threat</id><content type="html" xml:base="http://localhost:4000/artificial_intelligence/does-ai-pose-existential-threat/">&lt;figure&gt;
+  &lt;img src=&quot;/assets/img/2024-10-10/1_context/1_title/title1.jpeg&quot; width=&quot;100%&quot; /&gt;
+  &lt;figcaption&gt;
+  Imagined from the title of this talk by &lt;a href=&quot;https://openai.com/index/dall-e-3/&quot; target=&quot;_blank&quot;&gt;DALL-E3&lt;/a&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;small&gt;
+&lt;b&gt;Contents:&lt;/b&gt;
+&lt;ol&gt;
+  &lt;li&gt;AI today&lt;/li&gt;
+  &lt;li&gt;How does it work?&lt;/li&gt;
+  &lt;li&gt;What can go possibly wrong?&lt;/li&gt;
+  &lt;li&gt;The future&lt;/li&gt;
+ &lt;/ol&gt;
+&lt;/small&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1. AI today&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;As I write this in late 2024, the year’s Nobel Prizes have been announced for &lt;a href=&quot;https://www.nobelprize.org/prizes/physics/2024/press-release/&quot; target=&quot;_blank&quot;&gt;Physics&lt;/a&gt; and &lt;a href=&quot;https://www.nobelprize.org/prizes/chemistry/2024/press-release/&quot; target=&quot;_blank&quot;&gt;Chemistry&lt;/a&gt;. They included three pioneering figures from Artificial Intelligence: Geoffey Hinton and John Hopfield for their work on neural networks – both inspired by and contributing to physics; and Demis Hassabis, CEO of Deepmind, among whose profound achievements was using deep learning to solve the problem of protein folding.&lt;/p&gt;
+
+&lt;figure&gt;
+  &lt;img src=&quot;/assets/img/2024-10-10/1_context/3_nobelprizes/nobelprizes.jpg&quot; width=&quot;100%&quot; /&gt;
+  &lt;figcaption&gt;
+  Three 2024 Nobel Prize Laureates: Geoffrey Hinton and John Hopfield (Physics) and Demis Hassabis (Chemistry).
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Their work, and that of a great many of their colleagues and fellow researchers, have revolutionised how we all interact with data and with the Internet, to the extent that Artificial Intelligence (AI) is now a recognisable of all our lives. It has created capabilities that were previously confined to human cognition, such as interpretation (and creation) of images and language; as well as scientific applications that are well beyond human cognition:&lt;/p&gt;
+
+&lt;figure&gt;
+  &lt;img src=&quot;/assets/img/2024-10-10/1_context/2_showcase/bemodog.jpg&quot; width=&quot;100%&quot; /&gt;
+  &lt;figcaption&gt;
+  Recognising cats vs dogs: only a few years ago this seemed an intractable problem for computers.
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;figure&gt;
+  &lt;img src=&quot;/assets/img/2024-10-10/1_context/2_showcase/alphafold.png&quot; width=&quot;100%&quot; /&gt;
+  &lt;figcaption&gt;
+  AlphaFold: predicting the folding geometry of a protein from the sequence of amino acids.
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;figure&gt;
+  &lt;img src=&quot;/assets/img/2024-10-10/1_context/2_showcase/unicorn.png&quot; width=&quot;100%&quot; /&gt;
+  &lt;figcaption&gt;
+  GPT-4: from rhyming text to writing code for graphics. We also see a progression to better unicorn drawings with learning from feedback.
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;figure&gt;
+  &lt;img src=&quot;/assets/img/2024-10-10/1_context/2_showcase/gemini1.png&quot; width=&quot;100%&quot; /&gt;
+  &lt;figcaption&gt;
+  Gemini 1.5: learning a low-resource language, Kalamang
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;figure&gt;
+  &lt;img src=&quot;/assets/img/2024-10-10/1_context/2_showcase/gemini2.png&quot; width=&quot;100%&quot; /&gt;
+  &lt;figcaption&gt;
+  Gemini 1.5: given a movie, recognising scenes from text description and from a hand drawing.
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;figure&gt;
+  &lt;img src=&quot;/assets/img/2024-10-10/1_context/2_showcase/breakout.gif&quot; width=&quot;100%&quot; /&gt;
+  &lt;figcaption&gt;
+  An early DeepMind achievement: learning to play an Atari game by Reinforcement Learning. Here we see three generations of the learnt model.
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;2. How does it work?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;figure&gt;
+  &lt;img src=&quot;/assets/img/2024-10-10/2_what_is_ai/training.jpeg&quot; width=&quot;100%&quot; /&gt;
+  &lt;figcaption&gt;
+  “A machine learning model such as a neural network is obtained by compressing a large set of training data.&quot; Image by &lt;a href=&quot;https://openai.com/index/dall-e-3/&quot; target=&quot;_blank&quot;&gt;DALL-E3&lt;/a&gt;.
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;3. What can possibly go wrong?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;figure&gt;
+  &lt;img src=&quot;/assets/img/2024-10-10/1_context/4_warnings/warnings.png&quot; width=&quot;100%&quot; /&gt;
+  &lt;figcaption&gt;
+  Some open letters from the AI community – from warnings on autonomous weapons (2016), to the rights of staff with ethical concerns (2023). As well as voices for the benefits of AI to humanity.
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;4. The future&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;References&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Volodymyr Mnih, et al (DeepMind), &lt;a href=&quot;https://www.nature.com/articles/nature14236&quot; target=&quot;_blank&quot;&gt;Human-level control through deep reinforcement learning&lt;/a&gt;, &lt;em&gt;Nature 518, pp 529–533&lt;/em&gt; (2015)&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://futureoflife.org/open-letter/open-letter-autonomous-weapons-ai-robotics/&quot; target=&quot;_blank&quot;&gt;Autonomous Weapons Open Letter: AI &amp;amp; Robotics Researchers&lt;/a&gt; (2016)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Stathis Kamperis, &lt;a href=&quot;https://ekamperi.github.io/machine%20learning/2019/08/14/energy-considerations-dnn.html&quot; target=&quot;_blank&quot;&gt;Energy considerations for training deep neural networks&lt;/a&gt;, &lt;em&gt;blog&lt;/em&gt; (2019)&lt;/li&gt;
+  &lt;li&gt;Kathryn Tunyasuvunakool et al (Deepmind), &lt;a href=&quot;https://www.nature.com/articles/s41586-021-03828-1&quot; target=&quot;_blank&quot;&gt;&lt;em&gt;Highly accurate protein structure prediction for the human proteome&lt;/em&gt;&lt;/a&gt;, &lt;em&gt;Nature 596, pp 590–596&lt;/em&gt; (2021)&lt;/li&gt;
+  &lt;li&gt;Emily M. Bender, Timnit Gebru, Angelina McMillan-Major, Margaret Mitchell, &lt;a href=&quot;https://dl.acm.org/doi/10.1145/3442188.3445922&quot; target=&quot;_blank&quot;&gt;On the Dangers of Stochastic Parrots: Can Language Models Be Too Big?&lt;/a&gt;, &lt;em&gt;FAccT ‘21: Proceedings of the 2021 ACM Conference on Fairness, Accountability, and Transparency&lt;/em&gt; (2021)&lt;/li&gt;
+  &lt;li&gt;Carole-Jean Wu et al (Facebook), &lt;a href=&quot;https://arxiv.org/abs/2111.00364&quot; target=&quot;_blank&quot;&gt;Sustainable AI: Environmental Implications, Challenges and Opportunities&lt;/a&gt; &lt;em&gt;https://arxiv.org/abs/2111.00364&lt;/em&gt; (2022)&lt;/li&gt;
+  &lt;li&gt;Sébastien Bubeck, et al (Microsoft Research), &lt;a href=&quot;https://arxiv.org/abs/2303.12712&quot; target=&quot;_blank&quot;&gt;Sparks of Artificial General Intelligence: Early experiments with GPT-4&lt;/a&gt;, &lt;em&gt;https://arxiv.org/abs/2303.12712&lt;/em&gt; (2023)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://futureoflife.org/open-letter/pause-giant-ai-experiments/&quot; target=&quot;_blank&quot;&gt;Pause Giant AI Experiments: An Open Letter&lt;/a&gt; (March 2023)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.safe.ai/work/statement-on-ai-risk#open-letter&quot; target=&quot;_blank&quot;&gt;Mitigating the risk of extinction from AI should be a global priority&lt;/a&gt; (May 2023)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.bcs.org/sign-our-open-letter-on-the-future-of-ai/&quot; target=&quot;_blank&quot;&gt;AI open letter to UK Government and Industry&lt;/a&gt; (July 2023)&lt;/li&gt;
+  &lt;li&gt;Gemini Team Google, &lt;a href=&quot;https://arxiv.org/abs/2403.05530&quot; target=&quot;_blank&quot;&gt;Gemini 1.5: Unlocking multimodal
+understanding across millions of tokens of
+context&lt;/a&gt;, &lt;em&gt;https://arxiv.org/abs/2403.05530&lt;/em&gt; (2024)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://righttowarn.ai/&quot; target=&quot;_blank&quot;&gt;A Right to Warn about Advanced Artificial Intelligence&lt;/a&gt; (June 2024)&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Bill Oxbury</name></author><category term="artificial_intelligence" /><summary type="html">Imagined from the title of this talk by DALL-E3</summary></entry><entry><title type="html">What are geometric neural networks?</title><link href="http://localhost:4000/data_science/mathematics/clifford-nn-notes/" rel="alternate" type="text/html" title="What are geometric neural networks?" /><published>2024-01-23T00:00:00+00:00</published><updated>2024-01-23T00:00:00+00:00</updated><id>http://localhost:4000/data_science/mathematics/clifford-nn-notes</id><content type="html" xml:base="http://localhost:4000/data_science/mathematics/clifford-nn-notes/">&lt;figure&gt;
   &lt;img src=&quot;/assets/img/2024-01-23/multivector.png&quot; width=&quot;100%&quot; /&gt;
   &lt;figcaption&gt;
   Clifford group equivariance for ${\mathbb R}^3$. From [5].
@@ -93,7 +203,7 @@ W_{ij}  = K(g_i^{-1} g_j).
 
 &lt;p&gt;The group $SO(3)$ is 3-dimensional, with a coordinate chart given by &lt;a href=&quot;https://en.wikipedia.org/wiki/Euler_angles&quot; target=&quot;_blank&quot;&gt;Euler angles&lt;/a&gt; $\alpha,\beta,\gamma$. A kernel $K$ is specified to have bounded support in some window of $(\alpha,\beta,\gamma)$-space. The convolution is then expressed as an integral
 \[
-(K \star {\bf x}) (R) = \int_{SO(3)} K(R^{-1} Q) {\bf x}(Q) dQ,
+(K \star {\bf x}) (R) = \int_{SO(3)} K(R Q^{-1}) {\bf x}(Q) dQ,
 \]
 whose computation requires some &lt;a href=&quot;https://en.wikipedia.org/wiki/Wigner_D-matrix&quot; target=&quot;_blank&quot;&gt;representation theory of $SO(3).$&lt;/a&gt;&lt;/p&gt;
 
@@ -139,7 +249,7 @@ Here’s a picture of what we do:&lt;/p&gt;
 \]
 (Exercise: check this for the example!)&lt;/p&gt;
 
-&lt;p&gt;The beauty of this formulation is that &lt;em&gt;we don’t need to enumerate all the paths&lt;/em&gt;: we only need to pass messages back along the red edges, multiplying as we go and summing the incoming messages. The messages that then arrive at the variables $u,v$ will then be the respective partial derivatives.&lt;/p&gt;
+&lt;p&gt;The beauty of this formulation is that &lt;em&gt;we don’t need to enumerate all the paths&lt;/em&gt;: we only need to pass messages back along the red edges, multiplying as we go and summing the incoming messages. The messages that arrive at the variables $u,v$ will then be the respective partial derivatives.&lt;/p&gt;
 
 &lt;p&gt;This formulation of the chain rule is called &lt;em&gt;back-propagation&lt;/em&gt;. Let’s see how it works for the derivative $\nabla_K(E_D)$.&lt;/p&gt;
 
@@ -204,7 +314,7 @@ x^2 := \pm (x \cdot x) 1
 \]
 The sign determines which of the two cases we’re in.&lt;/p&gt;
 
-&lt;p&gt;&lt;b&gt; Case $A = Cl_{2,0}$ &lt;/b&gt; (called ‘Clifford Fourier’ in [7])&lt;/p&gt;
+&lt;p&gt;&lt;b&gt; Case $A = Cl_{2,0}$ &lt;/b&gt; (called ‘Clifford Fourier’ in [6])&lt;/p&gt;
 
 &lt;p&gt;In this case $e_1^2 = e_2^2 = 1$ and it’s easy to check that $e_1 e_2 = - e_2 e_1$ and $e_3^2 = -1$.
 So we can write down an (algebra) isomorphism to real $2 \times 2$ matrices $Cl_{2,0} \cong {\mathbb R}(2)$&lt;/p&gt;
@@ -236,7 +346,7 @@ $Cl_{2,0}$ is
 {x}  {y} = ({ x}\cdot { y}, 0,0, \det |{ x}\, { y}|) \in  {\mathbb R}^4 \cong Cl_{2,0}.
 \]&lt;/p&gt;
 
-&lt;p&gt;&lt;b&gt; Case $A = Cl_{0,2}$ &lt;/b&gt; (called ‘rotational Clifford’ in [7])&lt;/p&gt;
+&lt;p&gt;&lt;b&gt; Case $A = Cl_{0,2}$ &lt;/b&gt; (called ‘rotational Clifford’ in [6])&lt;/p&gt;
 
 &lt;p&gt;In this case $e_1^2 = e_2^2 = -1$ but as in the previous case $e_1 e_2 = - e_2 e_1$ and $e_3^2 = -1$.
 So this time the algebra is isomorphic to the quarternions $Cl_{2,0} \cong {\mathbb H}$. If we want to we can represent the algebra as $2 \times 2$ complex matrices ${\mathbb H} \subset {\mathbb C}(2)$. Then the basis elements map to the &lt;em&gt;Pauli matrices&lt;/em&gt;&lt;/p&gt;
@@ -1266,28 +1376,4 @@ Here are my test results for three models:&lt;/p&gt;
 
 &lt;p&gt;All too often, responding to the climate crisis is framed as being about personal choices (you should fly less, you should eat less meat). It isn’t. Ultimately, it depends on science-driven policies, tireless diplomacy and international cooperation to shift those big carbon numbers. COP26 is a critical part of that process.&lt;/p&gt;
 
-&lt;p&gt;Yes, our lifestyles will change, and individual choices are important – but for the majority they’ll change the way they always have done: in response to better choices coming along through vision, investment and legislation.&lt;/p&gt;</content><author><name>Bill Oxbury</name></author><category term="environment" /><summary type="html"></summary></entry><entry><title type="html">COP26: why 1.5 degrees?</title><link href="http://localhost:4000/environment/cop26-why1pt5/" rel="alternate" type="text/html" title="COP26: why 1.5 degrees?" /><published>2021-11-02T00:00:00+00:00</published><updated>2021-11-02T00:00:00+00:00</updated><id>http://localhost:4000/environment/cop26-why1pt5</id><content type="html" xml:base="http://localhost:4000/environment/cop26-why1pt5/">&lt;p&gt;&lt;img src=&quot;/assets/img/2021-11-02/image1.jpeg&quot; width=&quot;100%&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;In the 2015 Paris Agreement, countries of the world signed up to &lt;em&gt;“keep the rise in average global temperature to well below 2°C above pre-industrial levels, and preferably limit the increase to 1.5°C”&lt;/em&gt;.  This month’s COP26 summit is the last best chance for nations to agree plans of action to achieve that goal. For the reasons I discussed in the previous blog, it’s vital for all our futures that we succeed.&lt;/p&gt;
-
-&lt;p&gt;So why 1.5°C? The figure sounds insignificant – what does it mean?&lt;/p&gt;
-
-&lt;p&gt;Global average temperature is not a flat, uniform thing. It’s more like the surface of the sea – it has peaks and troughs. And actually, as the average rises, so does the variation between those peaks and troughs. The graphic above, taken from the &lt;a href=&quot;https://www.atlasoftheinvisible.com/&quot;&gt;Atlas of the Invisible&lt;/a&gt;, illustrates this. Each square is a little map of the Earth, showing average temperature from 1890 to 2019. The colour, from blue to red, shows how far the temperature is below or above the global average for the ‘baseline period’ (1960s to 1980s). What you see is not only the trend but the variation across the planet.&lt;/p&gt;
-
-&lt;p&gt;So a total average temperature rise of 1.1°C (above the pre-industrial average, which is roughly where we are today), affects different parts of the planet in different ways, and has led to the big effects in terms of extreme weather, melting ice and changing rainfall patterns that we see today.&lt;/p&gt;
-
-&lt;p&gt;Let’s put that figure of 1.1°C in historical context. The following graphic is taken from the &lt;a href=&quot;https://www.ipcc.ch/report/ar6/wg1/#FullReport&quot;&gt;IPCC’s 6th Assessment Report&lt;/a&gt; this summer. It shows that insignificant-looking temperature difference in the context of the last two thousand years. In this context, we see that 1.1°C is a very big deal and that the rise is not gradual but is better thought of as a shock to the system.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/2021-11-02/image2.png&quot; width=&quot;100%&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;The graphic also shows that today’s temperature is outside anything the planet has experienced in the past 100,000 years. At 1.5°C we will already head beyond any conditions that have existed during the lifetime of our species. Yet the IPCC report makes clear that we are very likely to exceed 1.5°C by 2040 and possibly by 2030. Without radical actions agreed at COP26, according to the IPCC, we are heading past 2.4°C by 2040 and to around 4.0°C by the end of the century.&lt;/p&gt;
-
-&lt;p&gt;A temperature rise of 4.0°C is pretty unthinkable. In geological time it takes us back nearly 50 million years to an age before primates had evolved and when the poles were temperate. The sea level rise this would induce would drown all the major coastal cities in the world.&lt;/p&gt;
-
-&lt;p&gt;A major risk of permitting uncontrolled temperature rise is the existence of tipping points in the Earth system – temperature levels at which global processes will kick in that would send the temperature rise higher still. The graphic below, by Tim Lenton, illustrates these tipping points.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/2021-11-02/image3.png&quot; width=&quot;100%&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;So the threats are real and current climate change is very much a crisis. But it is still not too late in the day, and there is no doubt that humanity has the ingenuity and resourcefulness to rise to the challenge. Rising to the challenge is just what we have to look to COP26 to do.&lt;/p&gt;
-
-&lt;p&gt;The problem to be solved is stated as a number, 1.5 degrees – so any solutions have to play a numbers game. I’ll talk about that in the last blog.&lt;/p&gt;</content><author><name>Bill Oxbury</name></author><category term="environment" /><summary type="html"></summary></entry></feed>
+&lt;p&gt;Yes, our lifestyles will change, and individual choices are important – but for the majority they’ll change the way they always have done: in response to better choices coming along through vision, investment and legislation.&lt;/p&gt;</content><author><name>Bill Oxbury</name></author><category term="environment" /><summary type="html"></summary></entry></feed>
