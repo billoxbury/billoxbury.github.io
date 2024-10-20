@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-10-11T14:03:01+00:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Bills.Data</title><subtitle>Exploring ideas in data science</subtitle><author><name>Bill Oxbury</name></author><entry><title type="html">Does AI pose an existential threat?</title><link href="http://localhost:4000/artificial_intelligence/does-ai-pose-existential-threat/" rel="alternate" type="text/html" title="Does AI pose an existential threat?" /><published>2024-10-10T00:00:00+00:00</published><updated>2024-10-10T00:00:00+00:00</updated><id>http://localhost:4000/artificial_intelligence/does-ai-pose-existential%20threat</id><content type="html" xml:base="http://localhost:4000/artificial_intelligence/does-ai-pose-existential-threat/">&lt;figure&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-10-16T11:33:43+00:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Bills.Data</title><subtitle>Exploring ideas in data science</subtitle><author><name>Bill Oxbury</name></author><entry><title type="html">Does AI pose an existential threat?</title><link href="http://localhost:4000/artificial_intelligence/does-ai-pose-existential-threat/" rel="alternate" type="text/html" title="Does AI pose an existential threat?" /><published>2024-10-10T00:00:00+00:00</published><updated>2024-10-10T00:00:00+00:00</updated><id>http://localhost:4000/artificial_intelligence/does-ai-pose-existential%20threat</id><content type="html" xml:base="http://localhost:4000/artificial_intelligence/does-ai-pose-existential-threat/">&lt;figure&gt;
   &lt;img src=&quot;/assets/img/2024-10-10/1_context/1_title/title1.jpeg&quot; width=&quot;100%&quot; /&gt;
   &lt;figcaption&gt;
   Imagined from the title of this talk by &lt;a href=&quot;https://openai.com/index/dall-e-3/&quot; target=&quot;_blank&quot;&gt;DALL-E3&lt;/a&gt;
@@ -10,7 +10,7 @@
 &lt;ol&gt;
   &lt;li&gt;AI today&lt;/li&gt;
   &lt;li&gt;How does it work?&lt;/li&gt;
-  &lt;li&gt;What can go possibly wrong?&lt;/li&gt;
+  &lt;li&gt;What could go wrong?&lt;/li&gt;
   &lt;li&gt;The future&lt;/li&gt;
  &lt;/ol&gt;
 &lt;/small&gt;&lt;/p&gt;
@@ -89,7 +89,59 @@
   &lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;p&gt;&lt;strong&gt;3. What can possibly go wrong?&lt;/strong&gt;&lt;/p&gt;
+&lt;figure&gt;
+  &lt;img src=&quot;/assets/img/2024-10-10/2_what_is_ai/2021-Alan-D-Thompson-Contents-of-GPT-3-and-GPT-Neo-Pile-v1-Rev-5.png&quot; width=&quot;100%&quot; /&gt;
+  &lt;figcaption&gt;
+  Composition of training data for GPT-3, and of &apos;The Pile&apos;, a data corpus used to train a number of competing LLMs. Source: &lt;a href=&quot;https://lifearchitect.ai/models/&quot; target=&quot;_blank&quot;&gt;lifearchitect.ai/models/&lt;/a&gt; 
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;3. What could go wrong?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;I’ll divide the answer to this question into four categories: social harms, malicious use, cyber vulnerabilities and unintended consequences.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Social harms of AI&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Demographic biases in the training data sets (Stochastic Parrots)&lt;/li&gt;
+  &lt;li&gt;Energy consumption (known and understood, so cannot be classed under ‘unintended consequences’!)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Malicious use of AI&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Misinformation&lt;/li&gt;
+  &lt;li&gt;Deepfakes&lt;/li&gt;
+  &lt;li&gt;AI generation of malware, bioweapons etc&lt;/li&gt;
+  &lt;li&gt;Autonomous weapons&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Cyber vulnerabilities of AI&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Adversarial attacks: fooling and poisoning&lt;/li&gt;
+  &lt;li&gt;Security and explainability go hand in hand&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Unintended consequences of AI&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;All technologies can have unintended consequences - especially when scaled to billions of users - and we should always ask what the side effects might be.&lt;/p&gt;
+
+&lt;p&gt;Example: recommender systems designed to optimise click-through rate. Based on the assumption that user preferences were fixed; but of course Internet engagement shapes users views and preferences. The process of maximising click-through rate ‘learns’ that the most efficient way to do this is to make the user preferneces more predictable - resulting in the polarisation of culture and politics.&lt;/p&gt;
+
+&lt;figure&gt;
+  &lt;img src=&quot;/assets/img/2024-10-10/3_what_can_go_wrong/4_unintended_consequences/movies_news.png&quot; width=&quot;100%&quot; /&gt;
+  &lt;figcaption&gt;
+  An algorithmic recommender system: users are profiled for their viewing preferences, allowing the system to make recommendations on the basis of what similar users have like. Source: adapted from &lt;a href=&quot;https://www.nvidia.com/en-us/glossary/recommendation-system/&quot; target=&quot;_blank&quot;&gt;NVIDIA&lt;/a&gt; 
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;figure&gt;
+  &lt;img src=&quot;/assets/img/2024-10-10/3_what_can_go_wrong/4_unintended_consequences/hal.png&quot; width=&quot;100%&quot; /&gt;
+  &lt;figcaption&gt;
+  
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
 
 &lt;p&gt;&lt;strong&gt;4. The future&lt;/strong&gt;&lt;/p&gt;
 
@@ -109,12 +161,14 @@
   &lt;li&gt;Stuart Russell, &lt;a href=&quot;https://www.amazon.co.uk/Human-Compatible-AI-Problem-Control/dp/0241335205&quot; target=&quot;_blank&quot;&gt;Human Compatible: AI and the Problem of Control&lt;/a&gt;, Allen Lane (2019)&lt;/li&gt;
   &lt;li&gt;Stathis Kamperis, &lt;a href=&quot;https://ekamperi.github.io/machine%20learning/2019/08/14/energy-considerations-dnn.html&quot; target=&quot;_blank&quot;&gt;Energy considerations for training deep neural networks&lt;/a&gt;, &lt;em&gt;blog&lt;/em&gt; (2019)&lt;/li&gt;
   &lt;li&gt;Kathryn Tunyasuvunakool et al (Deepmind), &lt;a href=&quot;https://www.nature.com/articles/s41586-021-03828-1&quot; target=&quot;_blank&quot;&gt;&lt;em&gt;Highly accurate protein structure prediction for the human proteome&lt;/em&gt;&lt;/a&gt;, &lt;em&gt;Nature 596, pp 590–596&lt;/em&gt; (2021)&lt;/li&gt;
+  &lt;li&gt;Leo Gao et al (EleutherAI), &lt;a href=&quot;https://arxiv.org/abs/2101.00027&quot; target=&quot;_blank&quot;&gt;The Pile: An 800GB Dataset of Diverse Text for Language Modeling&lt;/a&gt;, &lt;em&gt;arxiv.org/abs/2101.00027&lt;/em&gt; (2021)&lt;/li&gt;
   &lt;li&gt;Emily M. Bender, Timnit Gebru, Angelina McMillan-Major, Margaret Mitchell, &lt;a href=&quot;https://dl.acm.org/doi/10.1145/3442188.3445922&quot; target=&quot;_blank&quot;&gt;On the Dangers of Stochastic Parrots: Can Language Models Be Too Big?&lt;/a&gt;, &lt;em&gt;FAccT ‘21: Proceedings of the 2021 ACM Conference on Fairness, Accountability, and Transparency&lt;/em&gt; (2021)&lt;/li&gt;
   &lt;li&gt;Carole-Jean Wu et al (Facebook), &lt;a href=&quot;https://arxiv.org/abs/2111.00364&quot; target=&quot;_blank&quot;&gt;Sustainable AI: Environmental Implications, Challenges and Opportunities&lt;/a&gt; &lt;em&gt;https://arxiv.org/abs/2111.00364&lt;/em&gt; (2022)&lt;/li&gt;
   &lt;li&gt;Sébastien Bubeck, et al (Microsoft Research), &lt;a href=&quot;https://arxiv.org/abs/2303.12712&quot; target=&quot;_blank&quot;&gt;Sparks of Artificial General Intelligence: Early experiments with GPT-4&lt;/a&gt;, &lt;em&gt;https://arxiv.org/abs/2303.12712&lt;/em&gt; (2023)&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://futureoflife.org/open-letter/pause-giant-ai-experiments/&quot; target=&quot;_blank&quot;&gt;Pause Giant AI Experiments: An Open Letter&lt;/a&gt; (March 2023)&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.safe.ai/work/statement-on-ai-risk#open-letter&quot; target=&quot;_blank&quot;&gt;Mitigating the risk of extinction from AI should be a global priority&lt;/a&gt;, &lt;em&gt;open letter&lt;/em&gt; (May 2023)&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.bcs.org/sign-our-open-letter-on-the-future-of-ai/&quot; target=&quot;_blank&quot;&gt;AI open letter to UK Government and Industry&lt;/a&gt;, &lt;em&gt;BCS The Chartered Institute for IT&lt;/em&gt; (July 2023)&lt;/li&gt;
+  &lt;li&gt;Ljubisa Bojic, &lt;a href=&quot;https://sciencedirect.com/science/article/pii/S0016328724000661&quot; target=&quot;_blank&quot;&gt;AI alignment: Assessing the global impact of recommender systems&lt;/a&gt;, &lt;em&gt;Futures&lt;/em&gt; 160 (2024)&lt;/li&gt;
   &lt;li&gt;Gemini Team Google, &lt;a href=&quot;https://arxiv.org/abs/2403.05530&quot; target=&quot;_blank&quot;&gt;Gemini 1.5: Unlocking multimodal
 understanding across millions of tokens of
 context&lt;/a&gt;, &lt;em&gt;https://arxiv.org/abs/2403.05530&lt;/em&gt; (2024)&lt;/li&gt;

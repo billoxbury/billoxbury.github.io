@@ -23,7 +23,7 @@ usemathjax: true
 <ol>
   <li>AI today</li>
   <li>How does it work?</li>
-  <li>What can go possibly wrong?</li>
+  <li>What could go wrong?</li>
   <li>The future</li>
  </ol>
 </small></p>
@@ -103,9 +103,57 @@ The main aim of this talk is to discuss the various AI risks, including those hi
   </figcaption>
 </figure>
 
+<figure>
+  <img src="/assets/img/2024-10-10/2_what_is_ai/2021-Alan-D-Thompson-Contents-of-GPT-3-and-GPT-Neo-Pile-v1-Rev-5.png" width="100%">
+  <figcaption>
+  Composition of training data for GPT-3, and of 'The Pile', a data corpus used to train a number of competing LLMs. Source: <a href="https://lifearchitect.ai/models/" target="_blank">lifearchitect.ai/models/</a> 
+  </figcaption>
+</figure>
 
-**3. What can possibly go wrong?**
 
+**3. What could go wrong?**
+
+I'll divide the answer to this question into four categories: social harms, malicious use, cyber vulnerabilities and unintended consequences.
+
+**Social harms of AI**
+
+- Demographic biases in the training data sets (Stochastic Parrots)
+- Energy consumption (known and understood, so cannot be classed under 'unintended consequences'!)
+
+**Malicious use of AI**
+
+- Misinformation
+- Deepfakes
+- AI generation of malware, bioweapons etc
+- Autonomous weapons
+
+**Cyber vulnerabilities of AI**
+
+- Adversarial attacks: fooling and poisoning
+- Security and explainability go hand in hand
+
+**Unintended consequences of AI**
+
+All technologies can have unintended consequences - especially when scaled to billions of users - and we should always ask what the side effects might be.
+
+Example: recommender systems designed to optimise click-through rate. Based on the assumption that user preferences were fixed; but of course Internet engagement shapes users views and preferences. The process of maximising click-through rate 'learns' that the most efficient way to do this is to make the user preferneces more predictable - resulting in the polarisation of culture and politics.
+
+<figure>
+  <img src="/assets/img/2024-10-10/3_what_can_go_wrong/4_unintended_consequences/movies_news.png" width="100%">
+  <figcaption>
+  An algorithmic recommender system: users are profiled for their viewing preferences, allowing the system to make recommendations on the basis of what similar users have like. Source: adapted from <a href="https://www.nvidia.com/en-us/glossary/recommendation-system/" target="_blank">NVIDIA</a> 
+  </figcaption>
+</figure>
+
+
+
+
+<figure>
+  <img src="/assets/img/2024-10-10/3_what_can_go_wrong/4_unintended_consequences/hal.png" width="100%">
+  <figcaption>
+  
+  </figcaption>
+</figure>
 
 
 **4. The future**
@@ -128,16 +176,15 @@ The main aim of this talk is to discuss the various AI risks, including those hi
 - Stuart Russell, <a href="https://www.amazon.co.uk/Human-Compatible-AI-Problem-Control/dp/0241335205" target="_blank">Human Compatible: AI and the Problem of Control</a>, Allen Lane (2019)
 - Stathis Kamperis, <a href="https://ekamperi.github.io/machine%20learning/2019/08/14/energy-considerations-dnn.html" target="_blank">Energy considerations for training deep neural networks</a>, _blog_ (2019)
 - Kathryn Tunyasuvunakool et al (Deepmind), <a href="https://www.nature.com/articles/s41586-021-03828-1" target="_blank">_Highly accurate protein structure prediction for the human proteome_</a>, _Nature 596, pp 590–596_ (2021)
+- Leo Gao et al (EleutherAI), <a href="https://arxiv.org/abs/2101.00027" target="_blank">The Pile: An 800GB Dataset of Diverse Text for Language Modeling</a>, _arxiv.org/abs/2101.00027_ (2021) 
 - Emily M. Bender, Timnit Gebru, Angelina McMillan-Major, Margaret Mitchell, <a href="https://dl.acm.org/doi/10.1145/3442188.3445922" target="_blank">On the Dangers of Stochastic Parrots: Can Language Models Be Too Big?</a>, _FAccT '21: Proceedings of the 2021 ACM Conference on Fairness, Accountability, and Transparency_ (2021)
 - Carole-Jean Wu et al (Facebook), <a href="https://arxiv.org/abs/2111.00364" target="_blank">Sustainable AI: Environmental Implications, Challenges and Opportunities</a> _https://arxiv.org/abs/2111.00364_ (2022)
 - Sébastien Bubeck, et al (Microsoft Research), <a href="https://arxiv.org/abs/2303.12712" target="_blank">Sparks of Artificial General Intelligence: Early experiments with GPT-4</a>, _https://arxiv.org/abs/2303.12712_ (2023)
 - <a href="https://futureoflife.org/open-letter/pause-giant-ai-experiments/" target="_blank">Pause Giant AI Experiments: An Open Letter</a> (March 2023)
 - <a href="https://www.safe.ai/work/statement-on-ai-risk#open-letter" target="_blank">Mitigating the risk of extinction from AI should be a global priority</a>, _open letter_ (May 2023)
 - <a href="https://www.bcs.org/sign-our-open-letter-on-the-future-of-ai/" target="_blank">AI open letter to UK Government and Industry</a>, _BCS The Chartered Institute for IT_ (July 2023)
+- Ljubisa Bojic, <a href="https://sciencedirect.com/science/article/pii/S0016328724000661" target="_blank">AI alignment: Assessing the global impact of recommender systems</a>, _Futures_ 160 (2024)
 - Gemini Team Google, <a href="https://arxiv.org/abs/2403.05530" target="_blank">Gemini 1.5: Unlocking multimodal
 understanding across millions of tokens of
 context</a>, _https://arxiv.org/abs/2403.05530_ (2024)
 - <a href="https://righttowarn.ai/" target="_blank">A Right to Warn about Advanced Artificial Intelligence</a>, _open letter_ (June 2024)
-
-
-
