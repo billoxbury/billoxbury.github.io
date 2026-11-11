@@ -140,7 +140,7 @@ In [4] many more such efficiencies for larger matrices were discovered using thi
 
 In [7] the approach was widened much further to a reasoning system **AlphaProve** that could tackle Olympiad questions of the sort described at the top of this post. The key enabler here was the <a href="https://lean-lang.org/" target="_blank">LEAN</a> programming language [6], which provided exactly the formal environment needed in key idea 1.
 
-Incidentally, formal verification can also help LLMs. Recall step 3 in LLM training, where a reward fuction was needed for the reinforcement learning step 4. For specialised use cases such as coding or mathematics, a formal reward function may be available which is objective and precisely formalises the desired behaviour of the LLM. This is called **Reinforcement Learning with Verifiable Rewards (RLVR)**. For mathematical reasoning, such a reward can be constructed using a formal environment such as LEAN.
+Incidentally, formal verification can also help LLMs. Recall step 3 in LLM training, where a reward fuction was needed for the reinforcement learning step 4. For specialised use cases such as coding or mathematics, a formal reward function may be available which precisely formalises the desired behaviour of the LLM. This is called **Reinforcement Learning with Verifiable Rewards (RLVR)**. For mathematical reasoning, such a reward can be constructed using a formal environment such as LEAN.
 
 Here is the second idea:
 
