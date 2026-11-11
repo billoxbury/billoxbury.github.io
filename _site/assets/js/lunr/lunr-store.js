@@ -149,9 +149,9 @@ var store = [{
         "url": "/data_science/mathematics/clifford-nn-notes/",
         "teaser": "/assets/img/2024-01-23/multivector.png"
       },{
-        "title": "Does AI pose an existential threat?",
-        "excerpt":"Imagined from the title of this talk by DALL-E3 Contents: AI today How does it work? What could go wrong? The future 1. AI today As I write this in late 2024, the year’s Nobel Prizes have been announced for Physics and Chemistry. They included three pioneering figures from Artificial...","categories": ["artificial_intelligence"],
+        "title": "What is AI, and what does it mean for mathematicians?",
+        "excerpt":"This blog post first appeared as MARS blog reference. The MARS blog What is Machine Learning? introduced the machinery that underpins modern AI. In this blog I will say a bit more about AI chatbots, or Large Language Models (LLMs) – and in particular about their amazing emerging capabilities in...","categories": ["artificial_intelligence"],
         "tags": [],
-        "url": "/artificial_intelligence/does-ai-pose-existential-threat/",
-        "teaser": "/assets/img/2024-10-10/1_context/1_title/title1.jpeg"
+        "url": "/artificial_intelligence/ai-and-mathematics/",
+        "teaser": "/assets/img/2026-11-05/data_compression0.png"
       }]

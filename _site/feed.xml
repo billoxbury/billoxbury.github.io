@@ -1,179 +1,167 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-10-16T11:33:43+00:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Bills.Data</title><subtitle>Exploring ideas in data science</subtitle><author><name>Bill Oxbury</name></author><entry><title type="html">Does AI pose an existential threat?</title><link href="http://localhost:4000/artificial_intelligence/does-ai-pose-existential-threat/" rel="alternate" type="text/html" title="Does AI pose an existential threat?" /><published>2024-10-10T00:00:00+00:00</published><updated>2024-10-10T00:00:00+00:00</updated><id>http://localhost:4000/artificial_intelligence/does-ai-pose-existential%20threat</id><content type="html" xml:base="http://localhost:4000/artificial_intelligence/does-ai-pose-existential-threat/">&lt;figure&gt;
-  &lt;img src=&quot;/assets/img/2024-10-10/1_context/1_title/title1.jpeg&quot; width=&quot;100%&quot; /&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-11-11T11:51:44+00:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Bills.Data</title><subtitle>Exploring ideas in data science</subtitle><author><name>Bill Oxbury</name></author><entry><title type="html">What is AI, and what does it mean for mathematicians?</title><link href="http://localhost:4000/artificial_intelligence/ai-and-mathematics/" rel="alternate" type="text/html" title="What is AI, and what does it mean for mathematicians?" /><published>2026-11-05T00:00:00+00:00</published><updated>2026-11-05T00:00:00+00:00</updated><id>http://localhost:4000/artificial_intelligence/ai-and-mathematics</id><content type="html" xml:base="http://localhost:4000/artificial_intelligence/ai-and-mathematics/">&lt;p&gt;&lt;i&gt;&lt;small&gt; This blog post first appeared as &lt;a href=&quot; https://www.lancaster.ac.uk/mathematics-for-ai-in-real-world-systems/research/blogs/&quot; target=&quot;_blank&quot;&gt;MARS blog reference&lt;/a&gt;.&lt;/small&gt;&lt;/i&gt;&lt;/p&gt;
+
+&lt;p&gt;The &lt;a href=&quot;https://www.lancaster.ac.uk/mathematics-for-ai-in-real-world-systems/&quot; target=&quot;_blank&quot;&gt;MARS&lt;/a&gt; blog &lt;a href=&quot; https://www.lancaster.ac.uk/mathematics-for-ai-in-real-world-systems/research/blogs/what-is-machine-learning&quot; target=&quot;_blank&quot;&gt;What is Machine Learning?&lt;/a&gt; introduced the machinery that underpins modern AI. In this blog I will say a bit more about AI chatbots, or &lt;strong&gt;Large Language Models (LLMs)&lt;/strong&gt; – and in particular about their amazing emerging capabilities in mathematics itself.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1. A surprising example&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Let’s start with an example - actually a version of a question from an International Mathematics Olympiad (IMO):&lt;/p&gt;
+
+&lt;div style=&quot;border: 2px solid #ccc; padding: 10px; border-radius: 1px; margin-bottom: 30px;&quot;&gt;
+  Suppose $g$ is a continuous smooth function such that for every $x &amp;gt; 0$, there is one and only one $y &amp;gt; 0$ such that $g(x) + g(y) ≤ 2xy$. Can you prove that $g(x) = x^2$?
+&lt;/div&gt;
+
+&lt;p&gt;This is an example, now a few years old, cited in a study of GPT-4 in 2023 by Microsoft researchers [2 section 4.4]. It is put to GPT-4 as a prompt - here is the model’s response:&lt;/p&gt;
+
+&lt;figure&gt;
+  &lt;img src=&quot;/assets/img/2024-01-05/answer.png&quot; width=&quot;100%&quot; /&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;This was an astonishing example of mathematical reasoning capability apparently emerging from a  Large Language Model. How does this work and what is going on here?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2. Artificial Neural Networks&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;The first important thing to understand is that an AI model &lt;strong&gt;is just a compression of its training data&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;figure&gt;
+  &lt;img src=&quot;/assets/img/2026-11-05/data_compression.png&quot; width=&quot;100%&quot; /&gt;
   &lt;figcaption&gt;
-  Imagined from the title of this talk by &lt;a href=&quot;https://openai.com/index/dall-e-3/&quot; target=&quot;_blank&quot;&gt;DALL-E3&lt;/a&gt;
+  Author&apos;s cartoon made with the help of AI. An AI model is exactly a lossy compression of its training data.
   &lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;p&gt;&lt;small&gt;
-&lt;b&gt;Contents:&lt;/b&gt;
+&lt;p&gt;In other words, when we train a model AI model, we are not showing examples to an already intelligent system – the AI model is &lt;strong&gt;nothing but&lt;/strong&gt; the training data set that has gone into it.&lt;/p&gt;
+
+&lt;p&gt;To explain this, let’s recall how supervised machine learning works. We assume random variables $X,Y$ where $X$ is cheap to evaluate (e.g. image pixels) and $Y$ is expensive to evaluate (e.g. what’s in this image?). We would like to be able to estimate the expectation $\mathbb{E}(Y \mid X)$ (or more generally the probability distribution of $Y$ given $X$).&lt;/p&gt;
+
+&lt;p&gt;Feedforward neural networks have become a standard way to make this approximation. They are constructed by composing &lt;strong&gt;neural units&lt;/strong&gt;. A neural unit is a function ${\mathbb R}^n \rightarrow {\mathbb R}$ as below (schematically on the left and as a function on the right):&lt;/p&gt;
+
+&lt;figure&gt;
+ &lt;div style=&quot;display: flex; gap: 10px; align-items: center;&quot;&gt;
+ &lt;div style=&quot;flex: 50%;&quot;&gt;
+    &lt;img src=&quot;/assets/img/2026-11-05/neural_unit.png&quot; style=&quot;width: 100%;&quot; /&gt;
+  &lt;/div&gt;
+  &lt;div style=&quot;flex: 50%;&quot;&gt;
+    &lt;img src=&quot;/assets/img/2026-11-05/tanh.png&quot; style=&quot;width: 100%;&quot; /&gt;
+  &lt;/div&gt;
+&lt;/div&gt;  &lt;figcaption&gt;
+  A neural unit ${\mathbb R}^n \rightarrow {\mathbb R}$ with weights $w_0,w_1,\ldots , w_n \in {\mathbb R}$. Its value ranges from $-1$ to $+1$, crossing $0$ along the affine hyperplane $w_0 + w_1 x_1 + \cdots + w_n x_n = 0$.
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;As we compose neural units – that is, outputs of different untis feed into $x_i$ values of ‘downstream’ units – we can build progressively more complex functions ${\mathbb R}^n \rightarrow {\mathbb R}^m$. The &lt;strong&gt;universal approximation theorem&lt;/strong&gt; says that any continuous (and many more general) functions can be approximated arbitrarily closely by a feedforward network in this sense. We just have to figure out the weights $w_i$ over all the units.&lt;/p&gt;
+
+&lt;p&gt;To do this, we minimise the error of the network (the so-called &lt;strong&gt;loss function&lt;/strong&gt;), as a predictor of $Y$ given $X$, for the training data $D$:&lt;/p&gt;
+
+&lt;figure&gt;
+  &lt;img src=&quot;/assets/img/2026-11-05/grad_descent.png&quot; width=&quot;100%&quot; /&gt;
+  &lt;figcaption&gt;
+  For fixed training data $D$ and fixed feedforward neural network, the error (or **loss**) surface over the space of weight vectors. 
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;The neural network architecture and descent strategy (as in the figure) together give us a machine for transforming &lt;strong&gt;data set $D$&lt;/strong&gt; into &lt;strong&gt;weight vector $W$&lt;/strong&gt;. This transformation preserves the information in $D$ that informs the prediction of $Y$ given $X$. It is called a &lt;strong&gt;lossy compression&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;3. Deep reinforcement learning&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;There is one more ingredient that is key to understanding AI. This is &lt;strong&gt;reinforcement learning&lt;/strong&gt; – essentially learning from experience by trial and error. An AI is able to observe its state in time in some environment, and at each timestep has to choose from a set of actions. It must do this to maximise some long-term reward.&lt;/p&gt;
+
+&lt;p&gt;In this situation, the AI learns a &lt;strong&gt;policy function&lt;/strong&gt; that transforms its observed state into an action. Typically the policy function is learned as a feedforward neural network, exactly as above. (In this case we talk about &lt;strong&gt;deep&lt;/strong&gt; reinforcement learning.) The weights of the network are learned by gradient descent on a loss function which is minus the long-term reward.&lt;/p&gt;
+
+&lt;p&gt;Here is a classic video game example:&lt;/p&gt;
+
+&lt;figure&gt;
+  &lt;img src=&quot;/assets/img/2026-11-05/breakout.gif&quot; width=&quot;100%&quot; /&gt;
+  &lt;figcaption&gt;
+  Deep RL trained to play Atari games – in this case Breakout. Successive generations of training left to right. 
+  Source: [1]
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;At each time step, the AI player is calling a policy function which is the learned neural network:&lt;/p&gt;
+
+&lt;figure&gt;
+  &lt;img src=&quot;/assets/img/2026-11-05/atari.png&quot; width=&quot;100%&quot; /&gt;
+  &lt;figcaption&gt;
+  The policy function of the Atari player. Screen pixels enter at the left, the recommended action (probabilities) are returned at the right. Source: [1]
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Note that, just as for supervised learning, the weights of the network can be viewed as a lossy compression of data – in this case, data consisting of the history of all game states, actions and rewards (game scores) observed during training.&lt;/p&gt;
+
+&lt;p&gt;Another point which will be important when we think about use of AI in mathematics: in the Atari game there is geometric and kinematic structure (which we as humans can see and have intuitions about – because we carry models of the world in our heads). But the AI knows nothing about this structure. It observes only screen pixels and game score. It consists of an efficient action policy which responds to screen pixels alone. The same AI can (and did) learning many different Atari games, regardless of physical meaning.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;3. How a Large language Model works&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;How does all this apply to build Large Language Models? An LLM is essentially built in four stages:&lt;/p&gt;
+
 &lt;ol&gt;
-  &lt;li&gt;AI today&lt;/li&gt;
-  &lt;li&gt;How does it work?&lt;/li&gt;
-  &lt;li&gt;What could go wrong?&lt;/li&gt;
-  &lt;li&gt;The future&lt;/li&gt;
- &lt;/ol&gt;
-&lt;/small&gt;&lt;/p&gt;
+  &lt;li&gt;&lt;strong&gt;Autocomplete:&lt;/strong&gt; Build a feedforward neural network to predict $Y = $ next word from $X = $ preceding sequence of words. This is a compression of data $D_1 = $ lots of text from the Internet (and elsewhere).&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Supervised fine tuning:&lt;/strong&gt; adjust the weights to learn good responses (generated from recursively sampling next-word prediction). This compresses data $D_2 = $ lots of human-curated prompt-response pairs.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Reward model:&lt;/strong&gt; learn a scoring function that rewards the best responses. Here the data is $D_3 = $ human rankings of (possibly subject-specialised) alternative responses to prompts.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Policy model:&lt;/strong&gt; learn a reinforcement learning policy function to play the ‘game’ of building responses (word by word) with aim of maximising the final reward coming from 3. Here the data is $D_4 = $ lots of game histories.&lt;/li&gt;
+&lt;/ol&gt;
 
-&lt;p&gt;&lt;strong&gt;1. AI today&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Stages 3 and 4 build on the the power of deep reinforcement learning. &lt;strong&gt;Reinforcement Learning from Human Feedback (RLHF)&lt;/strong&gt;, as described here, can be thought of as a secret sauce that gives LLMs their impressive performance.&lt;/p&gt;
 
-&lt;p&gt;As I write this in late 2024, the year’s Nobel Prizes have been announced for &lt;a href=&quot;https://www.nobelprize.org/prizes/physics/2024/press-release/&quot; target=&quot;_blank&quot;&gt;Physics&lt;/a&gt; and &lt;a href=&quot;https://www.nobelprize.org/prizes/chemistry/2024/press-release/&quot; target=&quot;_blank&quot;&gt;Chemistry&lt;/a&gt;. They included three pioneering figures from Artificial Intelligence: Geoffey Hinton and John Hopfield for their work on neural networks – both inspired by and contributing to physics; and Demis Hassabis, CEO of Deepmind, among whose profound achievements was using deep learning to solve the problem of protein folding.&lt;/p&gt;
+&lt;p&gt;In addition, before generating a response, an LLM will typically perform a traditional web search and use retrieved web pages to augment the prompt text itself. With this enriched prompt, quoting verbatim from the retrieved content is legal and likely within the learned model. Therefore, much of what the LLM returns is bona fide human-generated text from somewhere on the Internet. LLMs are not magic after all!&lt;/p&gt;
 
-&lt;figure&gt;
-  &lt;img src=&quot;/assets/img/2024-10-10/1_context/3_nobelprizes/nobelprizes.jpg&quot; width=&quot;100%&quot; /&gt;
-  &lt;figcaption&gt;
-  Three 2024 Nobel Prize Laureates: Geoffrey Hinton and John Hopfield (Physics) and Demis Hassabis (Chemistry).
-  &lt;/figcaption&gt;
-&lt;/figure&gt;
+&lt;p&gt;Returning to the GPT-4 example on the IMO question at the top of this blog, we are now led to ask where the text of the response might have entered into any of these training data sets or retrieved pages. Was the LLM actually doing new mathematics, or had it somewhere seen the answer?&lt;/p&gt;
 
-&lt;p&gt;Their work, and that of a great many of their colleagues and fellow researchers, have revolutionised how we all interact with data and with the Internet, to the extent that Artificial Intelligence (AI) is now a recognisable part of all our lives. It has created capabilities that were previously confined to human cognition, such as interpretation (and creation) of images and language; as well as scientific applications that are well beyond human cognition:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;4. AI in formal environments&lt;/strong&gt;&lt;/p&gt;
 
-&lt;figure&gt;
-  &lt;img src=&quot;/assets/img/2024-10-10/1_context/2_showcase/bemoredog.png&quot; width=&quot;100%&quot; /&gt;
-  &lt;figcaption&gt;
-  Recognising cats vs dogs: only a few years ago this seemed an intractable problem for computers. Source: &lt;a href=&quot;https://www.youtube.com/watch?v=ExnWRuniooY&quot; target=&quot;_blank&quot;&gt;Be more dog&lt;/a&gt;
-  &lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;figure&gt;
-  &lt;img src=&quot;/assets/img/2024-10-10/1_context/2_showcase/alphafold.png&quot; width=&quot;100%&quot; /&gt;
-  &lt;figcaption&gt;
-  AlphaFold: predicting the folding geometry of a protein from the sequence of amino acids.
-  &lt;/figcaption&gt;
-&lt;/figure&gt;
+&lt;p&gt;We don’t know the answer to the last question. But efforts to understand it have enormously widened the scope and power of AI applied to solving mathematical problems. Broadly speaking, these efforts are based on two key ideas.&lt;/p&gt;
 
-&lt;figure&gt;
-  &lt;img src=&quot;/assets/img/2024-10-10/1_context/2_showcase/unicorn.png&quot; width=&quot;100%&quot; /&gt;
-  &lt;figcaption&gt;
-  GPT-4: from rhyming text to writing code for graphics. We also see a progression to better unicorn drawings with learning from feedback.
-  &lt;/figcaption&gt;
-&lt;/figure&gt;
+&lt;div style=&quot;border: 2px solid #ccc; padding: 10px; border-radius: 1px; margin-bottom: 30px;&quot;&gt;
+  &lt;b&gt;Key idea 1:&lt;/b&gt; Use deep reinforcement learning to play a single-player game in a formal verification environment.
+&lt;/div&gt;
 
-&lt;figure&gt;
-  &lt;img src=&quot;/assets/img/2024-10-10/1_context/2_showcase/gemini1.png&quot; width=&quot;100%&quot; /&gt;
-  &lt;figcaption&gt;
-  Gemini 1.5: learning a low-resource language, Kalamang
-  &lt;/figcaption&gt;
-&lt;/figure&gt;
+&lt;p&gt;Many mathematical problems can be formalised and putative solutions checked within a formal environment. An early example was &lt;strong&gt;matrix multiplication&lt;/strong&gt; [4] – where the ‘formal environment’ in matrix algebra.&lt;/p&gt;
 
-&lt;figure&gt;
-  &lt;img src=&quot;/assets/img/2024-10-10/1_context/2_showcase/gemini2.png&quot; width=&quot;100%&quot; /&gt;
-  &lt;figcaption&gt;
-  Gemini 1.5: given a movie, recognising and interpeting scenes from text description and from a hand drawing.
-    &lt;/figcaption&gt;
-&lt;/figure&gt;
+&lt;p&gt;The computational cost of a matrix multiply is dominated by the number of scalar multiplications. If this number can be reduced by clever rearrangement of the variables, then computation (and energy use) has been saved. For example, it was discovered in the 1960s that $2 \times 2$ matrix multiplication requires not 8 scalar multiplies, as you first expect, but only 7. In any system depending on $2 \times 2$ matrix multiplications (from engineering, signal processing, machine learning or wherever) this represents a 12% saving of energy consumption!&lt;/p&gt;
 
-&lt;figure&gt;
-  &lt;img src=&quot;/assets/img/2024-10-10/1_context/2_showcase/breakout.gif&quot; width=&quot;100%&quot; /&gt;
-  &lt;figcaption&gt;
-  An early DeepMind achievement: learning to play an Atari game by Reinforcement Learning. Here we see three generations of the learnt model.
-    &lt;/figcaption&gt;
-&lt;/figure&gt;
+&lt;p&gt;In [4] many more such efficiencies for larger matrices were discovered using this ‘key idea 1’.&lt;/p&gt;
 
-&lt;p&gt;Despite these successes - and in part because of them - the development of AI has been accompanied by growing unease about its risks. I’ll discuss what these risks are later, but for the moment let’s just note the open letters from the AI research commmunity that have attracted media attention over the years - including a high-profile letter in 2023 titled &lt;em&gt;Mitigating the risk of extinction from AI should be a global priority&lt;/em&gt; and signed by many leaders in the field including Geoffrey Hinton, Yoshua Bengio and Demis Hassabis among others:&lt;/p&gt;
+&lt;p&gt;In [7] the approach was widened much further to a reasoning system &lt;strong&gt;AlphaProve&lt;/strong&gt; that could tackle Olympiad questions of the sort described at the top of this post. The key enabler here was the &lt;a href=&quot;https://lean-lang.org/&quot; target=&quot;_blank&quot;&gt;LEAN&lt;/a&gt; programming language [6], which provided exactly the formal environment needed in key idea 1.&lt;/p&gt;
 
-&lt;figure&gt;
-  &lt;img src=&quot;/assets/img/2024-10-10/1_context/4_warnings/warnings.png&quot; width=&quot;100%&quot; /&gt;
-  &lt;figcaption&gt;
-  Some open letters from the AI community – from warnings on autonomous weapons (2016), to the rights of staff with ethical concerns (2023). As well as voices for the benefits of AI to humanity.
-    &lt;/figcaption&gt;
-&lt;/figure&gt;
+&lt;p&gt;Incidentally, formal verification can also help LLMs. Recall step 3 in LLM training, where a reward fuction was needed for the reinforcement learning step 4. For specialised use cases such as coding or mathematics, a formal reward function may be available which is objective and precisely formalises the desired behaviour of the LLM. This is called &lt;strong&gt;Reinforcement Learning with Verifiable Rewards (RLVR)&lt;/strong&gt;. For mathematical reasoning, such a reward can be constructed using a formal environment such as LEAN.&lt;/p&gt;
 
-&lt;p&gt;The main aim of this talk is to discuss the various AI risks, including those highlighted in these calls. But first I want to try to demystify a little exactly what AI is and how it works.&lt;/p&gt;
+&lt;p&gt;Here is the second idea:&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;2. How does it work?&lt;/strong&gt;&lt;/p&gt;
+&lt;div style=&quot;border: 2px solid #ccc; padding: 10px; border-radius: 1px; margin-bottom: 30px;&quot;&gt;
+  &lt;b&gt;Key idea 2:&lt;/b&gt; Evolve a population of codes using an LLM as oracle to find improvements.
+&lt;/div&gt;
 
-&lt;figure&gt;
-  &lt;img src=&quot;/assets/img/2024-10-10/2_what_is_ai/training.jpeg&quot; width=&quot;100%&quot; /&gt;
-  &lt;figcaption&gt;
-  “A machine learning model such as a neural network is obtained by compressing a large set of training data.&quot; Image by the author with the help of &lt;a href=&quot;https://openai.com/index/dall-e-3/&quot; target=&quot;_blank&quot;&gt;DALL-E3&lt;/a&gt;.
-  &lt;/figcaption&gt;
-&lt;/figure&gt;
+&lt;p&gt;This idea first appeared in [5] to solve optimisation problems in computer science and combinatorics. The ‘codes’ referred to are blocks of code – e.g. a single function that assigns a score to the current state of the system – within some human-written program.&lt;/p&gt;
 
-&lt;figure&gt;
-  &lt;img src=&quot;/assets/img/2024-10-10/2_what_is_ai/2021-Alan-D-Thompson-Contents-of-GPT-3-and-GPT-Neo-Pile-v1-Rev-5.png&quot; width=&quot;100%&quot; /&gt;
-  &lt;figcaption&gt;
-  Composition of training data for GPT-3, and of &apos;The Pile&apos;, a data corpus used to train a number of competing LLMs. Source: &lt;a href=&quot;https://lifearchitect.ai/models/&quot; target=&quot;_blank&quot;&gt;lifearchitect.ai/models/&lt;/a&gt; 
-  &lt;/figcaption&gt;
-&lt;/figure&gt;
+&lt;p&gt;A population of possible codes is initialised with some best guess, and then a loop is followed as follows.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;3. What could go wrong?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Construct an LLM prompt from the problem statement (in natural language), the current best codes in the population and the results they return. Ask your LLM for code improvements. Depending on the performance of the code returned, add them to the population. Repeat until the performance passes some threshold.&lt;/p&gt;
 
-&lt;p&gt;I’ll divide the answer to this question into four categories: social harms, malicious use, cyber vulnerabilities and unintended consequences.&lt;/p&gt;
+&lt;p&gt;This idea was developed into &lt;strong&gt;AlphaEvolve&lt;/strong&gt; using LEAN codes in [8], demonstrating improvements on state-of-the-art results across a broad range of problems in analysis, geometry and combinatorics. With the work of [5] and [8], the question had effectively been answered, &lt;em&gt;could new mathematics be discovered using an LLM?&lt;/em&gt; Yes it could, but by use of the LLM that involved more thought and creativity than merely posing the question in a single prompt.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Social harms of AI&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;More recent work (for example &lt;strong&gt;Alpha Nexus&lt;/strong&gt; [9]) is successfully combining the two key ideas above to make novel contributions to a wide range of mathematical research areas. A flavour of this explosion of AI-enabled research mathematics can be seen in this &lt;a href=&quot;https://en.wikipedia.org/wiki/List_of_mathematical_discoveries_made_with_artificial_intelligence&quot; target=&quot;_blank&quot;&gt;Wikipedia article&lt;/a&gt;.&lt;/p&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;Demographic biases in the training data sets (Stochastic Parrots)&lt;/li&gt;
-  &lt;li&gt;Energy consumption (known and understood, so cannot be classed under ‘unintended consequences’!)&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;5. So what does AI mean for mathematicians?&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Malicious use of AI&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;There may be a view that the use of AI poses a threat to traditional methods of mathematical research, and may undermine the work of some mathematicians who have spent careers on problem areas that turn out to be most ‘vulnerable’ to these new methods. On the other hand, a more optimistic view would welcome these methods as accelerating our ability to answer the most pressing hard problems, and in so doing to open up new avenues of research.&lt;/p&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;Misinformation&lt;/li&gt;
-  &lt;li&gt;Deepfakes&lt;/li&gt;
-  &lt;li&gt;AI generation of malware, bioweapons etc&lt;/li&gt;
-  &lt;li&gt;Autonomous weapons&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;One comparison to make is to the introduction of computer algebra and symbolic mathematical software in the 1970s and 80s, which opened up whole fields of experimental mathematics – allowing observation and discovery in number theory, geometry, combinatorics and other areas that previously had been impossible. The use of AI and machine learning could probably be viewed in a similar light.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Cyber vulnerabilities of AI&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Adversarial attacks: fooling and poisoning&lt;/li&gt;
-  &lt;li&gt;Security and explainability go hand in hand&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;Unintended consequences of AI&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;All technologies can have unintended consequences - especially when scaled to billions of users - and we should always ask what the side effects might be.&lt;/p&gt;
-
-&lt;p&gt;Example: recommender systems designed to optimise click-through rate. Based on the assumption that user preferences were fixed; but of course Internet engagement shapes users views and preferences. The process of maximising click-through rate ‘learns’ that the most efficient way to do this is to make the user preferneces more predictable - resulting in the polarisation of culture and politics.&lt;/p&gt;
-
-&lt;figure&gt;
-  &lt;img src=&quot;/assets/img/2024-10-10/3_what_can_go_wrong/4_unintended_consequences/movies_news.png&quot; width=&quot;100%&quot; /&gt;
-  &lt;figcaption&gt;
-  An algorithmic recommender system: users are profiled for their viewing preferences, allowing the system to make recommendations on the basis of what similar users have like. Source: adapted from &lt;a href=&quot;https://www.nvidia.com/en-us/glossary/recommendation-system/&quot; target=&quot;_blank&quot;&gt;NVIDIA&lt;/a&gt; 
-  &lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;figure&gt;
-  &lt;img src=&quot;/assets/img/2024-10-10/3_what_can_go_wrong/4_unintended_consequences/hal.png&quot; width=&quot;100%&quot; /&gt;
-  &lt;figcaption&gt;
-  
-  &lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;&lt;strong&gt;4. The future&lt;/strong&gt;&lt;/p&gt;
-
-&lt;figure&gt;
-  &lt;img src=&quot;/assets/img/2024-10-10/4_the_future/alien_email.png&quot; width=&quot;100%&quot; /&gt;
-  &lt;figcaption&gt;
-  An email arrives from an alien civilisation - as imagined by Stuart Russell.
-  &lt;/figcaption&gt;
-&lt;/figure&gt;
+&lt;p&gt;A second comparison is with the contribution AI is making to other areas of science: to biochemistry, healthcare, environmental and earth sciences, quantum technologies and beyond. These advances are surely to be welcomed and can be expected to be genuinely beneficial for humanity.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;References&lt;/strong&gt;&lt;/p&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;Nick Bostrom, &lt;a href=&quot;https://www.amazon.co.uk/Superintelligence-Dangers-Strategies-Nick-Bostrom/dp/0198739834/&quot; target=&quot;_blank&quot;&gt;Superintelligence: Paths, Dangers, Strategies&lt;/a&gt;, Oxford University Press (2014)&lt;/li&gt;
-  &lt;li&gt;Volodymyr Mnih, et al (DeepMind), &lt;a href=&quot;https://www.nature.com/articles/nature14236&quot; target=&quot;_blank&quot;&gt;Human-level control through deep reinforcement learning&lt;/a&gt;, &lt;em&gt;Nature 518, pp 529–533&lt;/em&gt; (2015)&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://futureoflife.org/open-letter/open-letter-autonomous-weapons-ai-robotics/&quot; target=&quot;_blank&quot;&gt;Autonomous Weapons Open Letter: AI &amp;amp; Robotics Researchers&lt;/a&gt; (2016)&lt;/li&gt;
-  &lt;li&gt;Stuart Russell, &lt;a href=&quot;https://www.amazon.co.uk/Human-Compatible-AI-Problem-Control/dp/0241335205&quot; target=&quot;_blank&quot;&gt;Human Compatible: AI and the Problem of Control&lt;/a&gt;, Allen Lane (2019)&lt;/li&gt;
-  &lt;li&gt;Stathis Kamperis, &lt;a href=&quot;https://ekamperi.github.io/machine%20learning/2019/08/14/energy-considerations-dnn.html&quot; target=&quot;_blank&quot;&gt;Energy considerations for training deep neural networks&lt;/a&gt;, &lt;em&gt;blog&lt;/em&gt; (2019)&lt;/li&gt;
-  &lt;li&gt;Kathryn Tunyasuvunakool et al (Deepmind), &lt;a href=&quot;https://www.nature.com/articles/s41586-021-03828-1&quot; target=&quot;_blank&quot;&gt;&lt;em&gt;Highly accurate protein structure prediction for the human proteome&lt;/em&gt;&lt;/a&gt;, &lt;em&gt;Nature 596, pp 590–596&lt;/em&gt; (2021)&lt;/li&gt;
-  &lt;li&gt;Leo Gao et al (EleutherAI), &lt;a href=&quot;https://arxiv.org/abs/2101.00027&quot; target=&quot;_blank&quot;&gt;The Pile: An 800GB Dataset of Diverse Text for Language Modeling&lt;/a&gt;, &lt;em&gt;arxiv.org/abs/2101.00027&lt;/em&gt; (2021)&lt;/li&gt;
-  &lt;li&gt;Emily M. Bender, Timnit Gebru, Angelina McMillan-Major, Margaret Mitchell, &lt;a href=&quot;https://dl.acm.org/doi/10.1145/3442188.3445922&quot; target=&quot;_blank&quot;&gt;On the Dangers of Stochastic Parrots: Can Language Models Be Too Big?&lt;/a&gt;, &lt;em&gt;FAccT ‘21: Proceedings of the 2021 ACM Conference on Fairness, Accountability, and Transparency&lt;/em&gt; (2021)&lt;/li&gt;
-  &lt;li&gt;Carole-Jean Wu et al (Facebook), &lt;a href=&quot;https://arxiv.org/abs/2111.00364&quot; target=&quot;_blank&quot;&gt;Sustainable AI: Environmental Implications, Challenges and Opportunities&lt;/a&gt; &lt;em&gt;https://arxiv.org/abs/2111.00364&lt;/em&gt; (2022)&lt;/li&gt;
-  &lt;li&gt;Sébastien Bubeck, et al (Microsoft Research), &lt;a href=&quot;https://arxiv.org/abs/2303.12712&quot; target=&quot;_blank&quot;&gt;Sparks of Artificial General Intelligence: Early experiments with GPT-4&lt;/a&gt;, &lt;em&gt;https://arxiv.org/abs/2303.12712&lt;/em&gt; (2023)&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://futureoflife.org/open-letter/pause-giant-ai-experiments/&quot; target=&quot;_blank&quot;&gt;Pause Giant AI Experiments: An Open Letter&lt;/a&gt; (March 2023)&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.safe.ai/work/statement-on-ai-risk#open-letter&quot; target=&quot;_blank&quot;&gt;Mitigating the risk of extinction from AI should be a global priority&lt;/a&gt;, &lt;em&gt;open letter&lt;/em&gt; (May 2023)&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.bcs.org/sign-our-open-letter-on-the-future-of-ai/&quot; target=&quot;_blank&quot;&gt;AI open letter to UK Government and Industry&lt;/a&gt;, &lt;em&gt;BCS The Chartered Institute for IT&lt;/em&gt; (July 2023)&lt;/li&gt;
-  &lt;li&gt;Ljubisa Bojic, &lt;a href=&quot;https://sciencedirect.com/science/article/pii/S0016328724000661&quot; target=&quot;_blank&quot;&gt;AI alignment: Assessing the global impact of recommender systems&lt;/a&gt;, &lt;em&gt;Futures&lt;/em&gt; 160 (2024)&lt;/li&gt;
-  &lt;li&gt;Gemini Team Google, &lt;a href=&quot;https://arxiv.org/abs/2403.05530&quot; target=&quot;_blank&quot;&gt;Gemini 1.5: Unlocking multimodal
-understanding across millions of tokens of
-context&lt;/a&gt;, &lt;em&gt;https://arxiv.org/abs/2403.05530&lt;/em&gt; (2024)&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://righttowarn.ai/&quot; target=&quot;_blank&quot;&gt;A Right to Warn about Advanced Artificial Intelligence&lt;/a&gt;, &lt;em&gt;open letter&lt;/em&gt; (June 2024)&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Bill Oxbury</name></author><category term="artificial_intelligence" /><summary type="html">Imagined from the title of this talk by DALL-E3</summary></entry><entry><title type="html">What are geometric neural networks?</title><link href="http://localhost:4000/data_science/mathematics/clifford-nn-notes/" rel="alternate" type="text/html" title="What are geometric neural networks?" /><published>2024-01-23T00:00:00+00:00</published><updated>2024-01-23T00:00:00+00:00</updated><id>http://localhost:4000/data_science/mathematics/clifford-nn-notes</id><content type="html" xml:base="http://localhost:4000/data_science/mathematics/clifford-nn-notes/">&lt;figure&gt;
+&lt;ol&gt;
+  &lt;li&gt;V. Mnih et al, &lt;em&gt;Human-level control through deep reinforcement learning&lt;/em&gt;, &lt;a href=&quot;https://doi.org/10.1038/nature14236&quot; target=&quot;_blank&quot;&gt;doi.org/10.1038/nature14236&lt;/a&gt; Nature (2015)&lt;/li&gt;
+  &lt;li&gt;S. Bubeck et al, &lt;em&gt;Sparks of Artificial General Intelligence: Early experiments with GPT-4&lt;/em&gt;, &lt;a href=&quot; https://doi.org/10.48550/arXiv.2303.12712&quot; target=&quot;_blank&quot;&gt;arXiv.2303.12712&lt;/a&gt; (2023)&lt;/li&gt;
+  &lt;li&gt;L. Ouyang et al, &lt;em&gt;Training language models to follow instructions with human feedback&lt;/em&gt;, &lt;a href=&quot; https://doi.org/10.48550/arXiv.2203.02155&quot; target=&quot;_blank&quot;&gt;arXiv.2203.02155&lt;/a&gt; (2022)&lt;/li&gt;
+  &lt;li&gt;A. Fawzi et al, &lt;em&gt;Discovering faster matrix multiplication algorithms with reinforcement learning&lt;/em&gt; &lt;a href=&quot;https://doi.org/10.1038/s41586-022-05172-4&quot; target=&quot;_blank&quot;&gt;https://doi.org/10.1038/s41586-022-05172-4&lt;/a&gt;, Nature (2022)&lt;/li&gt;
+  &lt;li&gt;B. Romera-Paredes et al, &lt;em&gt;Mathematical discoveries from program search with large language models&lt;/em&gt; &lt;a href=&quot;https://doi.org/10.1038/s41586-023-06924-6&quot; target=&quot;_blank&quot;&gt;doi.org/10.1038/s41586-023-06924-6&lt;/a&gt;, Nature (2023)&lt;/li&gt;
+  &lt;li&gt;X. Tang, &lt;em&gt;A Comprehensive Survey of the Lean 4 Theorem Prover: Architecture, Applications and Advances&lt;/em&gt;, &lt;a href=&quot;https://arxiv.org/abs/2501.18639&quot; target=&quot;_blank&quot;&gt;arxiv.org/abs/2501.18639&lt;/a&gt; (2025)&lt;/li&gt;
+  &lt;li&gt;T. Hubert et al, &lt;em&gt;Olympiad-level formal mathematical reasoning with reinforcement learning&lt;/em&gt;, &lt;a href=&quot;https://doi.org/10.1038/s41586-025-09833-y&quot; target=&quot;_blank&quot;&gt;doi.org/10.1038/s41586-025-09833-y&lt;/a&gt;, Nature (2025)&lt;/li&gt;
+  &lt;li&gt;A. Novikov et al, &lt;em&gt;AlphaEvolve: A coding agent for scientific and algorithmic discovery&lt;/em&gt;, &lt;a href=&quot;https://arxiv.org/abs/2506.13131&quot; target=&quot;_blank&quot;&gt;arxiv.org/abs/2506.13131&lt;/a&gt;, Google Deepmind (2025)&lt;/li&gt;
+  &lt;li&gt;G. Tsoukalas et al, &lt;em&gt;Advancing Mathematics Research with AI-Driven Formal Proof Search&lt;/em&gt;, &lt;a href=&quot;https://arxiv.org/abs/2605.22763&quot; target=&quot;_blank&quot;&gt;arxiv.org/abs/2605.22763&lt;/a&gt;, Google Deepmind (2026)&lt;/li&gt;
+&lt;/ol&gt;</content><author><name>Bill Oxbury</name></author><category term="artificial_intelligence" /><summary type="html">This blog post first appeared as MARS blog reference.</summary></entry><entry><title type="html">What are geometric neural networks?</title><link href="http://localhost:4000/data_science/mathematics/clifford-nn-notes/" rel="alternate" type="text/html" title="What are geometric neural networks?" /><published>2024-01-23T00:00:00+00:00</published><updated>2024-01-23T00:00:00+00:00</updated><id>http://localhost:4000/data_science/mathematics/clifford-nn-notes</id><content type="html" xml:base="http://localhost:4000/data_science/mathematics/clifford-nn-notes/">&lt;figure&gt;
   &lt;img src=&quot;/assets/img/2024-01-23/multivector.png&quot; width=&quot;100%&quot; /&gt;
   &lt;figcaption&gt;
   Clifford group equivariance for ${\mathbb R}^3$. From [5].
