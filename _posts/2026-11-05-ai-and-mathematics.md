@@ -148,7 +148,7 @@ Here is the second idea:
   <b>Key idea 2:</b> Evolve a population of codes using an LLM as oracle to find improvements.
 </div>
 
-This idea first appeared in [5] to solve optimisation problems in computer science and combinatorics. The 'codes' referred to are blocks of code – e.g. a single function that assigns a score to the current state of the system – within some human-written program. 
+This idea first appeared in [5] to solve optimisation problems in computer science and combinatorics. The 'codes' referred to are blocks of code – maybe just a single function – within some human-written program. 
 
 A population of possible codes is initialised with some best guess, and then a loop is followed as follows. 
 
