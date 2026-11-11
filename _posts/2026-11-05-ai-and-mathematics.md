@@ -132,7 +132,7 @@ We don't know the answer to the last question. But efforts to understand it have
   <b>Key idea 1:</b> Use deep reinforcement learning to play a single-player game in a formal verification environment.
 </div>
 
-Many mathematical problems can be formalised and putative solutions checked within a formal environment. An early example was **matrix multiplication** [4] – where the 'formal environment' in matrix algebra. 
+Many mathematical problems can be formalised and putative solutions checked within a formal environment. An early example was **matrix multiplication** [4] – where the 'formal environment' is just matrix algebra. 
 
 The computational cost of a matrix multiply is dominated by the number of scalar multiplications. If this number can be reduced by clever rearrangement of the variables, then computation (and energy use) has been saved. For example, it was discovered in the 1960s that $2 \times 2$ matrix multiplication requires not 8 scalar multiplies, as you first expect, but only 7. In any system depending on $2 \times 2$ matrix multiplications (from engineering, signal processing, machine learning or wherever) this represents a 12% saving of energy consumption!
 
