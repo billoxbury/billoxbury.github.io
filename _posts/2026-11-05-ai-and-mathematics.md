@@ -65,7 +65,7 @@ Feedforward neural networks have become a standard way to make this approximatio
   </figcaption>
 </figure>
 
-As we compose neural units – that is, outputs of different untis feed into $x_i$ values of 'downstream' units – we can build progressively more complex functions ${\mathbb R}^n \rightarrow {\mathbb R}^m$. The **universal approximation theorem** says that any continuous (and many more general) functions can be approximated arbitrarily closely by a feedforward network in this sense. We just have to figure out the weights $w_i$ over all the units.
+As we compose neural units – that is, outputs of different units feed into $x_i$ values of 'downstream' units – we can build progressively more complex functions ${\mathbb R}^n \rightarrow {\mathbb R}^m$. The **universal approximation theorem** says that any continuous (and many more general) functions can be approximated arbitrarily closely by a feedforward network in this sense. We just have to figure out the weights $w_i$ over all the units.
 
 To do this, we minimise the error of the network (the so-called **loss function**), as a predictor of $Y$ given $X$, for the training data $D$:
 
