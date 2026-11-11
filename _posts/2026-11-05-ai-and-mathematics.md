@@ -45,7 +45,7 @@ The first important thing to understand is that an AI model **is just a compress
   </figcaption>
 </figure>
 
-In other words, when we train a model AI model, we are not showing examples to an already intelligent system – the AI model is **nothing but** the training data set that has gone into it.
+In other words, when we train an AI model, we are not showing examples to an already intelligent system – the AI model is **nothing but** the training data set that has gone into it.
 
 To explain this, let's recall how supervised machine learning works. We assume random variables $X,Y$ where $X$ is cheap to evaluate (e.g. image pixels) and $Y$ is expensive to evaluate (e.g. what's in this image?). We would like to be able to estimate the expectation $\mathbb{E}(Y \mid X)$ (or more generally the probability distribution of $Y$ given $X$). 
 
