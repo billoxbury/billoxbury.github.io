@@ -117,7 +117,7 @@ How does all this apply to build Large Language Models? An LLM is essentially bu
 3. **Reward model:** learn a scoring function that rewards the best responses. Here the data is $D_3 = $ human rankings of (possibly subject-specialised) alternative responses to prompts.
 4. **Policy model:** learn a reinforcement learning policy function to play the 'game' of building responses (word by word) with aim of maximising the final reward coming from 3. Here the data is $D_4 = $ lots of game histories.
 
-Stages 3 and 4 build on the the power of deep reinforcement learning. **Reinforcement Learning from Human Feedback (RLHF)**, as described here, can be thought of as a secret sauce that gives LLMs their impressive performance. 
+Stages 3 and 4 build on the the power of deep reinforcement learning. **Reinforcement Learning from Human Feedback (RLHF)** [3], as described here, can be thought of as a secret sauce that gives LLMs their impressive performance. 
 
 In addition, before generating a response, an LLM will typically perform a traditional web search and use retrieved web pages to augment the prompt text itself. With this enriched prompt, quoting verbatim from the retrieved content is legal and likely within the learned model. Therefore, much of what the LLM returns is bona fide human-generated text from somewhere on the Internet. LLMs are not magic after all!
 
