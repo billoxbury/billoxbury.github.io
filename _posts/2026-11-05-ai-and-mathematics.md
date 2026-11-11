@@ -161,7 +161,7 @@ More recent work (for example **Alpha Nexus** [9]) is successfully combining the
 
 **5. So what does AI mean for mathematicians?**
 
-There may be a view that the use of AI poses a threat to traditional methods of mathematical research, and may undermine the work of some mathematicians who have spent careers on problem areas that turn out to be most 'vulnerable' to AI methods. On the other hand, a more optimistic view would welcome these methods as accelerating our ability to answer the most pressing hard problems, and in so doing to open up new avenues of research.
+There may be a view that the use of AI poses a threat to traditional methods of mathematical research; that it undermines the work of some mathematicians who have spent careers on problem areas that turn out to be most 'vulnerable' to AI methods. On the other hand, a more optimistic view would welcome these methods as accelerating our ability to answer the most pressing hard problems, and in so doing to open up new avenues of research.
 
 One comparison to make is to the introduction of computer algebra and symbolic mathematical software in the 1970s and 80s, which opened up whole fields of experimental mathematics – allowing observation and discovery in number theory, geometry, combinatorics and other areas that previously had been impossible. The use of AI and machine learning could probably be viewed in a similar light.
 
