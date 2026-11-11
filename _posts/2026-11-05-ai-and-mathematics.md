@@ -105,7 +105,7 @@ At each time step, the AI player is calling a policy function which is the learn
 
 Note that, just as for supervised learning, the weights of the network can be viewed as a lossy compression of data – in this case, data consisting of the history of all game states, actions and rewards (game scores) observed during training.
 
-Another point which will be important when we think about use of AI in mathematics: in the Atari game there is geometric and kinematic structure (which we as humans can see and have intuitions about – because we carry models of the world in our heads). But the AI knows nothing about this structure. It observes only screen pixels and game score. It consists of an efficient action policy which responds to screen pixels alone. The same AI can (and did) learning many different Atari games, regardless of physical meaning.
+Another point which will be important when we think about use of AI in mathematics: in the Atari game there is geometric and kinematic structure (which we as humans can see and have intuitions about – because we carry models of the world in our heads). But the AI knows nothing about (and has no need of) this structure. It observes only screen pixels and game score. It consists of an efficient action policy which responds to screen pixels alone. The same AI can (and did) learn many different Atari games, regardless of physical meaning.
 
 
 **3. How a Large language Model works**
