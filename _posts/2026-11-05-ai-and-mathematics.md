@@ -72,7 +72,7 @@ To do this, we minimise the error of the network (the so-called **loss function*
 <figure>
   <img src="/assets/img/2026-11-05/grad_descent.png" width="100%">
   <figcaption>
-  For fixed training data $D$ and fixed feedforward neural network, the error (or **loss**) surface over the space of weight vectors. 
+  For fixed training data $D$ and fixed feedforward neural network, the error (or <b>loss</b>) surface over the space of weight vectors. 
   </figcaption>
 </figure>
 
