@@ -150,7 +150,7 @@ Here is the second idea:
 
 This idea first appeared in [5] to solve optimisation problems in computer science and combinatorics. The 'codes' referred to are blocks of code – maybe just a single function – within some human-written program. 
 
-A population of possible codes is initialised with some best guess, and then a loop is followed as follows. 
+A population of possible codes is initialised with some best guess, and then the following loop is run: 
 
 Construct an LLM prompt from the problem statement (in natural language), the current best codes in the population and the results they return. Ask your LLM for code improvements. Depending on the performance of the code returned, add them to the population. Repeat until the performance passes some threshold.
 
