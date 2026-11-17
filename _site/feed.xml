@@ -1,4 +1,213 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-11-11T11:51:44+00:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Bills.Data</title><subtitle>Exploring ideas in data science</subtitle><author><name>Bill Oxbury</name></author><entry><title type="html">What is AI, and what does it mean for mathematicians?</title><link href="http://localhost:4000/artificial_intelligence/ai-and-mathematics/" rel="alternate" type="text/html" title="What is AI, and what does it mean for mathematicians?" /><published>2026-11-05T00:00:00+00:00</published><updated>2026-11-05T00:00:00+00:00</updated><id>http://localhost:4000/artificial_intelligence/ai-and-mathematics</id><content type="html" xml:base="http://localhost:4000/artificial_intelligence/ai-and-mathematics/">&lt;p&gt;&lt;i&gt;&lt;small&gt; This blog post first appeared as &lt;a href=&quot; https://www.lancaster.ac.uk/mathematics-for-ai-in-real-world-systems/research/blogs/&quot; target=&quot;_blank&quot;&gt;MARS blog reference&lt;/a&gt;.&lt;/small&gt;&lt;/i&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-11-17T10:05:42+00:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Bills.Data</title><subtitle>Exploring ideas in data science</subtitle><author><name>Bill Oxbury</name></author><entry><title type="html">How much energy does AI actually need?</title><link href="http://localhost:4000/artificial_intelligence/ai-energy-consumption/" rel="alternate" type="text/html" title="How much energy does AI actually need?" /><published>2026-11-12T00:00:00+00:00</published><updated>2026-11-12T00:00:00+00:00</updated><id>http://localhost:4000/artificial_intelligence/ai-energy-consumption</id><content type="html" xml:base="http://localhost:4000/artificial_intelligence/ai-energy-consumption/">&lt;figure&gt;
+  &lt;img src=&quot;/assets/img/2026-11-12/mit_tech_review_20260114.png&quot; width=&quot;100%&quot; /&gt;
+  &lt;figcaption&gt;
+  Image: MIT Technology Review
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;small&gt;
+&lt;strong&gt;Summary:&lt;/strong&gt; 
+UK government AI policy requires a blanket 500MW power supply for AI Growth Zone (AIGZ) approval. We argue that this figure serves solely to meet commercial hyperscaling demand. We advocate that if AIGZ approvals were based on sovereign AI capability &lt;em&gt;per unit energy&lt;/em&gt; (and per litre water, though we do not cover water in this article) – then such an approach would better align sovereign AI investment with sustainability, &lt;em&gt;and&lt;/em&gt; it would significantly favour AI for science, which is both a UK strength and orders of magnitude more energy efficient than hyperscaling.
+&lt;/small&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Despite growing environmental risks and public opposition, the UK government wants every AI Growth Zone to secure 500MW of power. Run flat out, one zone would use about 2% of the UK’s electricity. What is this energy needed for? The answer is hyperscaling of commercial AI services. By comparison, AI for scientific applications, including commercialisation, requires only a fraction of the energy. It is also a significant strength of the UK with high economic and social value.&lt;/p&gt;
+
+&lt;p&gt;In this article, we make a case for UK policy to prioritise scientific AI-compute allocation as more sustainable, a better fit to UK strengths and a stronger economic investment.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1. Public opposition to data centres&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;In the US, data centres have been described as a great unifier. Across the political spectrum, whatever differences people may have on other matters, on one thing everyone is apparently agreed: nobody wants data centres where they live [4,5,6,7].&lt;/p&gt;
+
+&lt;p&gt;The reasons are clear: electricity prices, water use, farmland loss, a perception that jobs and benefits are thin, public health concerns [9]. Non-disclosure agreements between developers and local officials have aggravated distrust. Opposition has been organised and costly for developers, with dozens of projects have been delayed or blocked, billions of dollars of investment affected and growing pressure for local and statewide moratoria.&lt;/p&gt;
+
+&lt;p&gt;Data centres have been a core part of digital infrastructure since the early days of the Internet. What is different today is the rapid growth of processing demand for AI workloads. That processing entails a footprint in physical space, energy consumption and water for cooling which competes with other needs of local populations.&lt;/p&gt;
+
+&lt;p&gt;The same frictions are coming to other countries including the UK. The clearest public evidence to date is Slough: DESNZ statistics [10] show a large rise in local electricity consumption between 2015 and 2024, attributed to data centres, while the rest of the area’s demand fell. Opposition is mobilising [8].&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2. UK government policy on AI growth&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;The &lt;a href=&quot;https://www.gov.uk/government/publications/ai-opportunities-action-plan/ai-opportunities-action-plan&quot; target=&quot;_blank&quot;&gt;AI Opportunities Action Plan&lt;/a&gt; [1] introduced AI Growth Zones (AIGZ) “to facilitate the accelerated build out of AI data centres”. The paper argued “as AI infrastructure providers seek access to land and power, governments who move quickly and mirror the pace of growth and innovation in the AI data centre market will be best placed to secure investment.”&lt;/p&gt;
+
+&lt;p&gt;The implementation framework for AIGZs was set out in DSIT’s paper &lt;a href=&quot;https://www.gov.uk/government/publications/delivering-ai-growth-zones/delivering-ai-growth-zones&quot; target=&quot;_blank&quot;&gt;Delivering AI Growth Zones&lt;/a&gt; [2].
+In this framework, the criteria set out for an AIGZ location comprise: at least 100 acres available for construction by 2028 … and access to at least 500MW of power by 2030, plus ‘sufficient water’.&lt;/p&gt;
+
+&lt;p&gt;Water is mentioned only qualitatively, and without any published consumption standard. Depending on cooling technology, a 500MW site might use anywhere between 2 and 35 million litres a day.&lt;/p&gt;
+
+&lt;p&gt;At the time of writing five AIGZs have been approved: at Culham (Oxfordshire) and in North East England, North Wales, South Wales and Lanarkshire (Scotland).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;The main aim of this article is to examine the case for, and the consequences of, the power figure of 500MW.&lt;/strong&gt; The basis for this figure is not given in either of the two government papers.&lt;/p&gt;
+
+&lt;p&gt;As an indicator of the number of processors that can be run, power availability directly correlates to other factors such as physical size of the data centre, water requirement for cooling, noise pollution and carbon emissions. We will focus on power consumption as a proxy for these other factors. This will allow for transparent comparisons between data centre (and other energy-consuming) use cases.&lt;/p&gt;
+
+&lt;p&gt;For immediate context, a 500MW site running continuously would use about 4.4TWh a year. (See Figure 1 below.) The UK consumed about 249TWh of electricity in 2024, so one zone at full load is nearly 2% of national consumption. Regionally the effect is larger: for example, for the North East the 2024 energy consumption was 9.9TWh (equivalent to 1.1 GW of continuous demand) [10] – so that a 500 MW facility would correspond to a whopping 44% of the region’s metered consumption.&lt;/p&gt;
+
+&lt;p&gt;We will look next at how this figure of 500MW meet the needs of AI use cases.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;3. Energy requirements for hyperscaling generative AI&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Here are some figures on AI demand cited by major providers:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Provider&lt;/th&gt;
+      &lt;th&gt;Disclosed figure&lt;/th&gt;
+      &lt;th&gt;Source&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;ChatGPT (OpenAI)&lt;/td&gt;
+      &lt;td&gt;More than 2.5 billion prompts a day; up from about 1 billion in December 2024&lt;/td&gt;
+      &lt;td&gt;OpenAI, July 2025 [12]; still the figure quoted in 2026&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;ChatGPT (OpenAI)&lt;/td&gt;
+      &lt;td&gt;1 billion weekly users&lt;/td&gt;
+      &lt;td&gt;OpenAI, August 2026 [13]&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Google&lt;/td&gt;
+      &lt;td&gt;Over 3.2 quadrillion tokens a month (roughly 100 trillion a day), up seven-fold in a year&lt;/td&gt;
+      &lt;td&gt;Google I/O, May 2026 [14]&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Gemini app (Google)&lt;/td&gt;
+      &lt;td&gt;More than 1 billion monthly users; over 150 million images a day&lt;/td&gt;
+      &lt;td&gt;Google, August 2026 [15]&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Google Search&lt;/td&gt;
+      &lt;td&gt;Roughly 14 to 16 billion queries a day&lt;/td&gt;
+      &lt;td&gt;Google, 2025&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Siri (Apple)&lt;/td&gt;
+      &lt;td&gt;2.5 billion requests a day&lt;/td&gt;
+      &lt;td&gt;Apple event, September 2026 (reported) [16]&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;When it comes to planning we can view these figures as conservative. While they are global and not restricted to the UK, they may be underestimates of future demand for a number of reasons. Volumes are growing rapidly; Google’s token throughput rose seven-fold in a year. At the same time, some of the figures are older and can be expected be higher today. Per-prompt figures typically describe median, short prompts. In the table we don’t see the distribution of long-context, reasoning-heavy, video or agentic requests (which will cost more in energy). Significantly, API, enterprise and embedded uses (search summaries, voice assistants, coding tools) sit outside the consumer chat counts, but can be expected to be a large and growing source of demand. Finally, experimentation, training and AI model development are not visible in these figures.&lt;/p&gt;
+
+&lt;p&gt;So the table above can be considered a conservative baseline for (global) data centre usage.&lt;/p&gt;
+
+&lt;p&gt;Let’s translate this usage into energy requirements. Compiled from various sources, here are some current platforms and prompt types with corresponding energy load per million queries:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Workload&lt;/th&gt;
+      &lt;th&gt;Per million prompts&lt;/th&gt;
+      &lt;th&gt;Source&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Text, median Gemini prompt (full serving stack)&lt;/td&gt;
+      &lt;td&gt;240 kWh&lt;/td&gt;
+      &lt;td&gt;Measured: Google, 2025 [18]&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Text, average ChatGPT prompt&lt;/td&gt;
+      &lt;td&gt;340 kWh&lt;/td&gt;
+      &lt;td&gt;Reported: OpenAI, method not disclosed [20]&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Text, DeepSeek-R1 (reasoning), short prompt (100 in, 300 out)&lt;/td&gt;
+      &lt;td&gt;2.4 to 19.3 MWh&lt;/td&gt;
+      &lt;td&gt;Published, modelled estimate [19]; range across Azure and DeepSeek hosting&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Image, mean across models tested&lt;/td&gt;
+      &lt;td&gt;2.9 MWh&lt;/td&gt;
+      &lt;td&gt;Published [17]; older hardware&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Note that image (and especially video, not included here) is more expensive than text. Text processing varies with length and complexity of prompt. Energy consumption also depends on hardware – for example, whether the same model is deployed on Azure or Deepseek servers. Some estimates report GPU energy only; others (e.g. Gemini above) report ‘full stack’ - that is, including CPU, networking, cooling etc.&lt;/p&gt;
+
+&lt;p&gt;Data on energy consumption for development and training of models tends to be commercially protected and harder to obtain. For that reason it is not included in the table above – but also because the energy requirement is typically smaller than the hyperscaling stage. (In the plot below we do include training of two models for which data was available, GPT-3 (2022) and Llama 3.1 (2024).)&lt;/p&gt;
+
+&lt;p&gt;Figure 1 compares these energy consumptions on a log scale. It also includes the energy cost of a 500MW data centre running flat out, as well as a few non-data centre related uses for perspective. We can conclude that the data centre power figure of 500MW is a reasonable fit to the hyperscaling use case – though not to smaller-scale but strategically important scientific use cases.&lt;/p&gt;
+
+&lt;p&gt;Later we will call into question whether the hyperscaling use case is a rational one for UK AI strategy.&lt;/p&gt;
+
+&lt;figure&gt;
+  &lt;img src=&quot;/assets/img/2026-11-12/energy_plot_short.png&quot; width=&quot;100%&quot; /&gt;
+  &lt;figcaption&gt;
+  Figure 1: Setting AI energy consumption in context. Comparison of AI (blue) and non-AI (grey) energy loads.
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;4. AI for science&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;In 2024 the Nobel Prize for Chemistry was awarded to a UK team Demis Hassabis, John Jumper and David Baker for “protein structure prediction” and “computational protein design”. Their work, AlphaFold, used frontier AI methods to solve the outstanding problem of predicting the folding geometry of a protein, specified as an amino acid chain. This achievement had profound implications for biology and for healthcare. It can be expected to have huge benefits socially and economically as a consequence.&lt;/p&gt;
+
+&lt;p&gt;The 2025 government strategy paper &lt;a href=&quot;https://www.gov.uk/government/publications/ai-for-science-strategy/ai-for-science-strategy&quot; target=&quot;_blank&quot;&gt;AI for Science Strategy&lt;/a&gt; [3] rightly hailed the AlphaFold work as an exemplar of UK AI and scientific excellence. It set out three pillars – data, compute and people – for investment to put scientific AI at the heart of the UK’s AI strategy.&lt;/p&gt;
+
+&lt;p&gt;It is instructive to compare the energy requirements of scientific AI with the hyperscaling figures above. AlphaFold training is already shown in Figure 1 at 8.25MWh (calculated in [23]). This does not include experimentation and development work leading up to the model training – but allowing a factor of 10, a figure of 80MWh is still 0.3% of Llama 3.1 training shown in the figure.&lt;/p&gt;
+
+&lt;p&gt;What about query-time energy consumption? For this, compute can be, and was, saved by a one-time computation and storage in a protein database. Subsequently, the results were available for look-up by researchers at essentially no additional energy cost. Figure 1 includes this one-time computation of 600M proteins using ESMFold, a later variant of AlphaFold by Meta. The energy consumption is seen to be 224MWh, or roughly 0.4% of &lt;em&gt;daily&lt;/em&gt; ChatGPT inference.&lt;/p&gt;
+
+&lt;p&gt;The message is very clear: at least for protein folding, scientific AI is shown to be a compelling investment not only economically and in terms of sovereign UK capability, but also as more energy efficient by orders of magnitude than hyperscaling. Is the same true of other scientific areas?&lt;/p&gt;
+
+&lt;p&gt;The DSIT AI for Science paper highlights engineering biology, fusion energy, materials science, medical research, quantum technologies as priority areas. In the realm of medical research, the 2025 award of Dawn supercomputer time to Oxford cancer vaccine research [24] is shown on Figure 1: 10,000 hours of high-end GPU time has an energy requirement of about 7MWh – comparable to AlphFold training.&lt;/p&gt;
+
+&lt;p&gt;Fusion research tells a similar story. &lt;strong&gt;Sunrise&lt;/strong&gt; is a £45 million flagship supercomputer, launched in 2026, which is part of the AIGZ at Culham in Oxfordshire [25]. It’s power? 1.4MW – that is, an annual energy consumption of 12GWh, equivalent to more than 50 AlphaFolds’ training plus inference.&lt;/p&gt;
+
+&lt;p&gt;But put another way, Sunrise represents just 0.3% of the headline 500MW figure for an AIGZ!&lt;/p&gt;
+
+&lt;p&gt;Bristol’s Isambard-AI [26] is bigger still. The UK’s ‘most powerful supercomputer’ weighs in at about 3.8MW – or just 0.8% of 500MW.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;5. Conclusion: AI strategy needs energy accounting&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Currently the ticket for an AIGZ is 500MW of power. As we’ve seen, this comes with costs – social, energy, water – which may conflict with other national strategic priorities (Net Zero, water resilience, biodiversity) and whose trade-offs should be weighed against economic and social benefits in any individual investment decision.&lt;/p&gt;
+
+&lt;p&gt;We would advocate that AIGZ decisions are based not on a simplistic and potentially damaging 500MW ticket, but on a separation and a proper accounting of these trade-offs.&lt;/p&gt;
+
+&lt;p&gt;In particular, we should see energy – as a fundamental proxy for other data centre costs – accounted quantitatively in AIGZ bids and their assessments. How much energy do you need, and for what expected return?&lt;/p&gt;
+
+&lt;p&gt;We have also seen that AI for science stands at an intersection of (1) a significant AI sovereignty opportunity for the UK, (2) the least intrusive energy footprint and (3) potentially the highest economic benefits to the UK.&lt;/p&gt;
+
+&lt;p&gt;AI Growth Zone approvals should reward sovereign AI capability delivered per kWh and per litre of water, rather than treating 500MW as a ‘one size fits all’ entry ticket.&lt;/p&gt;
+
+&lt;p&gt;On these criteria, the UK’s scientific AI capability would already significantly out-perform commercial hyperscaling. Moreover,  quantified energy and water limits might then act as guardrails that keep sovereignty and sustainability aligned.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;References&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.gov.uk/government/publications/ai-opportunities-action-plan/ai-opportunities-action-plan&quot; target=&quot;_blank&quot;&gt;AI Opportunities Action Plan&lt;/a&gt;, DSIT (January 2025)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.gov.uk/government/publications/delivering-ai-growth-zones/delivering-ai-growth-zones&quot; target=&quot;_blank&quot;&gt;Delivering AI Growth Zones&lt;/a&gt;, DSIT (November 2025)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.gov.uk/government/publications/ai-for-science-strategy/ai-for-science-strategy&quot; target=&quot;_blank&quot;&gt;AI for Science Strategy&lt;/a&gt; DSIT (November 2025)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.technologyreview.com/2026/01/14/1131253/data-centers-are-amazing-everyone-hates-them/&quot; target=&quot;_blank&quot;&gt;Data centers are amazing. Everyone hates them.&lt;/a&gt; MIT Technology Review (2026)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://prospect.org/2025/12/22/demands-for-data-center-moratoriums-surge/&quot; target=&quot;_blank&quot;&gt;Demands for Data Center Moratoriums Surge&lt;/a&gt;, American Prospect (2025)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://theconversation.com/voters-rejected-data-centers-in-dozens-of-communities-fueling-the-narrative-that-opposition-to-the-ai-infrastructure-contributed-to-the-2026-blue-wave-295950&quot; target=&quot;_blank&quot;&gt;Voters rejected data centers in dozens of communities&lt;/a&gt;, The Conversation (2026)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.theguardian.com/us-news/2026/nov/04/datacenters-midterm-elections&quot; target=&quot;_blank&quot;&gt;Datacenters were on the ballot. US voters rejected them&lt;/a&gt;, The Guardian (2026)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.independent.co.uk/life-style/data-centres-protests-uk-marches-ai-b3080317.html&quot; target=&quot;_blank&quot;&gt;Meet the ordinary Brits fighting back against data centres&lt;/a&gt;, The Independent (2026)&lt;/li&gt;
+  &lt;li&gt;Y. Han et al, &lt;a href=&quot;https://arxiv.org/pdf/2412.06288&quot; target=&quot;_blank&quot;&gt;Health-Informed Computing: Estimating and Addressing the Public Health Impact of Data Centers&lt;/a&gt; (2026)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.gov.uk/government/statistics/subnational-electricity-and-gas-consumption-summary-report-2024/subnational-electricity-and-gas-consumption-summary-report-2024--2&quot; target=&quot;_blank&quot;&gt;Subnational electricity and gas consumption summary report 2024&lt;/a&gt;, DESNZ (2024)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://fortune.com/2026/04/20/us-data-center-electricity-demand-public-opinion/&quot; target=&quot;_blank&quot;&gt;Data centers now account for half of new US electricity use&lt;/a&gt;, Fortune (2026)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://eastleighvoice.co.ke/gemini%20ai/183553/chatgpt-now-handles-over-2-5-billion-prompts-a-day-openai-confirms&quot; target=&quot;_blank&quot;&gt;ChatGPT now handles over 2.5 billion prompts a day, OpenAI confirms&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://techcrunch.com/2025/07/21/chatgpt-users-send-2-5-billion-prompts-a-day/&quot; target=&quot;_blank&quot;&gt;ChatGPT users send 2.5 billion prompts a day (TechCrunch, July 2025)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://blog.google/innovation-and-ai/sundar-pichai-io-2026/&quot; target=&quot;_blank&quot;&gt;Google I/O 2026 keynote (Sundar Pichai)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.secondtalent.com/resources/domain-generative-ai-llm-usage-statistics/&quot; target=&quot;_blank&quot;&gt;Generative AI and LLM usage statistics (Second Talent)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://michaelparekh.substack.com/p/ai-ai-loops-101-what-a-gigawatt-of&quot; target=&quot;_blank&quot;&gt;What a gigawatt of data center buys (AI-RTZ, Michael Parekh)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Luccioni et al, &lt;a href=&quot;http://arxiv.org/abs/2311.16863&quot; target=&quot;_blank&quot;&gt;Power Hungry Processing, Watts driving the cost of AI deployment?&lt;/a&gt; (2023)&lt;/li&gt;
+  &lt;li&gt;C. Elsworth et al, &lt;a href=&quot;https://arxiv.org/abs/2508.15734&quot; target=&quot;_blank&quot;&gt;Measuring the environmental impact of delivering AI at Google Scale&lt;/a&gt; (2025)&lt;/li&gt;
+  &lt;li&gt;N. Jegham et al, &lt;a href=&quot;https://arxiv.org/abs/2505.09598&quot; target=&quot;_blank&quot;&gt;How Hungry is AI? Benchmarking Energy, Water, and Carbon Footprint of LLM Inference&lt;/a&gt; (2025)&lt;/li&gt;
+  &lt;li&gt;S. Altman, &lt;a href=&quot;https://blog.samaltman.com/the-gentle-singularity&quot; target=&quot;_blank&quot;&gt;The gentle singularity&lt;/a&gt;, blog post (2025)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.iea.org/reports/energy-and-ai&quot; target=&quot;_blank&quot;&gt;Energy and AI&lt;/a&gt;, International Energy Agency report (2025)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.nature.com/collections/edjcfdihdi&quot; target=&quot;_blank&quot;&gt;Nobel Prize in Chemistry 2024&lt;/a&gt;, Nature (2024)&lt;/li&gt;
+  &lt;li&gt;L. Lannelongue et al, &lt;a href=&quot;https://cshperspectives.cshlp.org/content/15/12/a041473&quot; target=&quot;_blank&quot;&gt;Environmental Impacts of Machine Learning Applications in Protein Science&lt;/a&gt; (2023)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://eit.org/news/eits-dr-lennard-lee-secures-uk-ai-supercomputing-award-for-cancer-vaccine-research&quot; target=&quot;_blank&quot;&gt;EIT Secures UK AI Supercomputing Award for Cancer Vaccine Research&lt;/a&gt; Ellison Institute of Technology (2025)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.datacenterdynamics.com/en/news/uk-govt-to-invest-45m-in-sunrise-supercomputer-to-accelerate-advancements-in-fusion-energy/&quot; target=&quot;_blank&quot;&gt;UK gov’t to invest £45m in Sunrise supercomputer to accelerate advancements in fusion energy&lt;/a&gt;, Data Centre Dynamics (2026)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.bristol.ac.uk/research/centres/bristol-supercomputing/articles/2026/inside-isambard-ai.html&quot; target=&quot;_blank&quot;&gt;Inside the UK’s most powerful AI supercomputer&lt;/a&gt;, University of Bristol (2026)&lt;/li&gt;
+&lt;/ol&gt;</content><author><name>Bill Oxbury</name></author><category term="artificial_intelligence" /><summary type="html">Image: MIT Technology Review</summary></entry><entry><title type="html">What is AI, and what does it mean for mathematicians?</title><link href="http://localhost:4000/artificial_intelligence/mathematics/ai-and-mathematics/" rel="alternate" type="text/html" title="What is AI, and what does it mean for mathematicians?" /><published>2026-11-05T00:00:00+00:00</published><updated>2026-11-05T00:00:00+00:00</updated><id>http://localhost:4000/artificial_intelligence/mathematics/ai-and-mathematics</id><content type="html" xml:base="http://localhost:4000/artificial_intelligence/mathematics/ai-and-mathematics/">&lt;p&gt;&lt;i&gt;&lt;small&gt; This blog post first appeared as &lt;a href=&quot; https://www.lancaster.ac.uk/mathematics-for-ai-in-real-world-systems/research/blogs/&quot; target=&quot;_blank&quot;&gt;MARS blog reference&lt;/a&gt;.&lt;/small&gt;&lt;/i&gt;&lt;/p&gt;
 
 &lt;p&gt;The &lt;a href=&quot;https://www.lancaster.ac.uk/mathematics-for-ai-in-real-world-systems/&quot; target=&quot;_blank&quot;&gt;MARS&lt;/a&gt; blog &lt;a href=&quot; https://www.lancaster.ac.uk/mathematics-for-ai-in-real-world-systems/research/blogs/what-is-machine-learning&quot; target=&quot;_blank&quot;&gt;What is Machine Learning?&lt;/a&gt; introduced the machinery that underpins modern AI. In this blog I will say a bit more about AI chatbots, or &lt;strong&gt;Large Language Models (LLMs)&lt;/strong&gt; – and in particular about their amazing emerging capabilities in mathematics itself.&lt;/p&gt;
 
@@ -29,7 +238,7 @@
   &lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;p&gt;In other words, when we train a model AI model, we are not showing examples to an already intelligent system – the AI model is &lt;strong&gt;nothing but&lt;/strong&gt; the training data set that has gone into it.&lt;/p&gt;
+&lt;p&gt;In other words, when we train an AI model, we are not showing examples to an already intelligent system – the AI model is &lt;strong&gt;nothing but&lt;/strong&gt; the training data set that has gone into it.&lt;/p&gt;
 
 &lt;p&gt;To explain this, let’s recall how supervised machine learning works. We assume random variables $X,Y$ where $X$ is cheap to evaluate (e.g. image pixels) and $Y$ is expensive to evaluate (e.g. what’s in this image?). We would like to be able to estimate the expectation $\mathbb{E}(Y \mid X)$ (or more generally the probability distribution of $Y$ given $X$).&lt;/p&gt;
 
@@ -48,14 +257,14 @@
   &lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;p&gt;As we compose neural units – that is, outputs of different untis feed into $x_i$ values of ‘downstream’ units – we can build progressively more complex functions ${\mathbb R}^n \rightarrow {\mathbb R}^m$. The &lt;strong&gt;universal approximation theorem&lt;/strong&gt; says that any continuous (and many more general) functions can be approximated arbitrarily closely by a feedforward network in this sense. We just have to figure out the weights $w_i$ over all the units.&lt;/p&gt;
+&lt;p&gt;As we compose neural units – that is, outputs of different units feed into $x_i$ values of ‘downstream’ units – we can build progressively more complex functions ${\mathbb R}^n \rightarrow {\mathbb R}^m$. The &lt;strong&gt;universal approximation theorem&lt;/strong&gt; says that any continuous (and many more general) functions can be approximated arbitrarily closely by a feedforward network in this sense. We just have to figure out the weights $w_i$ over all the units.&lt;/p&gt;
 
 &lt;p&gt;To do this, we minimise the error of the network (the so-called &lt;strong&gt;loss function&lt;/strong&gt;), as a predictor of $Y$ given $X$, for the training data $D$:&lt;/p&gt;
 
 &lt;figure&gt;
   &lt;img src=&quot;/assets/img/2026-11-05/grad_descent.png&quot; width=&quot;100%&quot; /&gt;
   &lt;figcaption&gt;
-  For fixed training data $D$ and fixed feedforward neural network, the error (or **loss**) surface over the space of weight vectors. 
+  For fixed training data $D$ and fixed feedforward neural network, the error (or &lt;b&gt;loss&lt;/b&gt;) surface over the space of weight vectors. 
   &lt;/figcaption&gt;
 &lt;/figure&gt;
 
@@ -88,7 +297,7 @@
 
 &lt;p&gt;Note that, just as for supervised learning, the weights of the network can be viewed as a lossy compression of data – in this case, data consisting of the history of all game states, actions and rewards (game scores) observed during training.&lt;/p&gt;
 
-&lt;p&gt;Another point which will be important when we think about use of AI in mathematics: in the Atari game there is geometric and kinematic structure (which we as humans can see and have intuitions about – because we carry models of the world in our heads). But the AI knows nothing about this structure. It observes only screen pixels and game score. It consists of an efficient action policy which responds to screen pixels alone. The same AI can (and did) learning many different Atari games, regardless of physical meaning.&lt;/p&gt;
+&lt;p&gt;Another point which will be important when we think about use of AI in mathematics: in the Atari game there is geometric and kinematic structure (which we as humans can see and have intuitions about – because we carry models of the world in our heads). But the AI knows nothing about (and has no need of) this structure. It observes only screen pixels and game score. It consists of an efficient action policy which responds to screen pixels alone. The same AI can (and did) learn many different Atari games, regardless of physical meaning.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;3. How a Large language Model works&lt;/strong&gt;&lt;/p&gt;
 
@@ -101,7 +310,7 @@
   &lt;li&gt;&lt;strong&gt;Policy model:&lt;/strong&gt; learn a reinforcement learning policy function to play the ‘game’ of building responses (word by word) with aim of maximising the final reward coming from 3. Here the data is $D_4 = $ lots of game histories.&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;Stages 3 and 4 build on the the power of deep reinforcement learning. &lt;strong&gt;Reinforcement Learning from Human Feedback (RLHF)&lt;/strong&gt;, as described here, can be thought of as a secret sauce that gives LLMs their impressive performance.&lt;/p&gt;
+&lt;p&gt;Stages 3 and 4 build on the the power of deep reinforcement learning. &lt;strong&gt;Reinforcement Learning from Human Feedback (RLHF)&lt;/strong&gt; [3], as described here, can be thought of as a secret sauce that gives LLMs their impressive performance.&lt;/p&gt;
 
 &lt;p&gt;In addition, before generating a response, an LLM will typically perform a traditional web search and use retrieved web pages to augment the prompt text itself. With this enriched prompt, quoting verbatim from the retrieved content is legal and likely within the learned model. Therefore, much of what the LLM returns is bona fide human-generated text from somewhere on the Internet. LLMs are not magic after all!&lt;/p&gt;
 
@@ -115,7 +324,7 @@
   &lt;b&gt;Key idea 1:&lt;/b&gt; Use deep reinforcement learning to play a single-player game in a formal verification environment.
 &lt;/div&gt;
 
-&lt;p&gt;Many mathematical problems can be formalised and putative solutions checked within a formal environment. An early example was &lt;strong&gt;matrix multiplication&lt;/strong&gt; [4] – where the ‘formal environment’ in matrix algebra.&lt;/p&gt;
+&lt;p&gt;Many mathematical problems can be formalised and putative solutions checked within a formal environment. An early example was &lt;strong&gt;matrix multiplication&lt;/strong&gt; [4] – where the ‘formal environment’ is just matrix algebra.&lt;/p&gt;
 
 &lt;p&gt;The computational cost of a matrix multiply is dominated by the number of scalar multiplications. If this number can be reduced by clever rearrangement of the variables, then computation (and energy use) has been saved. For example, it was discovered in the 1960s that $2 \times 2$ matrix multiplication requires not 8 scalar multiplies, as you first expect, but only 7. In any system depending on $2 \times 2$ matrix multiplications (from engineering, signal processing, machine learning or wherever) this represents a 12% saving of energy consumption!&lt;/p&gt;
 
@@ -123,7 +332,7 @@
 
 &lt;p&gt;In [7] the approach was widened much further to a reasoning system &lt;strong&gt;AlphaProve&lt;/strong&gt; that could tackle Olympiad questions of the sort described at the top of this post. The key enabler here was the &lt;a href=&quot;https://lean-lang.org/&quot; target=&quot;_blank&quot;&gt;LEAN&lt;/a&gt; programming language [6], which provided exactly the formal environment needed in key idea 1.&lt;/p&gt;
 
-&lt;p&gt;Incidentally, formal verification can also help LLMs. Recall step 3 in LLM training, where a reward fuction was needed for the reinforcement learning step 4. For specialised use cases such as coding or mathematics, a formal reward function may be available which is objective and precisely formalises the desired behaviour of the LLM. This is called &lt;strong&gt;Reinforcement Learning with Verifiable Rewards (RLVR)&lt;/strong&gt;. For mathematical reasoning, such a reward can be constructed using a formal environment such as LEAN.&lt;/p&gt;
+&lt;p&gt;Incidentally, formal verification can also help LLMs. Recall step 3 in LLM training, where a reward fuction was needed for the reinforcement learning step 4. For specialised use cases such as coding or mathematics, a formal reward function may be available which precisely formalises the desired behaviour of the LLM. This is called &lt;strong&gt;Reinforcement Learning with Verifiable Rewards (RLVR)&lt;/strong&gt;. For mathematical reasoning, such a reward can be constructed using a formal environment such as LEAN.&lt;/p&gt;
 
 &lt;p&gt;Here is the second idea:&lt;/p&gt;
 
@@ -131,9 +340,9 @@
   &lt;b&gt;Key idea 2:&lt;/b&gt; Evolve a population of codes using an LLM as oracle to find improvements.
 &lt;/div&gt;
 
-&lt;p&gt;This idea first appeared in [5] to solve optimisation problems in computer science and combinatorics. The ‘codes’ referred to are blocks of code – e.g. a single function that assigns a score to the current state of the system – within some human-written program.&lt;/p&gt;
+&lt;p&gt;This idea first appeared in [5] to solve optimisation problems in computer science and combinatorics. The ‘codes’ referred to are blocks of code – maybe just a single function – within some human-written program.&lt;/p&gt;
 
-&lt;p&gt;A population of possible codes is initialised with some best guess, and then a loop is followed as follows.&lt;/p&gt;
+&lt;p&gt;A population of possible codes is initialised with some best guess, and then the following loop is run:&lt;/p&gt;
 
 &lt;p&gt;Construct an LLM prompt from the problem statement (in natural language), the current best codes in the population and the results they return. Ask your LLM for code improvements. Depending on the performance of the code returned, add them to the population. Repeat until the performance passes some threshold.&lt;/p&gt;
 
@@ -143,7 +352,7 @@
 
 &lt;p&gt;&lt;strong&gt;5. So what does AI mean for mathematicians?&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;There may be a view that the use of AI poses a threat to traditional methods of mathematical research, and may undermine the work of some mathematicians who have spent careers on problem areas that turn out to be most ‘vulnerable’ to these new methods. On the other hand, a more optimistic view would welcome these methods as accelerating our ability to answer the most pressing hard problems, and in so doing to open up new avenues of research.&lt;/p&gt;
+&lt;p&gt;There may be a view that the use of AI poses a threat to traditional methods of mathematical research; that it undermines the work of some mathematicians who have spent careers on problem areas that turn out to be most ‘vulnerable’ to AI methods. On the other hand, a more optimistic view would welcome these methods as accelerating our ability to answer the most pressing hard problems, and in so doing to open up new avenues of research.&lt;/p&gt;
 
 &lt;p&gt;One comparison to make is to the introduction of computer algebra and symbolic mathematical software in the 1970s and 80s, which opened up whole fields of experimental mathematics – allowing observation and discovery in number theory, geometry, combinatorics and other areas that previously had been impossible. The use of AI and machine learning could probably be viewed in a similar light.&lt;/p&gt;
 
@@ -161,7 +370,7 @@
   &lt;li&gt;T. Hubert et al, &lt;em&gt;Olympiad-level formal mathematical reasoning with reinforcement learning&lt;/em&gt;, &lt;a href=&quot;https://doi.org/10.1038/s41586-025-09833-y&quot; target=&quot;_blank&quot;&gt;doi.org/10.1038/s41586-025-09833-y&lt;/a&gt;, Nature (2025)&lt;/li&gt;
   &lt;li&gt;A. Novikov et al, &lt;em&gt;AlphaEvolve: A coding agent for scientific and algorithmic discovery&lt;/em&gt;, &lt;a href=&quot;https://arxiv.org/abs/2506.13131&quot; target=&quot;_blank&quot;&gt;arxiv.org/abs/2506.13131&lt;/a&gt;, Google Deepmind (2025)&lt;/li&gt;
   &lt;li&gt;G. Tsoukalas et al, &lt;em&gt;Advancing Mathematics Research with AI-Driven Formal Proof Search&lt;/em&gt;, &lt;a href=&quot;https://arxiv.org/abs/2605.22763&quot; target=&quot;_blank&quot;&gt;arxiv.org/abs/2605.22763&lt;/a&gt;, Google Deepmind (2026)&lt;/li&gt;
-&lt;/ol&gt;</content><author><name>Bill Oxbury</name></author><category term="artificial_intelligence" /><summary type="html">This blog post first appeared as MARS blog reference.</summary></entry><entry><title type="html">What are geometric neural networks?</title><link href="http://localhost:4000/data_science/mathematics/clifford-nn-notes/" rel="alternate" type="text/html" title="What are geometric neural networks?" /><published>2024-01-23T00:00:00+00:00</published><updated>2024-01-23T00:00:00+00:00</updated><id>http://localhost:4000/data_science/mathematics/clifford-nn-notes</id><content type="html" xml:base="http://localhost:4000/data_science/mathematics/clifford-nn-notes/">&lt;figure&gt;
+&lt;/ol&gt;</content><author><name>Bill Oxbury</name></author><category term="artificial_intelligence" /><category term="mathematics" /><summary type="html">This blog post first appeared as MARS blog reference.</summary></entry><entry><title type="html">What are geometric neural networks?</title><link href="http://localhost:4000/data_science/mathematics/clifford-nn-notes/" rel="alternate" type="text/html" title="What are geometric neural networks?" /><published>2024-01-23T00:00:00+00:00</published><updated>2024-01-23T00:00:00+00:00</updated><id>http://localhost:4000/data_science/mathematics/clifford-nn-notes</id><content type="html" xml:base="http://localhost:4000/data_science/mathematics/clifford-nn-notes/">&lt;figure&gt;
   &lt;img src=&quot;/assets/img/2024-01-23/multivector.png&quot; width=&quot;100%&quot; /&gt;
   &lt;figcaption&gt;
   Clifford group equivariance for ${\mathbb R}^3$. From [5].
@@ -1403,30 +1612,4 @@ Here are my test results for three models:&lt;/p&gt;
 &lt;p&gt;Applied to the little &lt;i&gt;sports_science&lt;/i&gt; data frame this outputs:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;newickR&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tree_df&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;s&quot;&gt;&apos;(sports,((aerobic_exercise,strength_training)exercise)sports_and_exercise_medicine)sports_science&apos;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;</content><author><name>Bill Oxbury</name></author><category term="data_science" /><summary type="html"></summary></entry><entry><title type="html">COP26: seeing the wood for the trees</title><link href="http://localhost:4000/environment/cop26-nzs/" rel="alternate" type="text/html" title="COP26: seeing the wood for the trees" /><published>2021-11-03T00:00:00+00:00</published><updated>2021-11-03T00:00:00+00:00</updated><id>http://localhost:4000/environment/cop26-nzs</id><content type="html" xml:base="http://localhost:4000/environment/cop26-nzs/">&lt;p&gt;&lt;img src=&quot;/assets/img/2021-11-03/woodfortrees1.jpg&quot; width=&quot;100%&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;The climate crisis poses an almost overwhelming challenge to humanity, and it is very easy to be pessimistic. But there are also some reasons to be hopeful. Many will have been inspired by Prince William’s Earthshot initiative, by the vision behind it and the passion and creativity of the finalists and other innovators. It gives me genuine hope that we have the capacity to correct our course for a safe future.&lt;/p&gt;
-
-&lt;p&gt;You will hear about many innovations and tech solutions for sustainability in the margins of COP26. However, the success of the conference will stand or fall on one thing only: the ability of the international community to agree a practical pathway to achieve the 1.5°C goal of the Paris agreement.&lt;/p&gt;
-
-&lt;p&gt;This is ultimately a numbers game. One of the most hopeful conclusions from the 
-&lt;a href=&quot;https://www.ipcc.ch/report/ar6/wg1/#FullReport&quot;&gt;2021 IPCC 6th Assessment Report&lt;/a&gt;
- is that there is a strong linear relationship between the average global temperature we arrive at this century and the total volume of carbon that we emit into the atmosphere from today. In other words, the world has an emissions ‘budget’: the lower the budget, the lower the final temperature rise.&lt;/p&gt;
-
-&lt;p&gt;To understand the budget choices, the following table is from the IPCC report:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/2021-11-03/image1.png&quot; width=&quot;100%&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;The table expresses uncertainties and margins of error. Sorry. But it’s the best science we have to go on, so let’s see what it says.&lt;/p&gt;
-
-&lt;p&gt;The rows of the table express budgets (in GtCO2, or giga-tonnes of CO2 emission) for limiting the global temperature rise to values on the left-hand margin, with likelihood expressed in the top margin. So, for example, 500 GtCO2 buys a 50% chance of staying within 1.5°C in this century. Let’s go with that for the moment – assuming a 50% chance feels a safe enough bet for you.&lt;/p&gt;
-
-&lt;p&gt;So how much is 500 GtCO2? For comparison, the world in 2020 released approximately 40 GtCO2 (with the UK responsible for about 0.3 GtCO2 of that). So at current rates, 500 equates to about 12 years. Or if we could assume a 7% worldwide reduction in emissions every year, then it buys us 30 years.&lt;/p&gt;
-
-&lt;p&gt;(Two more comparisons: the proposed coking coal mine at Woodhouse Colliery would commit the UK to about 0.16 GtCO2 from the coal extracted over the lifetime of the mine; the Cambo oil field in the North Sea commits us to about 0.3 GtCO2. Both would eat significantly into any reasonable budget for the UK.)&lt;/p&gt;
-
-&lt;p&gt;This is the numbers game that COP26 has to solve in order to ensure a safe future. What emissions budget can the international community agree that will set an acceptable level of temperature risk? Given that budget, how will it be divided equitably among nations? And how do we support poorer nations to live within their budget as they transition to a zero-carbon future?&lt;/p&gt;
-
-&lt;p&gt;All too often, responding to the climate crisis is framed as being about personal choices (you should fly less, you should eat less meat). It isn’t. Ultimately, it depends on science-driven policies, tireless diplomacy and international cooperation to shift those big carbon numbers. COP26 is a critical part of that process.&lt;/p&gt;
-
-&lt;p&gt;Yes, our lifestyles will change, and individual choices are important – but for the majority they’ll change the way they always have done: in response to better choices coming along through vision, investment and legislation.&lt;/p&gt;</content><author><name>Bill Oxbury</name></author><category term="environment" /><summary type="html"></summary></entry></feed>
+  &lt;span class=&quot;s&quot;&gt;&apos;(sports,((aerobic_exercise,strength_training)exercise)sports_and_exercise_medicine)sports_science&apos;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;</content><author><name>Bill Oxbury</name></author><category term="data_science" /><summary type="html"></summary></entry></feed>

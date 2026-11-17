@@ -1,7 +1,7 @@
 ---
 title:  "What is AI, and what does it mean for mathematicians?"
 date:   2026-11-05
-categories: artificial_intelligence
+categories: artificial_intelligence mathematics
 blurb: >- 
     Lancaster Mathematics Colloquium and MARS blog
 header:

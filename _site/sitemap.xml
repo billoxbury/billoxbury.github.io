@@ -101,8 +101,12 @@
 <lastmod>2024-01-23T00:00:00+00:00</lastmod>
 </url>
 <url>
-<loc>http://localhost:4000/artificial_intelligence/ai-and-mathematics/</loc>
+<loc>http://localhost:4000/artificial_intelligence/mathematics/ai-and-mathematics/</loc>
 <lastmod>2026-11-05T00:00:00+00:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/artificial_intelligence/ai-energy-consumption/</loc>
+<lastmod>2026-11-12T00:00:00+00:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:4000/about/</loc>
