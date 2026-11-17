@@ -24,7 +24,7 @@ UK government AI policy requires a blanket 500MW power supply for AI Growth Zone
 
 ___
 
-Despite growing environmental risks and public opposition, the UK government wants every AI Growth Zone to secure 500MW of power. Run flat out, one zone would use about 2% of the UK's electricity. What is this energy needed for? The answer is hyperscaling of large language model (LLM) services. By comparison, AI for scientific applications, including their commercialisation, requires only a fraction of the energy. It is also a significant strength of the UK with high economic and social value.
+Despite growing environmental risks and public opposition, the UK government wants every AI Growth Zone to secure 500MW of power. Run flat out, one zone would use about 2% of the UK's electricity. What is this energy needed for? The answer is hyperscaling of AI chatbot services. By comparison, AI for scientific applications, including their commercialisation, requires only a fraction of the energy. It is also a significant strength of the UK with high economic and social value.
 
 In this article, we make a case for UK policy to prioritise scientific AI-compute allocation as more sustainable, a better fit to UK strengths and a stronger economic investment. 
 
