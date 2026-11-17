@@ -33,7 +33,7 @@ In this article, we make a case for UK policy to prioritise scientific AI-comput
 
 In the US, data centres have been described as a great unifier. Across the political spectrum, whatever differences people may have on other matters, on one thing everyone is apparently agreed: nobody wants data centres where they live [4,5,6,7]. 
 
-The reasons are clear: electricity prices, water use, farmland loss, a perception that jobs and benefits are thin, public health concerns [9]. Non-disclosure agreements between developers and local officials have aggravated distrust. Opposition has been organised and costly for developers, with dozens of projects delayed or blocked, billions of dollars of investment affected and growing pressure for local and statewide moratoria.
+The reasons are clear: electricity prices, water use, farmland loss, a perception that jobs and benefits are over-stated, public health concerns [9]. Non-disclosure agreements between developers and local officials have aggravated distrust. Opposition has been organised and costly for developers, with dozens of projects delayed or blocked, billions of dollars of investment affected and growing pressure for local and statewide moratoria.
 
 Data centres have been a core part of digital infrastructure since the early days of the Internet. What is different today is the rapid growth of processing demand for AI workloads. That processing entails a footprint in physical space, energy consumption and water for cooling which competes with other needs of local populations.
 
