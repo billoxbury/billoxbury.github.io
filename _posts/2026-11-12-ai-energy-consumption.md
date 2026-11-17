@@ -19,7 +19,7 @@ usemathjax: true
 
 <small>
 **Summary:** 
-UK government AI policy requires a blanket 500MW power supply for AI Growth Zone (AIGZ) approval. We argue that this figure serves solely to meet commercial hyperscaling demand. We advocate that if AIGZ approvals were based on sovereign AI capability _per unit energy_ (and per litre water, though we do not cover water in this article) – then such an approach would better align sovereign AI investment with sustainability, _and_ it would significantly favour AI for science, which is both a UK strength and orders of magnitude more energy efficient than hyperscaling.
+UK government AI policy requires a blanket 500MW power supply for AI Growth Zone (AIGZ) approval. We argue that this figure serves solely to meet commercial hyperscaling demand. We advocate that if AIGZ approvals were based on sovereign AI capability _per unit energy_ (and per litre water, though we do not cover water in this article) then such an approach would better align sovereign AI investment with sustainability, _and_ it would significantly favour AI for science, which is both a UK strength and orders of magnitude more energy efficient than hyperscaling.
 </small>
 
 ___
