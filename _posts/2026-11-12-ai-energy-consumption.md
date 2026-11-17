@@ -57,7 +57,7 @@ As an indicator of the number of processors that can be run, power availability 
 
 For immediate context, a 500MW site running continuously would use about 4.4TWh a year. (See Figure 1 below.) The UK consumed about 249TWh of electricity in 2024, so one zone at full load is nearly 2% of national consumption. Regionally the effect is larger: for example, for the North East the 2024 energy consumption was 9.9TWh (equivalent to 1.1 GW of continuous demand) [10] – so that a 500 MW facility would correspond to a whopping 44% of the region's metered consumption.
 
-We will look next at how this figure of 500MW meet the needs of AI use cases.
+We will look next at how this figure of 500MW meets the needs of AI use cases.
 
 
 **3. Energy requirements for hyperscaling generative AI**
