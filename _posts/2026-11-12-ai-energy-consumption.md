@@ -95,7 +95,7 @@ Figure 1 compares these energy consumptions on a log scale. It also includes the
 Below we will call into question whether the hyperscaling use case is a rational one for UK AI strategy.
 
 <figure>
-  <img src="/assets/img/2026-11-12/energy_plot_short.png" width="100%">
+  <img src="/assets/img/2026-11-12/energy_plot.png" width="100%">
   <figcaption>
   Figure 1: Setting AI energy consumption in context. Comparison of AI (blue) and non-AI (grey) energy loads.
   </figcaption>
