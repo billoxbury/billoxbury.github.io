@@ -112,7 +112,7 @@ The 2025 government strategy paper <a href="https://www.gov.uk/government/public
 
 It is instructive to compare the energy requirements of scientific AI with the hyperscaling figures above. AlphaFold training is already shown in Figure 1 at 8.25MWh (calculated in [23]). This does not include experimentation and development work leading up to the model training – but allowing a factor of 10, a figure of 80MWh is still 0.3% of Llama 3.1 training shown in the figure.
 
-What about query-time energy consumption? For this, compute can be, and was, saved by a one-time computation and storage in a protein database. Subsequently, the results were available for look-up by researchers at essentially no additional energy cost. Figure 1 includes this one-time computation of 600M proteins using ESMFold, a later variant of AlphaFold by Meta. The energy consumption is seen to be 224MWh, or roughly 25% of _daily_ ChatGPT inference.
+What about query-time energy consumption? For this, compute can be, and was, saved by a one-time computation and storage in a protein database. Subsequently, the results were available for look-up by researchers at essentially no additional energy cost. Figure 1 includes this one-time computation of 600M proteins using ESMFold, a later variant of AlphaFold by Meta. The energy consumption is seen to be 224MWh, or just a quarter of _daily_ ChatGPT inference.
 
 The message is very clear: at least for protein folding, scientific AI is shown to be a compelling investment not only economically and in terms of sovereign UK capability, but also as more energy efficient by orders of magnitude than hyperscaling. Is the same true of other scientific areas?
 
