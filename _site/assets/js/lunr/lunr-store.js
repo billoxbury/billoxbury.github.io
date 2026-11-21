@@ -156,7 +156,7 @@ var store = [{
         "teaser": "/assets/img/2026-11-05/data_compression0.png"
       },{
         "title": "How much energy does AI actually need?",
-        "excerpt":"Image: MIT Technology Review Summary: UK government AI policy requires a blanket 500MW power supply for AI Growth Zone (AIGZ) approval. We argue that this figure serves solely to meet commercial hyperscaling demand. We advocate that if AIGZ approvals were based on sovereign AI capability per unit energy (and per...","categories": ["artificial_intelligence"],
+        "excerpt":"Image: MIT Technology Review Summary: UK government AI policy requires a blanket 500MW power supply for AI Growth Zone (AIGZ) approval. We argue that this figure serves solely to meet hyperscaling demand for AI chatbots. We advocate that if AIGZ approvals were based on sovereign AI capability per unit energy...","categories": ["artificial_intelligence"],
         "tags": [],
         "url": "/artificial_intelligence/ai-energy-consumption/",
         "teaser": "/assets/img/2026-11-12/mit_tech_review_20260114.png"

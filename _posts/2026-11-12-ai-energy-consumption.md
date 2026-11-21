@@ -19,7 +19,7 @@ usemathjax: true
 
 <small>
 **Summary:** 
-UK government AI policy requires a blanket 500MW power supply for AI Growth Zone (AIGZ) approval. We argue that this figure serves solely to meet commercial hyperscaling demand. We advocate that if AIGZ approvals were based on sovereign AI capability _per unit energy_ (and per litre water, though we do not cover water in this article) then such an approach would better align sovereign AI investment with sustainability, _and_ it would significantly favour AI for science, which is both a UK strength and orders of magnitude more energy efficient than hyperscaling.
+UK government AI policy requires a blanket 500MW power supply for AI Growth Zone (AIGZ) approval. We argue that this figure serves solely to meet hyperscaling demand for AI chatbots. We advocate that if AIGZ approvals were based on sovereign AI capability _per unit energy_ (and per litre water) then such an approach would significantly favour AI for science, as well as better align sovereign AI investment with sustainability.
 </small>
 
 ___
@@ -73,7 +73,7 @@ Here are some figures on AI demand cited by major providers:
 | Google Search | Roughly 14 to 16 billion queries a day | Google, 2025 |
 | Siri (Apple) | 2.5 billion requests a day | Apple event, September 2026 (reported) [16] |
 
-When it comes to planning we can view these figures as conservative. While they are global and not restricted to the UK, they may be underestimates of future demand for a number of reasons. Volumes are growing rapidly; Google's token throughput rose seven-fold in a year. At the same time, some of the figures are older and can be expected be higher today. Per-prompt figures typically describe median, short prompts. In the table we don't see the distribution of long-context, reasoning-heavy, video or agentic requests (which will cost more in energy). Significantly, API, enterprise and embedded uses (search summaries, voice assistants, coding tools) sit outside the consumer chat counts, but can be expected to be a large and growing source of demand. Finally, experimentation, training and AI model development are not visible in these figures.
+When it comes to planning we can view these figures as conservative. While they are global and not restricted to the UK, they may be underestimates of future demand for a number of reasons. Volumes are growing rapidly; Google's token throughput rose seven-fold in a year. At the same time, some of the figures are older and can be expected be higher today. Per-prompt figures typically describe median, short prompts. In the table we don't see the distribution of long-context, reasoning-heavy, video or agentic requests, all of which will cost more in energy. Significantly, API, enterprise and embedded uses (search summaries, voice assistants, coding tools) sit outside the consumer chat counts, but can be expected to be a large and growing source of demand. Finally, experimentation, training and AI model development are not visible in these figures.
 
 So the table above can be considered a conservative baseline for (global) data centre usage. 
 
@@ -92,7 +92,7 @@ Data on energy consumption for development and training of models tends to be co
 
 Figure 1 compares these energy consumptions on a log scale. It also includes the energy cost of a 500MW data centre running flat out, as well as a few non-data centre related uses for perspective. We can conclude that the data centre power figure of 500MW is a reasonable fit to the hyperscaling use case – though not to smaller-scale but strategically important scientific use cases.  
 
-Later we will call into question whether the hyperscaling use case is a rational one for UK AI strategy.
+Below we will call into question whether the hyperscaling use case is a rational one for UK AI strategy.
 
 <figure>
   <img src="/assets/img/2026-11-12/energy_plot_short.png" width="100%">
@@ -112,7 +112,7 @@ The 2025 government strategy paper <a href="https://www.gov.uk/government/public
 
 It is instructive to compare the energy requirements of scientific AI with the hyperscaling figures above. AlphaFold training is already shown in Figure 1 at 8.25MWh (calculated in [23]). This does not include experimentation and development work leading up to the model training – but allowing a factor of 10, a figure of 80MWh is still 0.3% of Llama 3.1 training shown in the figure.
 
-What about query-time energy consumption? For this, compute can be, and was, saved by a one-time computation and storage in a protein database. Subsequently, the results were available for look-up by researchers at essentially no additional energy cost. Figure 1 includes this one-time computation of 600M proteins using ESMFold, a later variant of AlphaFold by Meta. The energy consumption is seen to be 224MWh, or roughly 0.4% of _daily_ ChatGPT inference.
+What about query-time energy consumption? For this, compute can be, and was, saved by a one-time computation and storage in a protein database. Subsequently, the results were available for look-up by researchers at essentially no additional energy cost. Figure 1 includes this one-time computation of 600M proteins using ESMFold, a later variant of AlphaFold by Meta. The energy consumption is seen to be 224MWh, or roughly 25% of _daily_ ChatGPT inference.
 
 The message is very clear: at least for protein folding, scientific AI is shown to be a compelling investment not only economically and in terms of sovereign UK capability, but also as more energy efficient by orders of magnitude than hyperscaling. Is the same true of other scientific areas?
 
@@ -129,11 +129,11 @@ Bristol's Isambard-AI [26] is bigger still. The UK's 'most powerful supercompute
 
 Currently the ticket for an AIGZ is 500MW of power. As we've seen, this comes with costs – social, energy, water – which may conflict with other national strategic priorities (Net Zero, water resilience, biodiversity) and whose trade-offs should be weighed against economic and social benefits in any individual investment decision.
 
-We would advocate that AIGZ decisions are based not on a simplistic and potentially damaging 500MW ticket, but on a separation and a proper accounting of these trade-offs. 
+We would advocate that AIGZ decisions are based not on a simplistic and potentially damaging 500MW ticket, but on a separation and a proper accounting for these trade-offs. 
 
 In particular, we should see energy – as a fundamental proxy for other data centre costs – accounted quantitatively in AIGZ bids and their assessments. How much energy do you need, and for what expected return?
 
-We have also seen that AI for science stands at an intersection of (1) a significant AI sovereignty opportunity for the UK, (2) the least intrusive energy footprint and (3) potentially the highest economic benefits to the UK.
+AI for science stands at an intersection of (1) a significant AI sovereignty opportunity for the UK, (2) a less intrusive energy footprint and (3) potentially the highest economic benefits to the UK.
 
 AI Growth Zone approvals should reward sovereign AI capability delivered per kWh and per litre of water, rather than treating 500MW as a 'one size fits all' entry ticket. 
 
